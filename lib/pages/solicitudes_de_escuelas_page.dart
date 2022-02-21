@@ -2,28 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:suenomotora_app/common/cards.dart';
 import 'package:suenomotora_app/common/floating_button.dart';
 
-class Colaboradores extends StatefulWidget {
-  const Colaboradores({Key? key}) : super(key: key);
+class SolicitudesDeEscuelas extends StatefulWidget {
+  const SolicitudesDeEscuelas({Key? key}) : super(key: key);
 
   @override
-  State<Colaboradores> createState() => _ColaboradoresState();
+  State<SolicitudesDeEscuelas> createState() => _SolicitudesDeEscuelas();
 }
 
-class _ColaboradoresState extends State<Colaboradores> {
+class _SolicitudesDeEscuelas extends State<SolicitudesDeEscuelas> {
   Cards card = Cards();
   FloatingButton floButton = FloatingButton();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Colaboradores'),
+        title: const Text('Solicitudes de Escuelas'),
       ),
       body: Container(
         padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
         child: ListView(
           children: [
-            card.cardSencillo('Jesús Arroyo', 'ing de sistemas- tel 3105124359',
-                btnAction: () => print('hola')),
+            card.cardSolicitudesEscuelas(
+                'IE Nuevos Horizontes', 'Mario Pérez ', 'libros', '310000000',
+                btnAction: () => print('hola 3'))
           ],
         ),
       ),

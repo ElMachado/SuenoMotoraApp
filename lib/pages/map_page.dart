@@ -94,6 +94,7 @@ class _MyHomePageState extends State<InicioMapa> {
           ),
         ],
       ),
+      
       drawer: Drawer(child: _lista()),
       body: MapLayoutBuilder(
         controller: controller,
