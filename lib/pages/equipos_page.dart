@@ -14,18 +14,14 @@ class _EquiposPage extends State<EquiposPage> {
   FloatingButton floButton = FloatingButton();
   @override
   Widget build(BuildContext context) {
+    final orientacion = MediaQuery.of(context).orientation;
+    final _size = MediaQuery.of(context).size.width;
+    print(_size);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Equipos'),
       ),
-      body: Container(
-        padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
-        child: ListView(
-          children: [
-            card.cardImage(() => print('hola 3')),
-          ],
-        ),
-      ),
+      body: card.responsiveEquiposCard(_size),
       floatingActionButton:
           floButton.floatingButton(btnAction: () => print('hola 2')),
     );

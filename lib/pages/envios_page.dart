@@ -21,10 +21,18 @@ class _EnviosPage extends State<EnviosPage> {
       body: Container(
         padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
         child: ListView(
+          shrinkWrap: false,
           children: [
-            card.CardEnvios('IE Nuevos Horizontes', 'Mario Pérez ', '310000000',
-                'calle 32A#43-44', '1 caja de libros, 1 computador',
-                btnAction: () => print('hola 3'))
+            SizedBox.square(
+              dimension: 280,
+              child: card.CardEnvios(
+                  'IE Nuevos Horizontes',
+                  'Mario Pérez ',
+                  '310000000',
+                  'calle 32A#43-44',
+                  '1 caja de libros, 1 computador',
+                  btnAction: () => print('hola 3')),
+            )
           ],
         ),
       ),

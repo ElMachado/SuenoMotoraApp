@@ -4,8 +4,11 @@
         "Envios",
         "latlng",
         "Mapbox",
+        "orientacion",
         "placepholder",
         "suenomotora",
-        "Sueñomotora"
+        "Sueñomotora",
+        "telefono",
+        "Telefono"
     ]
 }

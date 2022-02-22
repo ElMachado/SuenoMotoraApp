@@ -46,14 +46,14 @@ class Cards {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              SizedBox.fromSize(size: Size(30, 30)),
+              SizedBox.fromSize(size: const Size(30, 30)),
               Text('Escuela: $nombreEscuela',
                   style: const TextStyle(fontSize: 20.0)),
               Text('Responsable: $responsable',
                   style: const TextStyle(fontSize: 20.0)),
               Text('Solicitud: $solicitud',
                   style: const TextStyle(fontSize: 20.0)),
-              Text('Numero de telefono: $numeroTelefono',
+              Text('Numero de teléfono: $numeroTelefono',
                   style: const TextStyle(fontSize: 20.0)),
             ],
           ),
@@ -76,29 +76,59 @@ class Cards {
     );
   }
 
+  Widget responsiveEquiposCard(_Size) {
+    return Container(
+        // padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
+        child: _Size <= 600
+            ? ListView.builder(
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  return Center(
+                    child: cardImage(() => print('hola 3')),
+                  );
+                },
+              )
+            : GridView.count(
+                addAutomaticKeepAlives: true,
+                childAspectRatio: (500 / 550),
+                crossAxisCount: _Size >= 600 && _Size <= 1200 ? 2 : 4,
+                children: [
+                  Container(child: cardImage(() => print('hola 3'))),
+                  Container(child: cardImage(() => print('hola 3'))),
+                  Container(child: cardImage(() => print('hola 3'))),
+                  Container(child: cardImage(() => print('hola 3'))),
+                  Container(child: cardImage(() => print('hola 3'))),
+                  Container(child: cardImage(() => print('hola 3'))),
+                ],
+              ));
+  }
+
   Widget cardImage(btnAction) {
-    return Card(
-      clipBehavior: Clip.antiAlias,
-      shadowColor: Colors.red,
-      borderOnForeground: false,
-      color: Colors.white,
-      elevation: 5.0,
-      margin: const EdgeInsets.all(20.0),
-      semanticContainer: true,
-      child: Column(
-        children: <Widget>[
-          const FadeInImage(
-            placeholder: AssetImage('assets/train2placeholder.gif'),
-            placeholderFit: BoxFit.cover,
-            image: NetworkImage(
-                'https://tiendatecnologicadecolombia.com/wp-content/uploads/2021/02/computador-janus-celeron-dual-core-4gb-1tb-21-1.jpg'),
-            fadeInDuration: Duration(milliseconds: 200),
-            height: 300.0,
-            fit: BoxFit.cover,
-          ),
-          Container(
+    return SizedBox(
+      height: 460,
+      width: 460,
+      child: Card(
+        clipBehavior: Clip.antiAlias,
+        shadowColor: Colors.red,
+        borderOnForeground: true,
+        color: Colors.white,
+        elevation: 5.0,
+        margin: const EdgeInsets.all(20.0),
+        semanticContainer: true,
+        child: ConstrainedBox(
+            constraints: BoxConstraints(maxHeight: 460, minHeight: 460),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
+                const FadeInImage(
+                  placeholder: AssetImage('assets/train2placeholder.gif'),
+                  placeholderFit: BoxFit.cover,
+                  image: NetworkImage(
+                      'https://tiendatecnologicadecolombia.com/wp-content/uploads/2021/02/computador-janus-celeron-dual-core-4gb-1tb-21-1.jpg'),
+                  fadeInDuration: Duration(milliseconds: 200),
+                  //height: 150.0,
+                  fit: BoxFit.cover,
+                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
@@ -115,30 +145,28 @@ class Cards {
                       textAlign: TextAlign.start,
                     ),
                     Text(
-                      'Procesador: Intel Core Duo 1.8 GHZ 65mb de cache 1, 3 chanels',
+                      'Procesador: Intel Core Duo 1.8 GHZ 65mb de cache 1, 3 chaneles',
                       textAlign: TextAlign.start,
                     ),
                   ],
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
-                    SizedBox(
-                      width: 120,
-                      height: 50,
-                      child: TextButton(
-                          onPressed: () {
-                            btnAction();
-                          },
-                          child: const Text('Detalles')),
+                    Expanded(
+                      child: SizedBox(
+                        width: 110,
+                        height: 40,
+                        child: TextButton(
+                            onPressed: () {
+                              btnAction();
+                            },
+                            child: const Text('Detalles')),
+                      ),
                     ),
                   ],
-                ),
+                )
               ],
-            ),
-            padding: const EdgeInsets.all(30.0),
-          )
-        ],
+            )),
       ),
     );
   }
@@ -150,11 +178,12 @@ class Cards {
       elevation: 10.0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              SizedBox.fromSize(size: Size(30, 30)),
+              SizedBox.fromSize(size: const Size(30, 30)),
               Text('Escuela: $nombreEscuela',
                   style: const TextStyle(fontSize: 20.0)),
               Text('Responsable: $responsable',
