@@ -5,6 +5,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:latlng/latlng.dart';
 import 'package:map/map.dart';
+import 'package:suenomotora_app/common/responsive.dart';
+import 'package:suenomotora_app/common/responsive/vistaTamanoVentanaMuyPeque%C3%B1o.dart';
 
 import '../providers/menu_provider.dart';
 import '../utils/iconos_string_util.dart';
@@ -79,6 +81,51 @@ class _MyHomePageState extends State<InicioMapa> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: ResponsibleLayout(
+        VentanaMuyPequena: const VentanaMuyPequena(),
+        desktopBody: MapPage(),
+        mobileBody: MapPage(),
+        tabletBody: MapPage(),
+      ),
+    );
+  }
+
+  Widget _lista() {
+    return FutureBuilder(
+      future: menuProvider.cargarData(),
+      //initialData: [],
+      builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
+        //print(snapshot.data);
+        return ListView(
+          children: _listaItems(snapshot.data, context),
+        );
+      },
+    );
+  }
+
+  List<Widget> _listaItems(List<dynamic>? data, BuildContext context) {
+    final List<Widget> opciones = [];
+
+    data?.forEach((opt) {
+      final widgetTemp = ListTile(
+        title: Text(opt['texto']),
+        leading: getIcon(opt['icon']),
+        trailing: getIcon('arrow_right'),
+        onTap: () {
+          Navigator.pushNamed(context, opt['ruta']);
+        },
+      );
+
+      opciones
+        ..add(widgetTemp)
+        ..add(const Divider());
+    });
+
+    return opciones;
+  }
+
+  Widget MapPage() {
+    return Scaffold(
       appBar: AppBar(
         title: const Text('Map Demo'),
         backgroundColor: Colors.teal,
@@ -94,7 +141,6 @@ class _MyHomePageState extends State<InicioMapa> {
           ),
         ],
       ),
-      
       drawer: Drawer(child: _lista()),
       body: MapLayoutBuilder(
         controller: controller,
@@ -117,7 +163,7 @@ class _MyHomePageState extends State<InicioMapa> {
               transformer.constraints.biggest.height / 2);
 
           final centerMarkerWidget =
-              _buildMarkerWidget(centerLocation, Colors.purple);
+              _buildMarkerWidget(centerLocation, Colors.black);
 
           return GestureDetector(
             behavior: HitTestBehavior.opaque,
@@ -183,39 +229,5 @@ class _MyHomePageState extends State<InicioMapa> {
         backgroundColor: Colors.teal,
       ),
     );
-  }
-
-  Widget _lista() {
-    return FutureBuilder(
-      future: menuProvider.cargarData(),
-      //initialData: [],
-      builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
-        //print(snapshot.data);
-        return ListView(
-          children: _listaItems(snapshot.data, context),
-        );
-      },
-    );
-  }
-
-  List<Widget> _listaItems(List<dynamic>? data, BuildContext context) {
-    final List<Widget> opciones = [];
-
-    data?.forEach((opt) {
-      final widgetTemp = ListTile(
-        title: Text(opt['texto']),
-        leading: getIcon(opt['icon']),
-        trailing: getIcon('arrow_right'),
-        onTap: () {
-          Navigator.pushNamed(context, opt['ruta']);
-        },
-      );
-
-      opciones
-        ..add(widgetTemp)
-        ..add(const Divider());
-    });
-
-    return opciones;
   }
 }

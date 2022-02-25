@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/common/cards.dart';
+
 import 'package:suenomotora_app/common/floating_button.dart';
+import 'package:suenomotora_app/common/responsive.dart';
+import 'package:suenomotora_app/common/responsive/vistaTamanoVentanaMuyPeque%C3%B1o.dart';
+
+import '../common/responsive/equipos/equiposTablet.dart';
+import '../common/responsive/equipos/equipos_desktop.dart';
+import '../common/responsive/equipos/equipos_movile.dart';
 
 class EquiposPage extends StatefulWidget {
   const EquiposPage({Key? key}) : super(key: key);
@@ -14,16 +21,12 @@ class _EquiposPage extends State<EquiposPage> {
   FloatingButton floButton = FloatingButton();
   @override
   Widget build(BuildContext context) {
-    final orientacion = MediaQuery.of(context).orientation;
-    final _size = MediaQuery.of(context).size.width;
-    print(_size);
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Equipos'),
-      ),
-      body: card.responsiveEquiposCard(_size),
-      floatingActionButton:
-          floButton.floatingButton(btnAction: () => print('hola 2')),
+      body: const ResponsibleLayout(
+          VentanaMuyPequena: VentanaMuyPequena(),
+          mobileBody: EquiposMovile(),
+          tabletBody: EquiposTablet(),
+          desktopBody: EquiposDesktop()),
     );
   }
 }

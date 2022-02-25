@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/common/cards.dart';
 import 'package:suenomotora_app/common/floating_button.dart';
+import 'package:suenomotora_app/common/responsive.dart';
+import 'package:suenomotora_app/common/responsive/solicitudesEscuelas/solicitudes_escuelas_Desktop.dart';
+import 'package:suenomotora_app/common/responsive/solicitudesEscuelas/solicitudes_escuelas_movil.dart';
+import 'package:suenomotora_app/common/responsive/solicitudesEscuelas/solicitudes_escuelas_tablet.dart';
+import 'package:suenomotora_app/common/responsive/vistaTamanoVentanaMuyPeque%C3%B1o.dart';
 
 class SolicitudesDeEscuelas extends StatefulWidget {
   const SolicitudesDeEscuelas({Key? key}) : super(key: key);
@@ -14,22 +19,12 @@ class _SolicitudesDeEscuelas extends State<SolicitudesDeEscuelas> {
   FloatingButton floButton = FloatingButton();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Solicitudes de Escuelas'),
-      ),
-      body: Container(
-        padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
-        child: ListView(
-          children: [
-            card.cardSolicitudesEscuelas(
-                'IE Nuevos Horizontes', 'Mario Pérez ', 'libros', '310000000',
-                btnAction: () => print('hola 3'))
-          ],
-        ),
-      ),
-      floatingActionButton:
-          floButton.floatingButton(btnAction: () => print('hola 2')),
+    return const Scaffold(
+      body: ResponsibleLayout(
+          VentanaMuyPequena: VentanaMuyPequena(),
+          mobileBody: SolicitudesEscuelasMovil(),
+          tabletBody: SolicitudesEscuelasTablet(),
+          desktopBody: SolicitudesEscuelasDesktop()),
     );
   }
 }

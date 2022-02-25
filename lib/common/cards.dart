@@ -3,34 +3,43 @@ import 'package:flutter/material.dart';
 class Cards {
   Widget cardSencillo(String titulo, String contenido,
       {required Function btnAction}) {
-    return Card(
-      elevation: 10.0,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-      child: Column(
-        children: <Widget>[
-          ListTile(
-            leading: const Icon(
-              Icons.photo_album,
-              color: Colors.blue,
-            ),
-            title: Text(titulo, style: const TextStyle(fontSize: 20.0)),
-            subtitle: Text(contenido, style: const TextStyle(fontSize: 20.0)),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+    return ConstrainedBox(
+      constraints: BoxConstraints(maxHeight: 200, minHeight: 200),
+      child: SizedBox(
+        height: 200,
+        child: Card(
+          elevation: 10.0,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              SizedBox(
-                width: 120,
-                height: 50,
-                child: TextButton(
-                    onPressed: () {
-                      btnAction();
-                    },
-                    child: const Text('Detalles')),
+              ListTile(
+                leading: const Icon(
+                  Icons.photo_album,
+                  color: Colors.blue,
+                ),
+                title: Text(titulo, style: const TextStyle(fontSize: 20.0)),
+                subtitle:
+                    Text(contenido, style: const TextStyle(fontSize: 20.0)),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  SizedBox(
+                    width: 120,
+                    height: 50,
+                    child: TextButton(
+                        onPressed: () {
+                          btnAction();
+                        },
+                        child: const Text('Detalles')),
+                  ),
+                ],
               ),
             ],
           ),
-        ],
+        ),
       ),
     );
   }
@@ -42,6 +51,7 @@ class Cards {
       elevation: 10.0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,69 +114,66 @@ class Cards {
   }
 
   Widget cardImage(btnAction) {
-    return SizedBox(
-      height: 460,
-      width: 460,
-      child: Card(
-        clipBehavior: Clip.antiAlias,
-        shadowColor: Colors.red,
-        borderOnForeground: true,
-        color: Colors.white,
-        elevation: 5.0,
-        margin: const EdgeInsets.all(20.0),
-        semanticContainer: true,
-        child: ConstrainedBox(
-            constraints: BoxConstraints(maxHeight: 460, minHeight: 460),
+    return Card(
+      clipBehavior: Clip.antiAlias,
+      shadowColor: Colors.red,
+      borderOnForeground: true,
+      color: Colors.white,
+      elevation: 5.0,
+      margin: const EdgeInsets.all(20.0),
+      semanticContainer: true,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          const FadeInImage(
+            placeholder: AssetImage('assets/train2placeholder.gif'),
+            placeholderFit: BoxFit.cover,
+            image: NetworkImage(
+                'https://tiendatecnologicadecolombia.com/wp-content/uploads/2021/02/computador-janus-celeron-dual-core-4gb-1tb-21-1.jpg'),
+            fadeInDuration: Duration(milliseconds: 200),
+            //height: 150.0,
+            fit: BoxFit.cover,
+          ),
+          Container(
+            padding: EdgeInsets.only(left: 10, right: 10),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                const FadeInImage(
-                  placeholder: AssetImage('assets/train2placeholder.gif'),
-                  placeholderFit: BoxFit.cover,
-                  image: NetworkImage(
-                      'https://tiendatecnologicadecolombia.com/wp-content/uploads/2021/02/computador-janus-celeron-dual-core-4gb-1tb-21-1.jpg'),
-                  fadeInDuration: Duration(milliseconds: 200),
-                  //height: 150.0,
-                  fit: BoxFit.cover,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Text(
+                  'Computador ID: ',
+                  textAlign: TextAlign.start,
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
-                      'Computador ID: ',
-                      textAlign: TextAlign.start,
-                    ),
-                    Text(
-                      'Ram: ',
-                      textAlign: TextAlign.start,
-                    ),
-                    Text(
-                      'Disco duro: 1TB 5600rpm',
-                      textAlign: TextAlign.start,
-                    ),
-                    Text(
-                      'Procesador: Intel Core Duo 1.8 GHZ 65mb de cache 1, 3 chaneles',
-                      textAlign: TextAlign.start,
-                    ),
-                  ],
+                Text(
+                  'Ram: ',
+                  textAlign: TextAlign.start,
                 ),
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: SizedBox(
-                        width: 110,
-                        height: 40,
-                        child: TextButton(
-                            onPressed: () {
-                              btnAction();
-                            },
-                            child: const Text('Detalles')),
-                      ),
-                    ),
-                  ],
-                )
+                Text(
+                  'Disco duro: 1TB 5600rpm',
+                  textAlign: TextAlign.start,
+                ),
+                Text(
+                  'Procesador: Intel Core Duo 1.8 GHZ 65mb de cache 1, 3 chaneles',
+                  textAlign: TextAlign.start,
+                ),
               ],
-            )),
+            ),
+          ),
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: SizedBox(
+                  width: 110,
+                  height: 40,
+                  child: TextButton(
+                      onPressed: () {
+                        btnAction();
+                      },
+                      child: const Text('Detalles')),
+                ),
+              ),
+            ],
+          )
+        ],
       ),
     );
   }
@@ -178,7 +185,7 @@ class Cards {
       elevation: 10.0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,

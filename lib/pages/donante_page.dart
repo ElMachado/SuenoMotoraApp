@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/common/cards.dart';
 import 'package:suenomotora_app/common/floating_button.dart';
+import 'package:suenomotora_app/common/responsive.dart';
+import 'package:suenomotora_app/common/responsive/colaboradores/colaboradores_movile.dart';
+import 'package:suenomotora_app/common/responsive/colaboradores/colaboradores_tablet.dart';
+import 'package:suenomotora_app/common/responsive/donantes/donantes_desktop.dart';
+import 'package:suenomotora_app/common/responsive/donantes/donantes_movil.dart';
+import 'package:suenomotora_app/common/responsive/donantes/donantes_tablet.dart';
+import 'package:suenomotora_app/common/responsive/vistaTamanoVentanaMuyPeque%C3%B1o.dart';
+import 'package:suenomotora_app/pages/colaboradores_page.dart';
 
 class DonantesPage extends StatefulWidget {
   const DonantesPage({Key? key}) : super(key: key);
@@ -15,20 +23,11 @@ class _DonantesPage extends State<DonantesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Donantes'),
-      ),
-      body: Container(
-        padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
-        child: ListView(
-          children: [
-            card.cardSencillo('Juan Pretel ', 'tel 3105124359',
-                btnAction: () => print('hola')),
-          ],
-        ),
-      ),
-      floatingActionButton:
-          floButton.floatingButton(btnAction: () => print('hola 2')),
+      body: const ResponsibleLayout(
+          VentanaMuyPequena: VentanaMuyPequena(),
+          mobileBody: DonatesMovil(),
+          tabletBody: DonantesTablet(),
+          desktopBody: DonatesDesktop()),
     );
   }
 }

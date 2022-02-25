@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/common/cards.dart';
 import 'package:suenomotora_app/common/floating_button.dart';
+import 'package:suenomotora_app/common/responsive.dart';
+import 'package:suenomotora_app/common/responsive/colaboradores/colaboradores_desktop.dart';
+import 'package:suenomotora_app/common/responsive/colaboradores/colaboradores_movile.dart';
+import 'package:suenomotora_app/common/responsive/colaboradores/colaboradores_tablet.dart';
+import 'package:suenomotora_app/common/responsive/vistaTamanoVentanaMuyPeque%C3%B1o.dart';
 
 class Colaboradores extends StatefulWidget {
   const Colaboradores({Key? key}) : super(key: key);
@@ -15,20 +20,11 @@ class _ColaboradoresState extends State<Colaboradores> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Colaboradores'),
-      ),
-      body: Container(
-        padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
-        child: ListView(
-          children: [
-            card.cardSencillo('Jesús Arroyo', 'ing de sistemas- tel 3105124359',
-                btnAction: () => print('hola')),
-          ],
-        ),
-      ),
-      floatingActionButton:
-          floButton.floatingButton(btnAction: () => print('hola 2')),
+      body: const ResponsibleLayout(
+          VentanaMuyPequena: VentanaMuyPequena(),
+          mobileBody: ColaboradoresMovil(),
+          tabletBody: ColaboradoresTablet(),
+          desktopBody: ColaboradoresDesktop()),
     );
   }
 }
