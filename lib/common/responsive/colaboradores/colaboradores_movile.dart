@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/common/cards.dart';
 import 'package:suenomotora_app/common/floating_button.dart';
+import 'package:suenomotora_app/common/forms_dialogs.dart';
 
 class ColaboradoresMovil extends StatelessWidget {
   const ColaboradoresMovil({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class ColaboradoresMovil extends StatelessWidget {
             ],
           ),
         ),
-        floatingActionButton:
-            floButton.floatingButton(btnAction: () => print('hola')));
+        floatingActionButton: floButton.floatingButton(
+            btnAction: () => FormsDialogs.mostrarAlert(context)));
   }
 }

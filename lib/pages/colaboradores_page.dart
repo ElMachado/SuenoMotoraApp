@@ -15,12 +15,10 @@ class Colaboradores extends StatefulWidget {
 }
 
 class _ColaboradoresState extends State<Colaboradores> {
-  Cards card = Cards();
-  FloatingButton floButton = FloatingButton();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: const ResponsibleLayout(
+    return const Scaffold(
+      body: ResponsibleLayout(
           VentanaMuyPequena: VentanaMuyPequena(),
           mobileBody: ColaboradoresMovil(),
           tabletBody: ColaboradoresTablet(),

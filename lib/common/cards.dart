@@ -4,9 +4,9 @@ class Cards {
   Widget cardSencillo(String titulo, String contenido,
       {required Function btnAction}) {
     return ConstrainedBox(
-      constraints: BoxConstraints(maxHeight: 200, minHeight: 200),
+      constraints: const BoxConstraints(maxHeight: 200, minHeight: 200),
       child: SizedBox(
-        height: 200,
+        height: 100,
         child: Card(
           elevation: 10.0,
           shape:
@@ -86,10 +86,10 @@ class Cards {
     );
   }
 
-  Widget responsiveEquiposCard(_Size) {
+  Widget responsiveEquiposCard(Size) {
     return Container(
         // padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
-        child: _Size <= 600
+        child: Size <= 600
             ? ListView.builder(
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
@@ -101,7 +101,7 @@ class Cards {
             : GridView.count(
                 addAutomaticKeepAlives: true,
                 childAspectRatio: (500 / 550),
-                crossAxisCount: _Size >= 600 && _Size <= 1200 ? 2 : 4,
+                crossAxisCount: Size >= 600 && Size <= 1200 ? 2 : 4,
                 children: [
                   Container(child: cardImage(() => print('hola 3'))),
                   Container(child: cardImage(() => print('hola 3'))),
