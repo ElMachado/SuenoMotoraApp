@@ -23,7 +23,7 @@ class _SolicitudesDeEscuelas extends State<SolicitudesDeEscuelas> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: ResponsibleLayout(
-          VentanaMuyPequena: VentanaMuyPequena(),
+          ventanaMuyPequena: VentanaMuyPequena(),
           mobileBody: SolicitudesEscuelasMovil(),
           tabletBody: SolicitudesEscuelasTablet(),
           desktopBody: SolicitudesEscuelasDesktop()),

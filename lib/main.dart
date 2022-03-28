@@ -7,6 +7,7 @@ void main() => runApp(const SuenoMotoraApp());
 class SuenoMotoraApp extends StatelessWidget {
   const SuenoMotoraApp({Key? key}) : super(key: key);
 
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,

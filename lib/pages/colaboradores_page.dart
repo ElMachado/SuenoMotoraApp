@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:suenomotora_app/common/cards.dart';
-import 'package:suenomotora_app/common/floating_button.dart';
 import 'package:suenomotora_app/common/responsive.dart';
 import 'package:suenomotora_app/common/responsive/colaboradores/colaboradores_desktop.dart';
 import 'package:suenomotora_app/common/responsive/colaboradores/colaboradores_movile.dart';
@@ -19,7 +17,7 @@ class _ColaboradoresState extends State<Colaboradores> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: ResponsibleLayout(
-          VentanaMuyPequena: VentanaMuyPequena(),
+          ventanaMuyPequena: VentanaMuyPequena(),
           mobileBody: ColaboradoresMovil(),
           tabletBody: ColaboradoresTablet(),
           desktopBody: ColaboradoresDesktop()),

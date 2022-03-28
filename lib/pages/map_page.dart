@@ -82,7 +82,7 @@ class _MyHomePageState extends State<InicioMapa> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ResponsibleLayout(
-        VentanaMuyPequena: const VentanaMuyPequena(),
+        ventanaMuyPequena: const VentanaMuyPequena(),
         desktopBody: MapPage(),
         mobileBody: MapPage(),
         tabletBody: MapPage(),

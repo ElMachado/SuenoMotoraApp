@@ -21,7 +21,7 @@ class _EnviosPage extends State<EnviosPage> {
   Widget build(BuildContext context) {
     return const Scaffold(
         body: ResponsibleLayout(
-            VentanaMuyPequena: VentanaMuyPequena(),
+            ventanaMuyPequena: VentanaMuyPequena(),
             mobileBody: EnviosMovil(),
             tabletBody: EnviosTablet(),
             desktopBody: EnviosDesktop()));

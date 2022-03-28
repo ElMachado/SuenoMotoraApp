@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:suenomotora_app/pages/map_page.dart';
 
 class ResponsibleLayout extends StatelessWidget {
-  final Widget VentanaMuyPequena;
+  final Widget ventanaMuyPequena;
   final Widget mobileBody;
   final Widget tabletBody;
   final Widget desktopBody;
 
   const ResponsibleLayout(
-      {required this.VentanaMuyPequena,
+      {required this.ventanaMuyPequena,
       required this.mobileBody,
       required this.tabletBody,
       required this.desktopBody});
@@ -19,7 +18,7 @@ class ResponsibleLayout extends StatelessWidget {
       builder: (context, constraints) {
         print(constraints);
         if (constraints.maxWidth < 320) {
-          return VentanaMuyPequena;
+          return ventanaMuyPequena;
         } else if (constraints.maxWidth >= 320 && constraints.maxWidth < 610) {
           return mobileBody;
         } else if (constraints.maxWidth > 600 && constraints.maxWidth < 1200) {

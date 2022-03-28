@@ -23,7 +23,7 @@ class _EquiposPage extends State<EquiposPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: const ResponsibleLayout(
-          VentanaMuyPequena: VentanaMuyPequena(),
+          ventanaMuyPequena: VentanaMuyPequena(),
           mobileBody: EquiposMovile(),
           tabletBody: EquiposTablet(),
           desktopBody: EquiposDesktop()),

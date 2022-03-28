@@ -21,7 +21,7 @@ class _DonantesPage extends State<DonantesPage> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: ResponsibleLayout(
-          VentanaMuyPequena: VentanaMuyPequena(),
+          ventanaMuyPequena: VentanaMuyPequena(),
           mobileBody: DonatesMovil(),
           tabletBody: DonantesTablet(),
           desktopBody: DonatesDesktop()),
