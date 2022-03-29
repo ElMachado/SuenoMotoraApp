@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:latlng/latlng.dart';
 import 'package:map/map.dart';
 import 'package:suenomotora_app/common/responsive.dart';
-import 'package:suenomotora_app/common/responsive/vistaTamanoVentanaMuyPeque%C3%B1o.dart';
+import 'package:suenomotora_app/common/responsive/vistaTamanoVentanaMuyPequeno.dart';
 
 import '../providers/menu_provider.dart';
 import '../utils/iconos_string_util.dart';

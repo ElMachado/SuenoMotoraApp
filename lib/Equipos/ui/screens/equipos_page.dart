@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:suenomotora_app/Equipos/ui/screens/responsive/equiposTablet.dart';
+import 'package:suenomotora_app/Equipos/ui/screens/responsive/equipos_desktop.dart';
+import 'package:suenomotora_app/Equipos/ui/screens/responsive/equipos_movile.dart';
 import 'package:suenomotora_app/common/cards.dart';
 
 import 'package:suenomotora_app/common/floating_button.dart';
 import 'package:suenomotora_app/common/responsive.dart';
-import 'package:suenomotora_app/common/responsive/vistaTamanoVentanaMuyPeque%C3%B1o.dart';
-
-import '../common/responsive/equipos/equiposTablet.dart';
-import '../common/responsive/equipos/equipos_desktop.dart';
-import '../common/responsive/equipos/equipos_movile.dart';
+import 'package:suenomotora_app/common/responsive/vistaTamanoVentanaMuyPequeno.dart';
 
 class EquiposPage extends StatefulWidget {
   const EquiposPage({Key? key}) : super(key: key);
@@ -21,8 +20,8 @@ class _EquiposPage extends State<EquiposPage> {
   FloatingButton floButton = FloatingButton();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: const ResponsibleLayout(
+    return const Scaffold(
+      body: ResponsibleLayout(
           ventanaMuyPequena: VentanaMuyPequena(),
           mobileBody: EquiposMovile(),
           tabletBody: EquiposTablet(),
