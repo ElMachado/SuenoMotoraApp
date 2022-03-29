@@ -1,11 +1,13 @@
+// ignore_for_file: unused_field
+
 import 'package:flutter/material.dart';
 
 class FormsElements extends StatelessWidget {
-  String _nombre = 'Nombre de Usuario';
-  String _email = 'Correo electronico';
-  String _password = '***********';
-  String _fecha = '00/00/0000';
-  String? _dropDownValue = 'volar';
+  final String _nombre = 'Nombre de Usuario';
+  final String _email = 'Correo electronico';
+  final String _password = '***********';
+  final String _fecha = '00/00/0000';
+  final String? _dropDownValue = 'volar';
   final List _poderes = ['volar', 'rayos x', 'super aliento', 'super fuerza'];
   final TextEditingController _inputFieldDateController =
       TextEditingController();
@@ -14,25 +16,21 @@ class FormsElements extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [createInput(), crearPassword()],
+      children: [createInput('', ''), crearPassword()],
     );
   }
 
-  Widget createInput() {
+  Widget createInput(String hintText, String? labelText) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextField(
         textCapitalization: TextCapitalization.sentences,
         decoration: InputDecoration(
             border:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
+                OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
             icon: const Icon(Icons.account_circle),
-            suffixIcon: const Icon(Icons.accessibility),
-            helperText: 'Solo el nombre',
-            counter: Text('Letras ${_nombre.length} '),
-            hintText: 'Nombre de la persona',
-            labelText: 'Nombre'),
-        onChanged: (valor) {},
+            hintText: hintText,
+            labelText: labelText),
       ),
     );
   }

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:suenomotora_app/Envios/ui/screens/responsive/envio_desktop.dart';
+import 'package:suenomotora_app/Envios/ui/screens/responsive/envio_movile.dart';
+import 'package:suenomotora_app/Envios/ui/screens/responsive/envio_tablet.dart';
 import 'package:suenomotora_app/common/cards.dart';
 import 'package:suenomotora_app/common/floating_button.dart';
 import 'package:suenomotora_app/common/responsive.dart';
-import 'package:suenomotora_app/common/responsive/envios/envio_desktop.dart';
-import 'package:suenomotora_app/common/responsive/envios/envio_movile.dart';
-import 'package:suenomotora_app/common/responsive/envios/envio_tablet.dart';
-import 'package:suenomotora_app/common/responsive/vistaTamanoVentanaMuyPeque%C3%B1o.dart';
+
+import 'package:suenomotora_app/common/responsive/vistaTamanoVentanaMuyPequeno.dart';
 
 class EnviosPage extends StatefulWidget {
   const EnviosPage({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class _EnviosPage extends State<EnviosPage> {
   Widget build(BuildContext context) {
     return const Scaffold(
         body: ResponsibleLayout(
-            VentanaMuyPequena: VentanaMuyPequena(),
+            ventanaMuyPequena: VentanaMuyPequena(),
             mobileBody: EnviosMovil(),
             tabletBody: EnviosTablet(),
             desktopBody: EnviosDesktop()));

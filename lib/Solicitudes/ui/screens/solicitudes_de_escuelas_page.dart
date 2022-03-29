@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:suenomotora_app/Solicitudes/ui/screens/responsive/solicitudes_escuelas_Desktop.dart';
+import 'package:suenomotora_app/Solicitudes/ui/screens/responsive/solicitudes_escuelas_movil.dart';
+import 'package:suenomotora_app/Solicitudes/ui/screens/responsive/solicitudes_escuelas_tablet.dart';
 import 'package:suenomotora_app/common/cards.dart';
 import 'package:suenomotora_app/common/floating_button.dart';
 import 'package:suenomotora_app/common/responsive.dart';
-import 'package:suenomotora_app/common/responsive/solicitudesEscuelas/solicitudes_escuelas_Desktop.dart';
-import 'package:suenomotora_app/common/responsive/solicitudesEscuelas/solicitudes_escuelas_movil.dart'
-    show SolicitudesEscuelasMovil;
-import 'package:suenomotora_app/common/responsive/solicitudesEscuelas/solicitudes_escuelas_tablet.dart';
-import 'package:suenomotora_app/common/responsive/vistaTamanoVentanaMuyPeque%C3%B1o.dart'
+import 'package:suenomotora_app/common/responsive/vistaTamanoVentanaMuyPequeno.dart'
     show VentanaMuyPequena;
 
 class SolicitudesDeEscuelas extends StatefulWidget {
@@ -23,7 +22,7 @@ class _SolicitudesDeEscuelas extends State<SolicitudesDeEscuelas> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: ResponsibleLayout(
-          VentanaMuyPequena: VentanaMuyPequena(),
+          ventanaMuyPequena: VentanaMuyPequena(),
           mobileBody: SolicitudesEscuelasMovil(),
           tabletBody: SolicitudesEscuelasTablet(),
           desktopBody: SolicitudesEscuelasDesktop()),

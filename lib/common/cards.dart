@@ -1,44 +1,41 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 
 class Cards {
   Widget cardSencillo(String titulo, String contenido,
       {required Function btnAction}) {
-    return ConstrainedBox(
-      constraints: const BoxConstraints(maxHeight: 200, minHeight: 200),
-      child: SizedBox(
-        height: 100,
-        child: Card(
-          elevation: 10.0,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              ListTile(
-                leading: const Icon(
-                  Icons.photo_album,
-                  color: Colors.blue,
+    return LayoutBuilder(
+      builder: (context, constraints) => Card(
+        elevation: 10.0,
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            ListTile(
+              leading: const Icon(
+                Icons.photo_album,
+                color: Colors.blue,
+              ),
+              title: Text(titulo, style: const TextStyle(fontSize: 20.0)),
+              subtitle: Text(contenido, style: const TextStyle(fontSize: 20.0)),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                SizedBox(
+                  width: 120,
+                  height: 50,
+                  child: TextButton(
+                      onPressed: () {
+                        btnAction();
+                      },
+                      child: const Text('Detalles')),
                 ),
-                title: Text(titulo, style: const TextStyle(fontSize: 20.0)),
-                subtitle:
-                    Text(contenido, style: const TextStyle(fontSize: 20.0)),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  SizedBox(
-                    width: 120,
-                    height: 50,
-                    child: TextButton(
-                        onPressed: () {
-                          btnAction();
-                        },
-                        child: const Text('Detalles')),
-                  ),
-                ],
-              ),
-            ],
-          ),
+              ],
+            ),
+          ],
         ),
       ),
     );
@@ -53,26 +50,29 @@ class Cards {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              SizedBox.fromSize(size: const Size(30, 30)),
-              Text('Escuela: $nombreEscuela',
-                  style: const TextStyle(fontSize: 20.0)),
-              Text('Responsable: $responsable',
-                  style: const TextStyle(fontSize: 20.0)),
-              Text('Solicitud: $solicitud',
-                  style: const TextStyle(fontSize: 20.0)),
-              Text('Numero de teléfono: $numeroTelefono',
-                  style: const TextStyle(fontSize: 20.0)),
-            ],
+          FittedBox(
+            fit: BoxFit.fitWidth,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                SizedBox.fromSize(size: const Size(30, 30)),
+                Text('Escuela: $nombreEscuela',
+                    style: const TextStyle(fontSize: 20.0)),
+                Text('Responsable: $responsable',
+                    style: const TextStyle(fontSize: 20.0)),
+                Text('Solicitud: $solicitud',
+                    style: const TextStyle(fontSize: 20.0)),
+                Text('Numero de teléfono: $numeroTelefono',
+                    style: const TextStyle(fontSize: 20.0)),
+              ],
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
-              SizedBox(
-                width: 120,
-                height: 50,
+              Flexible(
+                flex: 1,
+                fit: FlexFit.tight,
                 child: TextButton(
                     onPressed: () {
                       btnAction();
@@ -86,10 +86,10 @@ class Cards {
     );
   }
 
-  Widget responsiveEquiposCard(Size) {
+  Widget responsiveEquiposCard(int size) {
     return Container(
         // padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
-        child: Size <= 600
+        child: size <= 600
             ? ListView.builder(
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
@@ -101,7 +101,7 @@ class Cards {
             : GridView.count(
                 addAutomaticKeepAlives: true,
                 childAspectRatio: (500 / 550),
-                crossAxisCount: Size >= 600 && Size <= 1200 ? 2 : 4,
+                crossAxisCount: size >= 600 && size <= 1200 ? 2 : 4,
                 children: [
                   Container(child: cardImage(() => print('hola 3'))),
                   Container(child: cardImage(() => print('hola 3'))),
@@ -135,7 +135,7 @@ class Cards {
             fit: BoxFit.cover,
           ),
           Container(
-            padding: EdgeInsets.only(left: 10, right: 10),
+            padding: const EdgeInsets.only(left: 10, right: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
@@ -173,50 +173,6 @@ class Cards {
               ),
             ],
           )
-        ],
-      ),
-    );
-  }
-
-  Widget CardEnvios(String nombreEscuela, String responsable, direccionEnvio,
-      numeroTelefono, contenidoEnvio,
-      {required Function btnAction}) {
-    return Card(
-      elevation: 10.0,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              SizedBox.fromSize(size: const Size(30, 30)),
-              Text('Escuela: $nombreEscuela',
-                  style: const TextStyle(fontSize: 20.0)),
-              Text('Responsable: $responsable',
-                  style: const TextStyle(fontSize: 20.0)),
-              Text('Numero de telefono: $numeroTelefono',
-                  style: const TextStyle(fontSize: 20.0)),
-              Text('Direccion de envio: $direccionEnvio',
-                  style: const TextStyle(fontSize: 20.0)),
-              Text('Se envía: $contenidoEnvio',
-                  style: const TextStyle(fontSize: 20.0)),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              SizedBox(
-                width: 120,
-                height: 50,
-                child: TextButton(
-                    onPressed: () {
-                      btnAction();
-                    },
-                    child: const Text('Detalles')),
-              ),
-            ],
-          ),
         ],
       ),
     );

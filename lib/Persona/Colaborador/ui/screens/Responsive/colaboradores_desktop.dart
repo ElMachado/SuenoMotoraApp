@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/common/cards.dart';
 import 'package:suenomotora_app/common/floating_button.dart';
+import 'package:suenomotora_app/common/forms_dialogs.dart';
 
 class ColaboradoresDesktop extends StatelessWidget {
   const ColaboradoresDesktop({Key? key}) : super(key: key);
@@ -21,15 +22,8 @@ class ColaboradoresDesktop extends StatelessWidget {
             crossAxisCount: 4,
             childAspectRatio: 99 / 42,
             children: [
-              ConstrainedBox(
-                constraints: const BoxConstraints(
-                    maxHeight: 200,
-                    minHeight: 100,
-                    maxWidth: 100,
-                    minWidth: 100),
-                child: card.cardSencillo('Hola', 'contenido',
-                    btnAction: () => print('hola')),
-              ),
+              card.cardSencillo('Hola', 'contenido',
+                  btnAction: () => print('hola')),
               ConstrainedBox(
                 constraints: const BoxConstraints(
                     maxHeight: 200,
@@ -114,7 +108,8 @@ class ColaboradoresDesktop extends StatelessWidget {
             ],
           ),
         ),
-        floatingActionButton:
-            floButton.floatingButton(btnAction: () => print('hola')));
+        floatingActionButton: floButton.floatingButton(
+            btnAction: () =>
+                FormsDialogs.mostrarDialogRegistroColaborador(context)));
   }
 }

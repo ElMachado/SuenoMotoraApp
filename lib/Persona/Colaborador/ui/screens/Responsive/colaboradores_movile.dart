@@ -25,6 +25,7 @@ class ColaboradoresMovil extends StatelessWidget {
           ),
         ),
         floatingActionButton: floButton.floatingButton(
-            btnAction: () => FormsDialogs.mostrarAlert(context)));
+            btnAction: () =>
+                FormsDialogs.mostrarDialogRegistroColaborador(context)));
   }
 }

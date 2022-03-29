@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:suenomotora_app/Persona/Donante/ui/screens/Responsive/donantes_desktop.dart';
+import 'package:suenomotora_app/Persona/Donante/ui/screens/Responsive/donantes_movil.dart';
+import 'package:suenomotora_app/Persona/Donante/ui/screens/Responsive/donantes_tablet.dart';
 import 'package:suenomotora_app/common/cards.dart';
 import 'package:suenomotora_app/common/floating_button.dart';
 import 'package:suenomotora_app/common/responsive.dart';
-import 'package:suenomotora_app/common/responsive/donantes/donantes_desktop.dart';
-import 'package:suenomotora_app/common/responsive/donantes/donantes_movil.dart';
-import 'package:suenomotora_app/common/responsive/donantes/donantes_tablet.dart';
-import 'package:suenomotora_app/common/responsive/vistaTamanoVentanaMuyPeque%C3%B1o.dart';
+
+import 'package:suenomotora_app/common/responsive/vistaTamanoVentanaMuyPequeno.dart';
 
 class DonantesPage extends StatefulWidget {
   const DonantesPage({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class _DonantesPage extends State<DonantesPage> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: ResponsibleLayout(
-          VentanaMuyPequena: VentanaMuyPequena(),
+          ventanaMuyPequena: VentanaMuyPequena(),
           mobileBody: DonatesMovil(),
           tabletBody: DonantesTablet(),
           desktopBody: DonatesDesktop()),
