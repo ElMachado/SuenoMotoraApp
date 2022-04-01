@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:suenomotora_app/Persona/Donante/ui/screens/Responsive/donantes_desktop.dart';
 import 'package:suenomotora_app/Persona/Donante/ui/screens/Responsive/donantes_movil.dart';
 import 'package:suenomotora_app/Persona/Donante/ui/screens/Responsive/donantes_tablet.dart';
-import 'package:suenomotora_app/common/cards.dart';
-import 'package:suenomotora_app/common/floating_button.dart';
+import 'package:suenomotora_app/common/widgets/cards.dart';
+import 'package:suenomotora_app/common/widgets/floating_button.dart';
 import 'package:suenomotora_app/common/responsive.dart';
 
 import 'package:suenomotora_app/common/responsive/vistaTamanoVentanaMuyPequeno.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:suenomotora_app/common/forms_elements.dart';
+import 'package:suenomotora_app/common/widgets/forms_elements.dart';
 
 class FormsDialogs extends StatefulWidget {
   const FormsDialogs({Key? key}) : super(key: key);

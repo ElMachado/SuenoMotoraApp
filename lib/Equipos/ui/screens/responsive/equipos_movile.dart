@@ -1,8 +1,8 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
-import 'package:suenomotora_app/common/cards.dart';
-import 'package:suenomotora_app/common/floating_button.dart';
+import 'package:suenomotora_app/common/widgets/cards.dart';
+import 'package:suenomotora_app/common/widgets/floating_button.dart';
 
 class EquiposMovile extends StatelessWidget {
   const EquiposMovile({Key? key}) : super(key: key);

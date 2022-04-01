@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:suenomotora_app/pages/map_page.dart';
+import 'package:suenomotora_app/Map/map_page.dart';
 import 'package:suenomotora_app/routes/routes.dart';
 
 void main() => runApp(const SuenoMotoraApp());

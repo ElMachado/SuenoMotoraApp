@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/Envios/model/Envio.dart';
 import 'package:suenomotora_app/Envios/ui/widgets/card_envio.dart';
-import 'package:suenomotora_app/common/cards.dart';
-import 'package:suenomotora_app/common/floating_button.dart';
+import 'package:suenomotora_app/Envios/ui/widgets/form_dialog_crear_registro.dart';
+import 'package:suenomotora_app/common/widgets/cards.dart';
+import 'package:suenomotora_app/common/widgets/floating_button.dart';
 
 class EnviosDesktop extends StatelessWidget {
   const EnviosDesktop({Key? key}) : super(key: key);
@@ -44,8 +45,10 @@ class EnviosDesktop extends StatelessWidget {
             },
           ),
         ),
-        floatingActionButton:
-            floButton.floatingButton(btnAction: () => print('hola')));
+        floatingActionButton: floButton.floatingButton(
+          btnAction: () =>
+              FormDialogRegistroEnvio.mostrarDialogRegistroEnvio(context),
+        ));
   }
 }
 
