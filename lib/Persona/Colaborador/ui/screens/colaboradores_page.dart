@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/Persona/Colaborador/ui/screens/Responsive/colaboradores_desktop.dart';
 import 'package:suenomotora_app/Persona/Colaborador/ui/screens/Responsive/colaboradores_movile.dart';
-import 'package:suenomotora_app/common/responsive.dart';
+import 'package:suenomotora_app/common/responsive/responsive.dart';
 import 'package:suenomotora_app/common/responsive/vistaTamanoVentanaMuyPequeno.dart';
 
 import 'Responsive/colaboradores_tablet.dart';
@@ -19,7 +19,7 @@ class _ColaboradoresState extends State<Colaboradores> {
     return const Scaffold(
       body: ResponsibleLayout(
           ventanaMuyPequena: VentanaMuyPequena(),
-          mobileBody: ColaboradoresMovil(),
+          mobileBody:  ColaboradoresMovil(),
           tabletBody: ColaboradoresTablet(),
           desktopBody: ColaboradoresDesktop()),
     );

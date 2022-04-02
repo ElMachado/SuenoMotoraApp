@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:suenomotora_app/common/widgets/cards.dart';
+import 'package:suenomotora_app/Persona/Colaborador/ui/widgets/colaborador_card.dart';
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
 import 'package:suenomotora_app/common/widgets/forms_dialogs.dart';
 
@@ -8,7 +8,7 @@ class ColaboradoresDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Cards card = Cards();
+    CardColaborador card = const CardColaborador();
     FloatingButton floButton = FloatingButton();
 
     return Scaffold(
@@ -22,7 +22,7 @@ class ColaboradoresDesktop extends StatelessWidget {
             crossAxisCount: 4,
             childAspectRatio: 99 / 42,
             children: [
-              card.cardSencillo('Hola', 'contenido',
+              card.cardColaborador('Hola', 'contenido',
                   btnAction: () => print('hola')),
               ConstrainedBox(
                 constraints: const BoxConstraints(
@@ -30,7 +30,7 @@ class ColaboradoresDesktop extends StatelessWidget {
                     minHeight: 100,
                     maxWidth: 100,
                     minWidth: 100),
-                child: card.cardSencillo('Hola', 'contenido',
+                child: card.cardColaborador('Hola', 'contenido',
                     btnAction: () => print('hola')),
               ),
               ConstrainedBox(
@@ -39,7 +39,7 @@ class ColaboradoresDesktop extends StatelessWidget {
                     minHeight: 100,
                     maxWidth: 100,
                     minWidth: 100),
-                child: card.cardSencillo('Hola', 'contenido',
+                child: card.cardColaborador('Hola', 'contenido',
                     btnAction: () => print('hola')),
               ),
               ConstrainedBox(
@@ -48,7 +48,7 @@ class ColaboradoresDesktop extends StatelessWidget {
                     minHeight: 100,
                     maxWidth: 100,
                     minWidth: 100),
-                child: card.cardSencillo('Hola', 'contenido',
+                child: card.cardColaborador('Hola', 'contenido',
                     btnAction: () => print('hola')),
               ),
               ConstrainedBox(
@@ -57,7 +57,7 @@ class ColaboradoresDesktop extends StatelessWidget {
                     minHeight: 100,
                     maxWidth: 100,
                     minWidth: 100),
-                child: card.cardSencillo('Hola', 'contenido',
+                child: card.cardColaborador('Hola', 'contenido',
                     btnAction: () => print('hola')),
               ),
               ConstrainedBox(
@@ -66,7 +66,7 @@ class ColaboradoresDesktop extends StatelessWidget {
                     minHeight: 100,
                     maxWidth: 100,
                     minWidth: 100),
-                child: card.cardSencillo('Hola', 'contenido',
+                child: card.cardColaborador('Hola', 'contenido',
                     btnAction: () => print('hola')),
               ),
               ConstrainedBox(
@@ -75,7 +75,7 @@ class ColaboradoresDesktop extends StatelessWidget {
                     minHeight: 100,
                     maxWidth: 100,
                     minWidth: 100),
-                child: card.cardSencillo('Hola', 'contenido',
+                child: card.cardColaborador('Hola', 'contenido',
                     btnAction: () => print('hola')),
               ),
               ConstrainedBox(
@@ -84,7 +84,7 @@ class ColaboradoresDesktop extends StatelessWidget {
                     minHeight: 100,
                     maxWidth: 100,
                     minWidth: 100),
-                child: card.cardSencillo('Hola', 'contenido',
+                child: card.cardColaborador('Hola', 'contenido',
                     btnAction: () => print('hola')),
               ),
               ConstrainedBox(
@@ -93,7 +93,7 @@ class ColaboradoresDesktop extends StatelessWidget {
                     minHeight: 100,
                     maxWidth: 100,
                     minWidth: 100),
-                child: card.cardSencillo('Hola', 'contenido',
+                child: card.cardColaborador('Hola', 'contenido',
                     btnAction: () => print('hola')),
               ),
               ConstrainedBox(
@@ -102,7 +102,7 @@ class ColaboradoresDesktop extends StatelessWidget {
                     minHeight: 100,
                     maxWidth: 100,
                     minWidth: 100),
-                child: card.cardSencillo('Hola', 'contenido',
+                child: card.cardColaborador('Hola', 'contenido',
                     btnAction: () => print('hola')),
               )
             ],

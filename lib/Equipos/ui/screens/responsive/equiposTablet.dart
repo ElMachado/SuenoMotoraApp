@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
-import 'package:suenomotora_app/common/widgets/cards.dart';
+import 'package:suenomotora_app/Equipos/ui/widgets/card_equipos.dart';
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
 
 class EquiposTablet extends StatelessWidget {
@@ -9,7 +9,7 @@ class EquiposTablet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Cards card = Cards();
+    CardEquipos card = CardEquipos();
     FloatingButton floButton = FloatingButton();
 
     return Scaffold(
@@ -23,12 +23,12 @@ class EquiposTablet extends StatelessWidget {
           crossAxisCount: 2,
           childAspectRatio: (450 / 560),
           children: [
-            Container(child: card.cardImage(() => print('hola 3'))),
-            Container(child: card.cardImage(() => print('hola 3'))),
-            Container(child: card.cardImage(() => print('hola 3'))),
-            Container(child: card.cardImage(() => print('hola 3'))),
-            Container(child: card.cardImage(() => print('hola 3'))),
-            Container(child: card.cardImage(() => print('hola 3'))),
+            Container(child: card.cardEquipos(() => print('hola 3'))),
+            Container(child: card.cardEquipos(() => print('hola 3'))),
+            Container(child: card.cardEquipos(() => print('hola 3'))),
+            Container(child: card.cardEquipos(() => print('hola 3'))),
+            Container(child: card.cardEquipos(() => print('hola 3'))),
+            Container(child: card.cardEquipos(() => print('hola 3'))),
           ],
         ),
       ),

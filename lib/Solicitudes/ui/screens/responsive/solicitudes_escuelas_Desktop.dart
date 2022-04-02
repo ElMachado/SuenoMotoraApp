@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:suenomotora_app/common/widgets/cards.dart';
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
+
+import '../../widgets/card_solicitudes_escuelas.dart';
 
 class SolicitudesEscuelasDesktop extends StatelessWidget {
   const SolicitudesEscuelasDesktop({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Cards card = Cards();
+    CardSolicitudesEscuelas card = CardSolicitudesEscuelas();
     final _size = MediaQuery.of(context).size.width;
     print(_size);
 

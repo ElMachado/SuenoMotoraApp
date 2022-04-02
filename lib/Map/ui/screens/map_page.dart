@@ -5,11 +5,11 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:latlng/latlng.dart';
 import 'package:map/map.dart';
-import 'package:suenomotora_app/common/responsive.dart';
+import 'package:suenomotora_app/common/responsive/responsive.dart';
 import 'package:suenomotora_app/common/responsive/vistaTamanoVentanaMuyPequeno.dart';
 
-import '../providers/menu_provider.dart';
-import '../utils/iconos_string_util.dart';
+import '../../../providers/menu_provider.dart';
+import '../../../utils/iconos_string_util.dart';
 
 class InicioMapa extends StatefulWidget {
   const InicioMapa({Key? key}) : super(key: key);

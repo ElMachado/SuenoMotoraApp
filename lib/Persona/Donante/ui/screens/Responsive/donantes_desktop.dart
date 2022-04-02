@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:suenomotora_app/common/widgets/cards.dart';
+import 'package:suenomotora_app/Persona/Donante/ui/widgets/donante_card.dart';
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
 
 class DonatesDesktop extends StatelessWidget {
@@ -7,7 +7,7 @@ class DonatesDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Cards card = Cards();
+    CardDonante card = const CardDonante();
     FloatingButton floButton = FloatingButton();
     return Scaffold(
         appBar: AppBar(
@@ -26,7 +26,7 @@ class DonatesDesktop extends StatelessWidget {
                     minHeight: 100,
                     maxWidth: 100,
                     minWidth: 100),
-                child: card.cardSencillo('Hola', 'contenido',
+                child: card.cardDonante('Hola', 'contenido',
                     btnAction: () => print('hola')),
               ),
               ConstrainedBox(
@@ -35,7 +35,7 @@ class DonatesDesktop extends StatelessWidget {
                     minHeight: 100,
                     maxWidth: 100,
                     minWidth: 100),
-                child: card.cardSencillo('Hola', 'contenido',
+                child: card.cardDonante('Hola', 'contenido',
                     btnAction: () => print('hola')),
               ),
               ConstrainedBox(
@@ -44,7 +44,7 @@ class DonatesDesktop extends StatelessWidget {
                     minHeight: 100,
                     maxWidth: 100,
                     minWidth: 100),
-                child: card.cardSencillo('Hola', 'contenido',
+                child: card.cardDonante('Hola', 'contenido',
                     btnAction: () => print('hola')),
               ),
               ConstrainedBox(
@@ -53,7 +53,7 @@ class DonatesDesktop extends StatelessWidget {
                     minHeight: 100,
                     maxWidth: 100,
                     minWidth: 100),
-                child: card.cardSencillo('Hola', 'contenido',
+                child: card.cardDonante('Hola', 'contenido',
                     btnAction: () => print('hola')),
               ),
               ConstrainedBox(
@@ -62,7 +62,7 @@ class DonatesDesktop extends StatelessWidget {
                     minHeight: 100,
                     maxWidth: 100,
                     minWidth: 100),
-                child: card.cardSencillo('Hola', 'contenido',
+                child: card.cardDonante('Hola', 'contenido',
                     btnAction: () => print('hola')),
               ),
               ConstrainedBox(
@@ -71,7 +71,7 @@ class DonatesDesktop extends StatelessWidget {
                     minHeight: 100,
                     maxWidth: 100,
                     minWidth: 100),
-                child: card.cardSencillo('Hola', 'contenido',
+                child: card.cardDonante('Hola', 'contenido',
                     btnAction: () => print('hola')),
               ),
               ConstrainedBox(
@@ -80,7 +80,7 @@ class DonatesDesktop extends StatelessWidget {
                     minHeight: 100,
                     maxWidth: 100,
                     minWidth: 100),
-                child: card.cardSencillo('Hola', 'contenido',
+                child: card.cardDonante('Hola', 'contenido',
                     btnAction: () => print('hola')),
               ),
               ConstrainedBox(
@@ -89,7 +89,7 @@ class DonatesDesktop extends StatelessWidget {
                     minHeight: 100,
                     maxWidth: 100,
                     minWidth: 100),
-                child: card.cardSencillo('Hola', 'contenido',
+                child: card.cardDonante('Hola', 'contenido',
                     btnAction: () => print('hola')),
               ),
               ConstrainedBox(
@@ -98,7 +98,7 @@ class DonatesDesktop extends StatelessWidget {
                     minHeight: 100,
                     maxWidth: 100,
                     minWidth: 100),
-                child: card.cardSencillo('Hola', 'contenido',
+                child: card.cardDonante('Hola', 'contenido',
                     btnAction: () => print('hola')),
               ),
               ConstrainedBox(
@@ -107,7 +107,7 @@ class DonatesDesktop extends StatelessWidget {
                     minHeight: 100,
                     maxWidth: 100,
                     minWidth: 100),
-                child: card.cardSencillo('Hola', 'contenido',
+                child: card.cardDonante('Hola', 'contenido',
                     btnAction: () => print('hola')),
               )
             ],

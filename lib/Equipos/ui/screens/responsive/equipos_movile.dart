@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
-import 'package:suenomotora_app/common/widgets/cards.dart';
+import 'package:suenomotora_app/Equipos/ui/widgets/card_equipos.dart';
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
 
 class EquiposMovile extends StatelessWidget {
@@ -10,7 +10,7 @@ class EquiposMovile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     FloatingButton floButoon = FloatingButton();
-    Cards card = Cards();
+    CardEquipos card = CardEquipos();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Equipos'),
@@ -19,7 +19,7 @@ class EquiposMovile extends StatelessWidget {
         padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
         child: ListView(
           children: [
-            card.cardImage(() => print('hola')),
+            card.cardEquipos(() => print('hola')),
           ],
         ),
       ),

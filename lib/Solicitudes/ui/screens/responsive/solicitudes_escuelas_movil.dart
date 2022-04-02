@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:suenomotora_app/common/widgets/cards.dart';
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
+
+import '../../widgets/card_solicitudes_escuelas.dart';
 
 class SolicitudesEscuelasMovil extends StatelessWidget {
   const SolicitudesEscuelasMovil({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Cards card = Cards();
+    CardSolicitudesEscuelas card = CardSolicitudesEscuelas();
 
     FloatingButton floButton = FloatingButton();
     return Scaffold(

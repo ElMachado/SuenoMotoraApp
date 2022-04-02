@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/Envios/model/Envio.dart';
 import 'package:suenomotora_app/Envios/ui/widgets/card_envio.dart';
-import 'package:suenomotora_app/common/widgets/cards.dart';
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
 
 class EnviosMovil extends StatelessWidget {
@@ -9,8 +8,6 @@ class EnviosMovil extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Cards card = Cards();
-
     FloatingButton floButton = FloatingButton();
     return Scaffold(
         appBar: AppBar(
