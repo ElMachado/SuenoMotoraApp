@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:suenomotora_app/common/cards.dart';
-import 'package:suenomotora_app/common/floating_button.dart';
-import 'package:suenomotora_app/common/forms_dialogs.dart';
+import 'package:suenomotora_app/Persona/Colaborador/ui/widgets/colaborador_card.dart';
+import 'package:suenomotora_app/common/widgets/floating_button.dart';
+import 'package:suenomotora_app/common/widgets/forms_dialogs.dart';
 
 class ColaboradoresTablet extends StatelessWidget {
   const ColaboradoresTablet({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Cards card = Cards();
+    CardColaborador card = const CardColaborador();
     FloatingButton floButton = FloatingButton();
 
     return Scaffold(
@@ -28,7 +28,7 @@ class ColaboradoresTablet extends StatelessWidget {
                     minHeight: 100,
                     maxWidth: 100,
                     minWidth: 100),
-                child: card.cardSencillo('Hola', 'contenido',
+                child: card.cardColaborador('Hola', 'contenido',
                     btnAction: () => print('hola')),
               ),
               ConstrainedBox(
@@ -37,7 +37,7 @@ class ColaboradoresTablet extends StatelessWidget {
                     minHeight: 100,
                     maxWidth: 100,
                     minWidth: 100),
-                child: card.cardSencillo('Hola', 'contenido',
+                child: card.cardColaborador('Hola', 'contenido',
                     btnAction: () => print('hola')),
               )
             ],

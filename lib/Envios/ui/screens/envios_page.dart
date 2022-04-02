@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:suenomotora_app/Envios/ui/screens/responsive/envio_desktop.dart';
 import 'package:suenomotora_app/Envios/ui/screens/responsive/envio_movile.dart';
 import 'package:suenomotora_app/Envios/ui/screens/responsive/envio_tablet.dart';
-import 'package:suenomotora_app/common/cards.dart';
-import 'package:suenomotora_app/common/floating_button.dart';
-import 'package:suenomotora_app/common/responsive.dart';
+import 'package:suenomotora_app/common/widgets/floating_button.dart';
+import 'package:suenomotora_app/common/responsive/responsive.dart';
 
 import 'package:suenomotora_app/common/responsive/vistaTamanoVentanaMuyPequeno.dart';
 
@@ -16,7 +15,6 @@ class EnviosPage extends StatefulWidget {
 }
 
 class _EnviosPage extends State<EnviosPage> {
-  Cards card = Cards();
   FloatingButton floButton = FloatingButton();
   @override
   Widget build(BuildContext context) {

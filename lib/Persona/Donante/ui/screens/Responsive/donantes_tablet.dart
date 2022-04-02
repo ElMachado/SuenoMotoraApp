@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:suenomotora_app/common/cards.dart';
-import 'package:suenomotora_app/common/floating_button.dart';
+import 'package:suenomotora_app/Persona/Donante/ui/widgets/donante_card.dart';
+import 'package:suenomotora_app/common/widgets/floating_button.dart';
 
 class DonantesTablet extends StatelessWidget {
   const DonantesTablet({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Cards card = Cards();
+    CardDonante card = const CardDonante();
     FloatingButton floButton = FloatingButton();
 
     return Scaffold(
@@ -24,37 +24,37 @@ class DonantesTablet extends StatelessWidget {
             ConstrainedBox(
               constraints: const BoxConstraints(
                   maxHeight: 200, minHeight: 100, maxWidth: 100, minWidth: 100),
-              child: card.cardSencillo('Hola', 'contenido',
+              child: card.cardDonante('Hola', 'contenido',
                   btnAction: () => print('hola')),
             ),
             ConstrainedBox(
               constraints: const BoxConstraints(
                   maxHeight: 200, minHeight: 100, maxWidth: 100, minWidth: 100),
-              child: card.cardSencillo('Hola', 'contenido',
+              child: card.cardDonante('Hola', 'contenido',
                   btnAction: () => print('hola')),
             ),
             ConstrainedBox(
               constraints: const BoxConstraints(
                   maxHeight: 200, minHeight: 100, maxWidth: 100, minWidth: 100),
-              child: card.cardSencillo('Hola', 'contenido',
+              child: card.cardDonante('Hola', 'contenido',
                   btnAction: () => print('hola')),
             ),
             ConstrainedBox(
               constraints: const BoxConstraints(
                   maxHeight: 200, minHeight: 100, maxWidth: 100, minWidth: 100),
-              child: card.cardSencillo('Hola', 'contenido',
+              child: card.cardDonante('Hola', 'contenido',
                   btnAction: () => print('hola')),
             ),
             ConstrainedBox(
               constraints: const BoxConstraints(
                   maxHeight: 200, minHeight: 100, maxWidth: 100, minWidth: 100),
-              child: card.cardSencillo('Hola', 'contenido',
+              child: card.cardDonante('Hola', 'contenido',
                   btnAction: () => print('hola')),
             ),
             ConstrainedBox(
               constraints: const BoxConstraints(
                   maxHeight: 200, minHeight: 100, maxWidth: 100, minWidth: 100),
-              child: card.cardSencillo('Hola', 'contenido',
+              child: card.cardDonante('Hola', 'contenido',
                   btnAction: () => print('hola')),
             )
           ],
