@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class FormsElements extends StatelessWidget {
@@ -30,6 +29,25 @@ class FormsElements extends StatelessWidget {
             icon: const Icon(Icons.account_circle),
             hintText: hintText,
             labelText: labelText),
+      ),
+    );
+  }
+
+  Widget boxImput(String hintText, String? labelText) {
+    return Container(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: TextField(
+          maxLength: 500,
+          maxLines: 8,
+          textCapitalization: TextCapitalization.sentences,
+          decoration: InputDecoration(
+              border:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
+              icon: const Icon(Icons.account_circle),
+              hintText: hintText,
+              labelText: labelText),
+        ),
       ),
     );
   }
@@ -128,6 +146,30 @@ class FormsElements extends StatelessWidget {
               elevation: 16,
               value: _dropDownValue,
               onChanged: (opt) {},
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget btnAgregarFoto() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Icon(
+            Icons.add_a_photo,
+            color: Colors.green,
+          ),
+          const SizedBox(
+            width: 10.0,
+          ),
+          Expanded(
+            child: ElevatedButton(
+              child: const Text('Agregar Foto'),
+              onPressed: () {},
             ),
           ),
         ],

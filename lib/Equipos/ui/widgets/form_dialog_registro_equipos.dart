@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/common/widgets/forms_elements.dart';
 
-class FormsDialogs extends StatefulWidget {
-  const FormsDialogs({Key? key}) : super(key: key);
+class FormDialogRegistroEquipo extends StatefulWidget {
+  const FormDialogRegistroEquipo({Key? key}) : super(key: key);
 
-  static mostrarDialogRegistroColaborador(BuildContext context) {
+  static formDialogRegistroEquipo(BuildContext context) {
     FormsElements formsElements = FormsElements();
 
     return showDialog(
@@ -18,10 +18,11 @@ class FormsDialogs extends StatefulWidget {
                 padding: const EdgeInsets.all(10.0),
                 child:
                     Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-                  formsElements.createInput('Nombre', 'nombre'),
-                  formsElements.createInput('Telefono', 'Telefono'),
-                  formsElements.createInput(
-                      'Correo electronico', 'Correo electronico'),
+                  formsElements.createInput('Procesador', 'Procesador'),
+                  formsElements.createInput('RAM', 'RAM'),
+                  formsElements.createInput('Disco Duro', 'Disco Duro'),
+                  formsElements.boxImput('Observaciones', 'observaciones'),
+                  formsElements.btnAgregarFoto(),
                   Padding(
                     padding: const EdgeInsets.all(30.0),
                     child: Row(

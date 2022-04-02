@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:suenomotora_app/Solicitudes/ui/widgets/forms_dialog_registro_solicitudes_escuelas.dart';
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
 
 import '../../widgets/card_solicitudes_escuelas.dart';
@@ -94,8 +95,9 @@ class SolicitudesEscuelasTablet extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton:
-          floButton.floatingButton(btnAction: () => print('hola')),
+      floatingActionButton: floButton.floatingButton(
+          btnAction: () => FormDialogRegistroSolicitudEscuela
+              .formDialogRegistroSolicitudEscuela(context)),
     );
   }
 }

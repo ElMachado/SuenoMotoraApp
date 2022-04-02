@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/Envios/ui/widgets/card_envio.dart';
+import 'package:suenomotora_app/Envios/ui/widgets/form_dialog_crear_registro_envio.dart';
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
 
 import '../../../model/Envio.dart';
@@ -10,6 +11,7 @@ class EnviosTablet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     FloatingButton floButton = FloatingButton();
+    FormDialogRegistroEnvio formulario = const FormDialogRegistroEnvio();
     final _size = MediaQuery.of(context).size.width;
     final double aspectRatio;
     aspectRatio =
@@ -36,8 +38,8 @@ class EnviosTablet extends StatelessWidget {
           },
         ),
       ),
-      floatingActionButton:
-          floButton.floatingButton(btnAction: () => print('hola 6')),
+      floatingActionButton: floButton.floatingButton(
+          btnAction: () => formulario.formDialogRegistroEnvio(context)),
     );
   }
 }

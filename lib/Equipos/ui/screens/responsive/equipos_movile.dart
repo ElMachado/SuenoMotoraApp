@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/Equipos/ui/widgets/card_equipos.dart';
+import 'package:suenomotora_app/Equipos/ui/widgets/form_dialog_registro_equipos.dart';
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
 
 class EquiposMovile extends StatelessWidget {
@@ -23,8 +24,9 @@ class EquiposMovile extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton:
-          floButoon.floatingButton(btnAction: () => print('hola')),
+      floatingActionButton: floButoon.floatingButton(
+          btnAction: () =>
+              FormDialogRegistroEquipo.formDialogRegistroEquipo(context)),
     );
   }
 }
