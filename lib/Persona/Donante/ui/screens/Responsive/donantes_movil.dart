@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:suenomotora_app/Persona/Donante/ui/widgets/form_dialog_registro_donante.dart';
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
 
 import '../../widgets/donante_card.dart';
@@ -9,7 +8,7 @@ class DonatesMovil extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CardDonante card = const CardDonante();
+    CardDonante card = CardDonante();
 
     FloatingButton floButton = FloatingButton();
     return Scaffold(
@@ -26,8 +25,7 @@ class DonatesMovil extends StatelessWidget {
             ],
           ),
         ),
-        floatingActionButton: floButton.floatingButton(
-            btnAction: () =>
-                FormDialogRegistroDonante.formDialogRegistroDonante(context)));
+        floatingActionButton:
+            floButton.floatingButton(btnAction: () => print('Hola')));
   }
 }
