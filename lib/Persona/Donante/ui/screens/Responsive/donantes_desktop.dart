@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/Persona/Donante/ui/widgets/donante_card.dart';
+import 'package:suenomotora_app/Persona/Donante/ui/widgets/form_dialog_registro_donante.dart';
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
 
 class DonatesDesktop extends StatelessWidget {
@@ -113,7 +114,8 @@ class DonatesDesktop extends StatelessWidget {
             ],
           ),
         ),
-        floatingActionButton:
-            floButton.floatingButton(btnAction: () => print('hola')));
+        floatingActionButton: floButton.floatingButton(
+            btnAction: () =>
+                FormDialogRegistroDonante.formDialogRegistroDonante(context)));
   }
 }

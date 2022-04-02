@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/Envios/model/Envio.dart';
 import 'package:suenomotora_app/Envios/ui/widgets/card_envio.dart';
+import 'package:suenomotora_app/Envios/ui/widgets/form_dialog_crear_registro_envio.dart';
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
 
 class EnviosMovil extends StatelessWidget {
-  const EnviosMovil({Key? key}) : super(key: key);
+  // ignore: prefer_const_constructors
+  FormDialogRegistroEnvio formulario = FormDialogRegistroEnvio();
 
+  EnviosMovil({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     FloatingButton floButton = FloatingButton();
@@ -19,8 +22,8 @@ class EnviosMovil extends StatelessWidget {
             children: [buildListEnvios()],
           ),
         ),
-        floatingActionButton:
-            floButton.floatingButton(btnAction: () => print('Hola5')));
+        floatingActionButton: floButton.floatingButton(
+            btnAction: () => formulario.formDialogRegistroEnvio(context)));
   }
 }
 

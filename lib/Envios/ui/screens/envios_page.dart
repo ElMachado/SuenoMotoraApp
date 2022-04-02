@@ -18,11 +18,11 @@ class _EnviosPage extends State<EnviosPage> {
   FloatingButton floButton = FloatingButton();
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
         body: ResponsibleLayout(
-            ventanaMuyPequena: VentanaMuyPequena(),
+            ventanaMuyPequena: const VentanaMuyPequena(),
             mobileBody: EnviosMovil(),
-            tabletBody: EnviosTablet(),
-            desktopBody: EnviosDesktop()));
+            tabletBody: const EnviosTablet(),
+            desktopBody: const EnviosDesktop()));
   }
 }
