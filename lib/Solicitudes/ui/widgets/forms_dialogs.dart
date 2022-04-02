@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/common/widgets/forms_elements.dart';
 
-class FormDialogRegistroColaborador extends StatefulWidget {
-  const FormDialogRegistroColaborador({Key? key}) : super(key: key);
+class FormsDialogs extends StatefulWidget {
+  const FormsDialogs({Key? key}) : super(key: key);
 
-  static formDialogRegistroColaborador(BuildContext context) {
+  static mostrarDialogRegistroColaborador(BuildContext context) {
     FormsElements formsElements = FormsElements();
 
     return showDialog(
