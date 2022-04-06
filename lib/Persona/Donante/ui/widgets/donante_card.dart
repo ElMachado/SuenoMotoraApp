@@ -16,7 +16,7 @@ class CardDonante extends StatelessWidget {
             ListTile(
               leading: const Icon(
                 Icons.photo_album,
-                color: Colors.blue,
+                color: Colors.green,
               ),
               title: Text(titulo, style: const TextStyle(fontSize: 20.0)),
               subtitle: Text(contenido, style: const TextStyle(fontSize: 20.0)),

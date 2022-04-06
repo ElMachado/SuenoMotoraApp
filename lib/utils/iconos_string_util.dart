@@ -11,6 +11,6 @@ final _icons = <String, IconData>{
 Icon getIcon(String nombreIcono) {
   return Icon(
     _icons[nombreIcono],
-    color: Colors.blue,
+    color: Colors.green,
   );
 }
