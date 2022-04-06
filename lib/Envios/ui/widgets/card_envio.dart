@@ -32,9 +32,9 @@ Widget cardEnvios(Envio envios) {
                     presetFontSizes: [25, 20, 15, 10],
                     maxLines: 1,
                     softWrap: true,
-                    
-                    style:
-                        TextStyle(fontSize: 20, backgroundColor: Colors.amber)),
+                    style: TextStyle(
+                      fontSize: 20,
+                    )),
               ),
               // Row(
               //   mainAxisAlignment: MainAxisAlignment.center,

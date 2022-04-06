@@ -11,6 +11,16 @@ class SuenoMotoraApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          colorScheme: ColorScheme.fromSwatch(
+            primarySwatch: Colors.green,
+            cardColor: Colors.green[50],
+            accentColor: Colors.green[400],
+            errorColor: Colors.red,
+            brightness: Brightness.light,
+            primaryColorDark: Colors.green[700],
+          ).copyWith(secondary: Colors.yellowAccent)),
       title: 'Sueñomotora App',
       initialRoute: '/',
       routes: getApplicationsRoutes(),
