@@ -126,11 +126,9 @@ class _MyHomePageState extends State<InicioMapa> {
 
   Widget MapPage() {
     return Scaffold(
-
       appBar: AppBar(
-      
         title: const Text('Map Demo'),
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.green,
         actions: [
           IconButton(
             tooltip: 'Toggle Dark Mode',
@@ -228,7 +226,7 @@ class _MyHomePageState extends State<InicioMapa> {
         onPressed: _gotoDefault,
         tooltip: 'My Location',
         child: const Icon(Icons.my_location),
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.yellowAccent,
       ),
     );
   }
