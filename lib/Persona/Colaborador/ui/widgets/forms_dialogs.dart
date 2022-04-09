@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/common/widgets/forms_elements.dart';
 
-class FormDialogRegistroDonante extends StatefulWidget {
-  const FormDialogRegistroDonante({Key? key}) : super(key: key);
+class FormsDialogs extends StatefulWidget {
+  const FormsDialogs({Key? key}) : super(key: key);
 
-  static formDialogRegistroDonante(BuildContext context) {
+  static mostrarDialogRegistroColaborador(BuildContext context) {
     FormsElements formsElements = FormsElements();
 
     return showDialog(
@@ -12,13 +12,13 @@ class FormDialogRegistroDonante extends StatefulWidget {
       barrierDismissible: true,
       builder: (context) {
         return SimpleDialog(
-            title: const Text('Registro de Doantes'),
+            title: const Text('Registro de colaboradores'),
             children: [
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child:
                     Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-                  formsElements.createInput('Nombre', 'Nombre'),
+                  formsElements.createInput('Nombre', 'nombre'),
                   formsElements.createInput('Telefono', 'Telefono'),
                   formsElements.createInput(
                       'Correo electronico', 'Correo electronico'),

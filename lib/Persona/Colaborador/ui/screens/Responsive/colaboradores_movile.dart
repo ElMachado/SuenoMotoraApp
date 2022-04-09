@@ -3,6 +3,7 @@ import 'package:suenomotora_app/Persona/Colaborador/ui/widgets/colaborador_card.
 import 'package:suenomotora_app/Persona/Colaborador/ui/widgets/form_diaglog_detalles_colaboradores.dart';
 import 'package:suenomotora_app/Persona/Colaborador/ui/widgets/form_dialog_registro_colaboradores.dart';
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
+import 'package:suenomotora_app/common/widgets/forms_dialogs.dart';
 
 class ColaboradoresMovil extends StatelessWidget {
   const ColaboradoresMovil({Key? key}) : super(key: key);
@@ -28,7 +29,6 @@ class ColaboradoresMovil extends StatelessWidget {
         ),
         floatingActionButton: floButton.floatingButton(
             btnAction: () =>
-                FormDialogRegistroColaborador.formDialogRegistroColaborador(
-                    context)));
+                FormsDialogs.mostrarDialogRegistroColaborador(context)));
   }
 }

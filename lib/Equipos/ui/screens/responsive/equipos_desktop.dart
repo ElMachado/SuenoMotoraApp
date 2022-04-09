@@ -52,9 +52,8 @@ class EquiposDesktop extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: floButton.floatingButton(
-          btnAction: () =>
-              FormDialogRegistroEquipo.formDialogRegistroEquipo(context)),
+      floatingActionButton:
+          floButton.floatingButton(btnAction: () => print('hola')),
     );
   }
 }

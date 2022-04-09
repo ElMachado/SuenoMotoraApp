@@ -16,11 +16,11 @@ class EnviosPage extends StatefulWidget {
 class _EnviosPage extends State<EnviosPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
         body: ResponsibleLayout(
-            ventanaMuyPequena: const VentanaMuyPequena(),
+            ventanaMuyPequena: VentanaMuyPequena(),
             mobileBody: EnviosMovil(),
-            tabletBody: const EnviosTablet(),
-            desktopBody: const EnviosDesktop()));
+            tabletBody: EnviosTablet(),
+            desktopBody: EnviosDesktop()));
   }
 }
