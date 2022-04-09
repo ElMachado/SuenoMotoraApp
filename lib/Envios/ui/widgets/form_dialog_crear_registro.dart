@@ -12,36 +12,49 @@ class FormDialogRegistroEnvio extends StatefulWidget {
       barrierDismissible: true,
       builder: (context) {
         return SimpleDialog(title: const Text('Registro de Envios'), children: [
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-              formsElements.createInput(
-                  'Nombre de la escuela', 'Nombre de la escuela'),
-              formsElements.createInput(
-                'Nombre responsable',
-                'nombre responsable',
-              ),
-              formsElements.createInput(
-                  'direccion de envio', 'direccion de envio'),
-              formsElements.createInput('Telefono', 'Telefono'),
-              formsElements.createInput(
-                  'Contenido de envio', 'Contenido de envio'),
-              Padding(
-                padding: const EdgeInsets.all(30.0),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          SizedBox(
+            width: 400,
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ElevatedButton(
-                        onPressed: () => Navigator.of(context).pop(),
-                        child: const Text('Cancelar')),
-                    ElevatedButton(
-                        onPressed: () => Navigator.of(context).pop(),
-                        child: const Text('Ok')),
-                  ],
-                ),
-              ),
-            ]),
+                    formsElements.createInput(
+                        'Nombre de la escuela', 'Nombre de la escuela'),
+                    formsElements.createInput(
+                      'Nombre responsable',
+                      'nombre responsable',
+                    ),
+                    formsElements.createInput(
+                        'direccion de envio', 'direccion de envio'),
+                    formsElements.createInput('Telefono', 'Telefono'),
+                    formsElements.boxImput(
+                        'Contenido de envio', 'Contenido de envio'),
+                    Padding(
+                      padding: const EdgeInsets.all(30.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ElevatedButton(
+                                onPressed: () => Navigator.of(context).pop(),
+                                child: const Text('ok')),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ElevatedButton(
+                                onPressed: () => Navigator.of(context).pop(),
+                                child: const Text('Cancelar')),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ]),
+            ),
           ),
         ]);
       },
