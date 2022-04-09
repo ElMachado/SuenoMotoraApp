@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/Persona/Donante/ui/widgets/donante_card.dart';
+import 'package:suenomotora_app/Persona/Donante/ui/widgets/form_diaglog_detalles_donantes.dart';
+import 'package:suenomotora_app/Persona/Donante/ui/widgets/form_dialog_registro_donante.dart';
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
 
 class DonatesDesktop extends StatelessWidget {
@@ -27,7 +29,9 @@ class DonatesDesktop extends StatelessWidget {
                     maxWidth: 100,
                     minWidth: 100),
                 child: card.cardDonante('Hola', 'contenido',
-                    btnAction: () => print('hola')),
+                    btnAction: () =>
+                        FormDialogDetallesDonantes.formDialogDetallesDonantes(
+                            context)),
               ),
               ConstrainedBox(
                 constraints: const BoxConstraints(
@@ -36,7 +40,9 @@ class DonatesDesktop extends StatelessWidget {
                     maxWidth: 100,
                     minWidth: 100),
                 child: card.cardDonante('Hola', 'contenido',
-                    btnAction: () => print('hola')),
+                    btnAction: () =>
+                        FormDialogDetallesDonantes.formDialogDetallesDonantes(
+                            context)),
               ),
               ConstrainedBox(
                 constraints: const BoxConstraints(
@@ -45,7 +51,9 @@ class DonatesDesktop extends StatelessWidget {
                     maxWidth: 100,
                     minWidth: 100),
                 child: card.cardDonante('Hola', 'contenido',
-                    btnAction: () => print('hola')),
+                    btnAction: () =>
+                        FormDialogDetallesDonantes.formDialogDetallesDonantes(
+                            context)),
               ),
               ConstrainedBox(
                 constraints: const BoxConstraints(
@@ -54,7 +62,9 @@ class DonatesDesktop extends StatelessWidget {
                     maxWidth: 100,
                     minWidth: 100),
                 child: card.cardDonante('Hola', 'contenido',
-                    btnAction: () => print('hola')),
+                    btnAction: () =>
+                        FormDialogDetallesDonantes.formDialogDetallesDonantes(
+                            context)),
               ),
               ConstrainedBox(
                 constraints: const BoxConstraints(
@@ -63,7 +73,9 @@ class DonatesDesktop extends StatelessWidget {
                     maxWidth: 100,
                     minWidth: 100),
                 child: card.cardDonante('Hola', 'contenido',
-                    btnAction: () => print('hola')),
+                    btnAction: () =>
+                        FormDialogDetallesDonantes.formDialogDetallesDonantes(
+                            context)),
               ),
               ConstrainedBox(
                 constraints: const BoxConstraints(
@@ -72,7 +84,9 @@ class DonatesDesktop extends StatelessWidget {
                     maxWidth: 100,
                     minWidth: 100),
                 child: card.cardDonante('Hola', 'contenido',
-                    btnAction: () => print('hola')),
+                    btnAction: () =>
+                        FormDialogDetallesDonantes.formDialogDetallesDonantes(
+                            context)),
               ),
               ConstrainedBox(
                 constraints: const BoxConstraints(
@@ -81,7 +95,9 @@ class DonatesDesktop extends StatelessWidget {
                     maxWidth: 100,
                     minWidth: 100),
                 child: card.cardDonante('Hola', 'contenido',
-                    btnAction: () => print('hola')),
+                    btnAction: () =>
+                        FormDialogDetallesDonantes.formDialogDetallesDonantes(
+                            context)),
               ),
               ConstrainedBox(
                 constraints: const BoxConstraints(
@@ -90,7 +106,9 @@ class DonatesDesktop extends StatelessWidget {
                     maxWidth: 100,
                     minWidth: 100),
                 child: card.cardDonante('Hola', 'contenido',
-                    btnAction: () => print('hola')),
+                    btnAction: () =>
+                        FormDialogDetallesDonantes.formDialogDetallesDonantes(
+                            context)),
               ),
               ConstrainedBox(
                 constraints: const BoxConstraints(
@@ -99,7 +117,9 @@ class DonatesDesktop extends StatelessWidget {
                     maxWidth: 100,
                     minWidth: 100),
                 child: card.cardDonante('Hola', 'contenido',
-                    btnAction: () => print('hola')),
+                    btnAction: () =>
+                        FormDialogDetallesDonantes.formDialogDetallesDonantes(
+                            context)),
               ),
               ConstrainedBox(
                 constraints: const BoxConstraints(
@@ -108,7 +128,9 @@ class DonatesDesktop extends StatelessWidget {
                     maxWidth: 100,
                     minWidth: 100),
                 child: card.cardDonante('Hola', 'contenido',
-                    btnAction: () => print('hola')),
+                    btnAction: () =>
+                        FormDialogDetallesDonantes.formDialogDetallesDonantes(
+                            context)),
               )
             ],
           ),

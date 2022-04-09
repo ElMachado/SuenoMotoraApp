@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/Equipos/ui/widgets/card_equipos.dart';
+import 'package:suenomotora_app/Equipos/ui/widgets/form_dialog_detalle_equipos.dart';
+import 'package:suenomotora_app/Equipos/ui/widgets/form_dialog_registro_equipos.dart';
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
 
 class EquiposTablet extends StatelessWidget {
@@ -23,12 +25,38 @@ class EquiposTablet extends StatelessWidget {
           crossAxisCount: 2,
           childAspectRatio: (450 / 560),
           children: [
-            Container(child: card.cardEquipos(() => print('hola 3'))),
-            Container(child: card.cardEquipos(() => print('hola 3'))),
-            Container(child: card.cardEquipos(() => print('hola 3'))),
-            Container(child: card.cardEquipos(() => print('hola 3'))),
-            Container(child: card.cardEquipos(() => print('hola 3'))),
-            Container(child: card.cardEquipos(() => print('hola 3'))),
+            Container(
+                child: card.cardEquipos(() =>
+                    FormDialogDetalleEquipos.formDialogDetalleEquipos(
+                        context))),
+            Container(
+                child: card.cardEquipos(() =>
+                    FormDialogDetalleEquipos.formDialogDetalleEquipos(
+                        context))),
+            Container(
+                child: card.cardEquipos(() =>
+                    FormDialogDetalleEquipos.formDialogDetalleEquipos(
+                        context))),
+            Container(
+                child: card.cardEquipos(() =>
+                    FormDialogDetalleEquipos.formDialogDetalleEquipos(
+                        context))),
+            Container(
+                child: card.cardEquipos(() =>
+                    FormDialogDetalleEquipos.formDialogDetalleEquipos(
+                        context))),
+            Container(
+                child: card.cardEquipos(() =>
+                    FormDialogDetalleEquipos.formDialogDetalleEquipos(
+                        context))),
+            Container(
+                child: card.cardEquipos(() =>
+                    FormDialogDetalleEquipos.formDialogDetalleEquipos(
+                        context))),
+            Container(
+                child: card.cardEquipos(() =>
+                    FormDialogDetalleEquipos.formDialogDetalleEquipos(
+                        context))),
           ],
         ),
       ),

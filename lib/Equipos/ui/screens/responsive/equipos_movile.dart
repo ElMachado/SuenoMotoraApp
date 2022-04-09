@@ -2,6 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/Equipos/ui/widgets/card_equipos.dart';
+import 'package:suenomotora_app/Equipos/ui/widgets/form_dialog_detalle_equipos.dart';
+import 'package:suenomotora_app/Equipos/ui/widgets/form_dialog_registro_equipos.dart';
+
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
 
 class EquiposMovile extends StatelessWidget {
@@ -19,7 +22,8 @@ class EquiposMovile extends StatelessWidget {
         padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
         child: ListView(
           children: [
-            card.cardEquipos(() => print('hola')),
+            card.cardEquipos(() =>
+                FormDialogDetalleEquipos.formDialogDetalleEquipos(context)),
           ],
         ),
       ),

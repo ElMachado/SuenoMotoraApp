@@ -19,7 +19,7 @@ class _ColaboradoresState extends State<Colaboradores> {
     return const Scaffold(
       body: ResponsibleLayout(
           ventanaMuyPequena: VentanaMuyPequena(),
-          mobileBody:  ColaboradoresMovil(),
+          mobileBody: ColaboradoresMovil(),
           tabletBody: ColaboradoresTablet(),
           desktopBody: ColaboradoresDesktop()),
     );
