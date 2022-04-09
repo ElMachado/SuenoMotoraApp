@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/Envios/model/Envio.dart';
 import 'package:suenomotora_app/Envios/ui/widgets/card_envio.dart';
-import 'package:suenomotora_app/Envios/ui/widgets/form_dialog_crear_registro_envio.dart';
 import 'package:suenomotora_app/Envios/ui/widgets/form_dialog_detalle_envios.dart';
 
+import '../../../../common/widgets/floating_button.dart';
+import '../../widgets/form_dialog_crear_registro.dart';
 
 class EnviosDesktop extends StatelessWidget {
   const EnviosDesktop({Key? key}) : super(key: key);
@@ -49,9 +50,6 @@ class EnviosDesktop extends StatelessWidget {
     ];
 
     FloatingButton floButton = FloatingButton();
-
-    FormDialogRegistroEnvio formulario = const FormDialogRegistroEnvio();
-
 
     final _size = MediaQuery.of(context).size.width;
     double aspectRatio = 10.0;
