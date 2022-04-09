@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/Persona/Colaborador/ui/widgets/colaborador_card.dart';
+import 'package:suenomotora_app/Persona/Colaborador/ui/widgets/form_diaglog_detalles_colaboradores.dart';
 import 'package:suenomotora_app/Persona/Colaborador/ui/widgets/form_dialog_registro_colaboradores.dart';
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
 
@@ -20,7 +21,8 @@ class ColaboradoresMovil extends StatelessWidget {
             children: [
               card.cardColaborador(
                   'Jesús Arroyo', 'ing de sistemas- tel 3105124359',
-                  btnAction: () => print('hola')),
+                  btnAction: () => FormDialogDetallesColaborador
+                      .formDialogDetallesColaborador(context)),
             ],
           ),
         ),

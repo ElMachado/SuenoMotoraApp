@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:suenomotora_app/Solicitudes/ui/widgets/forms_dialog_detalle_solicitudes_escuelas.dart';
 import 'package:suenomotora_app/Solicitudes/ui/widgets/forms_dialog_registro_solicitudes_escuelas.dart';
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
 
@@ -41,56 +42,64 @@ class SolicitudesEscuelasTablet extends StatelessWidget {
                   maxHeight: 200, minHeight: 100, maxWidth: 100, minWidth: 100),
               child: card.cardSolicitudesEscuelas(
                   'Hola', 'contenido', 'contenido 2', 'contenido 3',
-                  btnAction: () => print('hola')),
+                  btnAction: () => FormDialogDetalleSolicitudEscuela
+                      .formDialogDetalleSolicitudEscuela(context)),
             ),
             ConstrainedBox(
               constraints: const BoxConstraints(
                   maxHeight: 200, minHeight: 100, maxWidth: 100, minWidth: 100),
               child: card.cardSolicitudesEscuelas(
                   'Hola', 'contenido', 'contenido 2', 'contenido 3',
-                  btnAction: () => print('hola')),
+                  btnAction: () => FormDialogDetalleSolicitudEscuela
+                      .formDialogDetalleSolicitudEscuela(context)),
             ),
             ConstrainedBox(
               constraints: const BoxConstraints(
                   maxHeight: 200, minHeight: 100, maxWidth: 100, minWidth: 100),
               child: card.cardSolicitudesEscuelas(
                   'Hola', 'contenido', 'contenido 2', 'contenido 3',
-                  btnAction: () => print('hola')),
+                  btnAction: () => FormDialogDetalleSolicitudEscuela
+                      .formDialogDetalleSolicitudEscuela(context)),
             ),
             ConstrainedBox(
               constraints: const BoxConstraints(
                   maxHeight: 200, minHeight: 100, maxWidth: 100, minWidth: 100),
               child: card.cardSolicitudesEscuelas(
                   'Hola', 'contenido', 'contenido 2', 'contenido 3',
-                  btnAction: () => print('hola')),
+                  btnAction: () => FormDialogDetalleSolicitudEscuela
+                      .formDialogDetalleSolicitudEscuela(context)),
             ),
             ConstrainedBox(
               constraints: const BoxConstraints(
                   maxHeight: 200, minHeight: 100, maxWidth: 100, minWidth: 100),
               child: card.cardSolicitudesEscuelas(
                   'Hola', 'contenido', 'contenido 2', 'contenido 3',
-                  btnAction: () => print('hola')),
+                  btnAction: () => FormDialogDetalleSolicitudEscuela
+                      .formDialogDetalleSolicitudEscuela(context)),
             ),
             ConstrainedBox(
               constraints: const BoxConstraints(
                   maxHeight: 200, minHeight: 100, maxWidth: 100, minWidth: 100),
               child: card.cardSolicitudesEscuelas(
                   'Hola', 'contenido', 'contenido 2', 'contenido 3',
-                  btnAction: () => print('hola')),
+                  btnAction: () => FormDialogDetalleSolicitudEscuela
+                      .formDialogDetalleSolicitudEscuela(context)),
             ),
             ConstrainedBox(
               constraints: const BoxConstraints(
                   maxHeight: 200, minHeight: 100, maxWidth: 100, minWidth: 100),
               child: card.cardSolicitudesEscuelas(
                   'Hola', 'contenido', 'contenido 2', 'contenido 3',
-                  btnAction: () => print('hola')),
+                  btnAction: () => FormDialogDetalleSolicitudEscuela
+                      .formDialogDetalleSolicitudEscuela(context)),
             ),
             ConstrainedBox(
               constraints: const BoxConstraints(
                   maxHeight: 200, minHeight: 100, maxWidth: 100, minWidth: 100),
               child: card.cardSolicitudesEscuelas(
                   'Hola', 'contenido', 'contenido 2', 'contenido 3',
-                  btnAction: () => print('hola')),
+                  btnAction: () => FormDialogDetalleSolicitudEscuela
+                      .formDialogDetalleSolicitudEscuela(context)),
             ),
           ],
         ),

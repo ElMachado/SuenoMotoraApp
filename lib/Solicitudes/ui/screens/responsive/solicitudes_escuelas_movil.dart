@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:suenomotora_app/Solicitudes/ui/widgets/forms_dialog_detalle_solicitudes_escuelas.dart';
 import 'package:suenomotora_app/Solicitudes/ui/widgets/forms_dialog_registro_solicitudes_escuelas.dart';
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
 
@@ -23,7 +24,8 @@ class SolicitudesEscuelasMovil extends StatelessWidget {
           children: [
             card.cardSolicitudesEscuelas('Jesús Arroyo',
                 'ing de sistemas- tel 3105124359', 'texto 3', 'texto 4',
-                btnAction: () => print('hola')),
+                btnAction: () => FormDialogDetalleSolicitudEscuela
+                    .formDialogDetalleSolicitudEscuela(context)),
           ],
         ),
       ),

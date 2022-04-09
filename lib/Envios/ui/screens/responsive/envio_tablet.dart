@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/Envios/ui/widgets/card_envio.dart';
 import 'package:suenomotora_app/Envios/ui/widgets/form_dialog_crear_registro_envio.dart';
+import 'package:suenomotora_app/Envios/ui/widgets/form_dialog_detalle_envios.dart';
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
 
 import '../../../model/Envio.dart';
@@ -10,6 +11,43 @@ class EnviosTablet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Envio> _envios = [
+      Envio(
+          'Institución educativa técnico industrial nueva esperanza',
+          'Jesus david  Arroyo Machado ',
+          'calle 32#14-38 vereda la esperanza',
+          '3105124349 - 3105124349',
+          '5 libros 3 computadores 4 bicicletas',
+          () => const FormDialogDetalleEnvio().formDialogDetalleEnvio(context)),
+      Envio(
+          'Institución educativa técnico industrial nueva esperanza',
+          'Jesus david  Arroyo Machado ',
+          'calle 32#14-38 vereda la esperanza',
+          '3105124349 - 3105124349',
+          '5 libros 3 computadores 4 bicicletas',
+          () => const FormDialogDetalleEnvio().formDialogDetalleEnvio(context)),
+      Envio(
+          'Institución educativa técnico industrial nueva esperanza',
+          'Jesus david  Arroyo Machado ',
+          'calle 32#14-38 vereda la esperanza',
+          '3105124349 - 3105124349',
+          '5 libros 3 computadores 4 bicicletas',
+          () => const FormDialogDetalleEnvio().formDialogDetalleEnvio(context)),
+      Envio(
+          'Institución educativa técnico industrial nueva esperanza',
+          'Jesus david  Arroyo Machado ',
+          'calle 32#14-38 vereda la esperanza',
+          '3105124349 - 3105124349',
+          '5 libros 3 computadores 4 bicicletas',
+          () => const FormDialogDetalleEnvio().formDialogDetalleEnvio(context)),
+      Envio(
+          'Institución educativa técnico industrial nueva esperanza',
+          'Jesus david  Arroyo Machado ',
+          'calle 32#14-38 vereda la esperanza',
+          '3105124349 - 3105124349',
+          '5 libros 3 computadores 4 bicicletas',
+          () => const FormDialogDetalleEnvio().formDialogDetalleEnvio(context)),
+    ];
     FloatingButton floButton = FloatingButton();
     FormDialogRegistroEnvio formulario = const FormDialogRegistroEnvio();
     final _size = MediaQuery.of(context).size.width;
@@ -43,41 +81,3 @@ class EnviosTablet extends StatelessWidget {
     );
   }
 }
-
-List<Envio> _envios = [
-  Envio(
-      'Institución educativa técnico industrial nueva esperanza',
-      'Jesus david  Arroyo Machado ',
-      'calle 32#14-38 vereda la esperanza',
-      '3105124349 - 3105124349',
-      '5 libros 3 computadores 4 bicicletas',
-      () => print('hola')),
-  Envio(
-      'Institución educativa técnico industrial nueva esperanza',
-      'Jesus david  Arroyo Machado ',
-      'calle 32#14-38 vereda la esperanza',
-      '3105124349 - 3105124349',
-      '5 libros 3 computadores 4 bicicletas',
-      () => print('hola')),
-  Envio(
-      'Institución educativa técnico industrial nueva esperanza',
-      'Jesus david  Arroyo Machado ',
-      'calle 32#14-38 vereda la esperanza',
-      '3105124349 - 3105124349',
-      '5 libros 3 computadores 4 bicicletas',
-      () => print('hola')),
-  Envio(
-      'Institución educativa técnico industrial nueva esperanza',
-      'Jesus david  Arroyo Machado ',
-      'calle 32#14-38 vereda la esperanza',
-      '3105124349 - 3105124349',
-      '5 libros 3 computadores 4 bicicletas',
-      () => print('hola')),
-  Envio(
-      'Institución educativa técnico industrial nueva esperanza',
-      'Jesus david  Arroyo Machado ',
-      'calle 32#14-38 vereda la esperanza',
-      '3105124349 - 3105124349',
-      '5 libros 3 computadores 4 bicicletas',
-      () => print('hola')),
-];
