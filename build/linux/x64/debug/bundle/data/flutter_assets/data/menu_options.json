@@ -1,0 +1,30 @@
+{
+  "nombreApp": "Sueñomotora App",
+  "rutas": [
+    {
+      "ruta": "colaboradores",
+      "icon": "badge_outlined",
+      "texto": "Colaboradores"
+    },
+    {
+      "ruta": "donantes",
+      "icon": "account_circle",
+      "texto": "Donantes"
+    },
+    {
+      "ruta": "equipos",
+      "icon": "devices_outlined",
+      "texto": "Equipos"
+    },
+    {
+      "ruta": "solicitudesEscuela",
+      "icon": "backpack_outlined",
+      "texto": "Solicitudes de escuelas"
+    },
+    {
+      "ruta": "envios",
+      "icon": "send_outlined",
+      "texto": "Envios"
+    }
+  ]
+}
