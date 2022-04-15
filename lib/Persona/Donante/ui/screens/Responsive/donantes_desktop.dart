@@ -3,6 +3,8 @@ import 'package:suenomotora_app/Persona/Donante/ui/widgets/donante_card.dart';
 import 'package:suenomotora_app/Persona/Donante/ui/widgets/form_diaglog_detalles_donantes.dart';
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
 
+import '../../widgets/form_dialog_registro_donante.dart';
+
 class DonatesDesktop extends StatelessWidget {
   const DonatesDesktop({Key? key}) : super(key: key);
 
@@ -134,7 +136,9 @@ class DonatesDesktop extends StatelessWidget {
             ],
           ),
         ),
-        floatingActionButton:
-            floButton.floatingButton(btnAction: () => print('hola')));
+        floatingActionButton: floButton.floatingButton(
+            btnAction: () =>
+                FormDialogRegistroColaborador.formDialogRegistroColaborador(
+                    context)));
   }
 }

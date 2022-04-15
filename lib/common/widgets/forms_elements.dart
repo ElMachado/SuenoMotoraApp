@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class FormsElements extends StatelessWidget {
@@ -77,18 +78,57 @@ class FormsElements extends StatelessWidget {
   }
 
   Widget btnsAceptarCancelar(context) {
-    return Padding(
-      padding: const EdgeInsets.all(30.0),
+    return SizedBox(
+      height: 50,
+      width: 300,
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisSize: MainAxisSize.min,
         children: [
-          ElevatedButton(
-              onPressed: () => Navigator.of(context).pop(),
-              child: const Text('Cancelar')),
-          ElevatedButton(
-              onPressed: () => Navigator.of(context).pop(),
-              child: const Text('Ok')),
+          SizedBox(
+            width: 90,
+            child: ElevatedButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: const Text('Cancelar')),
+          ),
+          SizedBox(
+            width: 90,
+            child: ElevatedButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: const Text('Aceptar')),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget btnsformDetalles(context) {
+    return SizedBox(
+      height: 100,
+      width: 400,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SizedBox(
+            width: 100,
+            child: ElevatedButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: const AutoSizeText('Actualizar')),
+          ),
+          SizedBox(
+              width: 100,
+              child: ElevatedButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: const AutoSizeText('Eliminar'))),
+          SizedBox(
+            width: 100,
+            child: ElevatedButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: const Text('Aceptar')),
+          ),
         ],
       ),
     );
