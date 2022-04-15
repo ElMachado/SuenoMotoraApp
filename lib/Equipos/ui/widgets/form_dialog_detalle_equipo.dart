@@ -23,33 +23,7 @@ class FormDialogDetalleEquipos extends StatefulWidget {
                   formsElements.createInput('Disco Duro', 'Disco Duro'),
                   formsElements.boxImput('Observaciones', 'observaciones'),
                   formsElements.btnAgregarFoto(),
-                  Padding(
-                    padding: const EdgeInsets.all(30.0),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: ElevatedButton(
-                              onPressed: () => Navigator.of(context).pop(),
-                              child: const Text('Actualizar')),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: ElevatedButton(
-                              onPressed: () => Navigator.of(context).pop(),
-                              child: const Text('Eliminar')),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: ElevatedButton(
-                              onPressed: () => Navigator.of(context).pop(),
-                              child: const Text('Cancelar')),
-                        ),
-                      ],
-                    ),
-                  ),
+                  formsElements.btnsformDetalles(context)
                 ]),
               ),
             ]);

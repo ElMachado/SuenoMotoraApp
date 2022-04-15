@@ -127,7 +127,13 @@ class _MyHomePageState extends State<InicioMapa> {
   Widget MapPage() {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Map Demo'),
+        
+        title: const Text('La Sueñomotora'),
+        titleTextStyle: const TextStyle(
+          color: Colors.white,
+          decorationColor: Colors.yellowAccent,
+          fontSize: 20,
+        ),
         backgroundColor: Colors.green,
         actions: [
           IconButton(

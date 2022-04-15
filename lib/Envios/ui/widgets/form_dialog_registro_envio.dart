@@ -17,7 +17,7 @@ class FormDialogRegistroEnvio extends StatefulWidget {
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -32,27 +32,7 @@ class FormDialogRegistroEnvio extends StatefulWidget {
                     formsElements.createInput('Telefono', 'Telefono'),
                     formsElements.boxImput(
                         'Contenido de envio', 'Contenido de envio'),
-                    Padding(
-                      padding: const EdgeInsets.all(30.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: ElevatedButton(
-                                onPressed: () => Navigator.of(context).pop(),
-                                child: const Text('ok')),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: ElevatedButton(
-                                onPressed: () => Navigator.of(context).pop(),
-                                child: const Text('Cancelar')),
-                          ),
-                        ],
-                      ),
-                    ),
+                    formsElements.btnsAceptarCancelar(context)
                   ]),
             ),
           ),
