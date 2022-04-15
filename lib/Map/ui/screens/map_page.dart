@@ -105,7 +105,16 @@ class _MyHomePageState extends State<InicioMapa> {
 
   List<Widget> _listaItems(List<dynamic>? data, BuildContext context) {
     final List<Widget> opciones = [];
-
+    opciones.add(
+      Container(
+        constraints: const BoxConstraints.expand(height: 170),
+        child: Image(
+          image: Image.asset('assets/locomotora foto.jpg').image,
+          fit: BoxFit.cover,
+          repeat: ImageRepeat.repeat,
+        ),
+      ),
+    );
     data?.forEach((opt) {
       final widgetTemp = ListTile(
         title: Text(opt['texto']),
@@ -127,7 +136,6 @@ class _MyHomePageState extends State<InicioMapa> {
   Widget MapPage() {
     return Scaffold(
       appBar: AppBar(
-        
         title: const Text('La Sueñomotora'),
         titleTextStyle: const TextStyle(
           color: Colors.white,
@@ -147,7 +155,9 @@ class _MyHomePageState extends State<InicioMapa> {
           ),
         ],
       ),
-      drawer: Drawer(child: _lista()),
+      drawer: Drawer(
+        child: _lista(),
+      ),
       body: MapLayoutBuilder(
         controller: controller,
         builder: (context, transformer) {
