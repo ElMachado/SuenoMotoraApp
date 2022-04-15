@@ -22,14 +22,14 @@ Widget cardEnvios(Envio envios) {
             autoSizeText('Numero de telefono: ${envios.numeroTelefono}'),
             autoSizeText('Contenido de envio: ${envios.contenidoEnvio}'),
             Container(
-              padding: const EdgeInsets.only(bottom: 30, top: 30),
+              padding: const EdgeInsets.only(bottom: 10, top: 10),
               alignment: Alignment.center,
               child: TextButton(
                 onPressed: () {
                   envios.btnAction();
                 },
                 child: const AutoSizeText('Detalles',
-                    presetFontSizes: [25, 20, 15, 10],
+                    presetFontSizes: [25, 20, 15, 10, 5],
                     maxLines: 1,
                     softWrap: true,
                     style: TextStyle(
