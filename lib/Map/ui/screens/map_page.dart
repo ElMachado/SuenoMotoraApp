@@ -5,11 +5,13 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:latlng/latlng.dart';
 import 'package:map/map.dart';
+import 'package:suenomotora_app/Map/ui/widgets/form_dialog_Detalles_ubicaci%C3%B3n.dart';
 import 'package:suenomotora_app/common/responsive/responsive.dart';
 import 'package:suenomotora_app/common/responsive/vistaTamanoVentanaMuyPequeno.dart';
 
 import '../../../providers/menu_provider.dart';
 import '../../../utils/iconos_string_util.dart';
+import '../widgets/form_dialog_Registro_ubicación.dart';
 
 class InicioMapa extends StatefulWidget {
   const InicioMapa({Key? key}) : super(key: key);
@@ -24,114 +26,16 @@ class _MyHomePageState extends State<InicioMapa> {
     location: LatLng(6.242477869248373, -75.58934683509771),
   );
 
-  bool _darkMode = false;
-
   final markers = [
+    LatLng(6.242477869248373, -75.58934683509771),
     LatLng(6.317058123907131, -76.13411297091587),
     LatLng(6.11473997073584, -75.98395899542803),
     LatLng(2.421707162646001, -72.60201637355534)
   ];
 
-  void _gotoDefault() {
-    controller.center = LatLng(6.242477869248373, -75.58934683509771);
-    setState(() {});
-  }
-
-  void _onDoubleTap() {
-    controller.zoom += 0.5;
-    setState(() {});
-  }
-
+  bool _darkMode = false;
   Offset? _dragStart;
   double _scaleStart = 1.0;
-  void _onScaleStart(ScaleStartDetails details) {
-    _dragStart = details.focalPoint;
-    _scaleStart = 1.0;
-  }
-
-  void _onScaleUpdate(ScaleUpdateDetails details) {
-    final scaleDiff = details.scale - _scaleStart;
-    _scaleStart = details.scale;
-
-    if (scaleDiff > 16) {
-      controller.zoom += 0.02;
-      setState(() {});
-    } else if (scaleDiff < 0) {
-      controller.zoom -= 0.02;
-      setState(() {});
-    } else {
-      final now = details.focalPoint;
-      final diff = now - _dragStart!;
-      _dragStart = now;
-      controller.drag(diff.dx, diff.dy);
-      setState(() {});
-    }
-  }
-
-  Widget _buildMarkerWidget(Offset pos, Color color) {
-    return Positioned(
-      left: pos.dx - 16,
-      top: pos.dy - 16,
-      width: 24,
-      height: 24,
-      child: Icon(Icons.location_on, color: color),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: ResponsibleLayout(
-        ventanaMuyPequena: const VentanaMuyPequena(),
-        desktopBody: MapPage(),
-        mobileBody: MapPage(),
-        tabletBody: MapPage(),
-      ),
-    );
-  }
-
-  Widget _lista() {
-    return FutureBuilder(
-      future: menuProvider.cargarData(),
-      //initialData: [],
-      builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
-        //print(snapshot.data);
-        return ListView(
-          children: _listaItems(snapshot.data, context),
-        );
-      },
-    );
-  }
-
-  List<Widget> _listaItems(List<dynamic>? data, BuildContext context) {
-    final List<Widget> opciones = [];
-    opciones.add(
-      Container(
-        constraints: const BoxConstraints.expand(height: 170),
-        child: Image(
-          image: Image.asset('assets/locomotora foto.jpg').image,
-          fit: BoxFit.cover,
-          repeat: ImageRepeat.repeat,
-        ),
-      ),
-    );
-    data?.forEach((opt) {
-      final widgetTemp = ListTile(
-        title: Text(opt['texto']),
-        leading: getIcon(opt['icon']),
-        trailing: getIcon('arrow_right'),
-        onTap: () {
-          Navigator.pushNamed(context, opt['ruta']);
-        },
-      );
-
-      opciones
-        ..add(widgetTemp)
-        ..add(const Divider());
-    });
-
-    return opciones;
-  }
 
   Widget MapPage() {
     return Scaffold(
@@ -186,6 +90,7 @@ class _MyHomePageState extends State<InicioMapa> {
             onDoubleTap: _onDoubleTap,
             onScaleStart: _onScaleStart,
             onScaleUpdate: _onScaleUpdate,
+            onLongPressEnd: _onLongPress(),
             onTapUp: (details) {
               final location =
                   transformer.fromXYCoordsToLatLng(details.localPosition);
@@ -240,9 +145,123 @@ class _MyHomePageState extends State<InicioMapa> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _gotoDefault,
-        tooltip: 'My Location',
+        tooltip: 'Mi ubicación',
         child: const Icon(Icons.my_location),
         backgroundColor: Colors.yellowAccent,
+      ),
+    );
+  }
+
+  void _gotoDefault() {
+    controller.center = LatLng(6.242477869248373, -75.58934683509771);
+    setState(() {});
+  }
+
+  void _onDoubleTap() {
+    controller.zoom += 0.5;
+    setState(() {});
+  }
+
+  void _onpinout(DragDownDetails details) {
+    controller.zoom += 0.5;
+    setState(() {});
+  }
+
+  void Function(dynamic) _onLongPress() {
+    return (longPressDetails) {
+      FormDialogRegistroUbicacion.formDialogRegistroUbicacion(context);
+      setState(() {});
+    };
+  }
+
+  void _onScaleStart(ScaleStartDetails details) {
+    _dragStart = details.focalPoint;
+    _scaleStart = 1.0;
+  }
+
+  void _onScaleUpdate(ScaleUpdateDetails details) {
+    final scaleDiff = details.scale - _scaleStart;
+    _scaleStart = details.scale;
+
+    if (scaleDiff > 16) {
+      controller.zoom += 0.02;
+      setState(() {});
+    } else if (scaleDiff < 0) {
+      controller.zoom -= 0.02;
+      setState(() {});
+    } else {
+      final now = details.focalPoint;
+      final diff = now - _dragStart!;
+      _dragStart = now;
+      controller.drag(diff.dx, diff.dy);
+      setState(() {});
+    }
+  }
+
+  Widget _buildMarkerWidget(Offset pos, Color color) {
+    return Positioned(
+      left: pos.dx - 16,
+      top: pos.dy - 16,
+      width: 24,
+      height: 24,
+      child: IconButton(
+        onPressed: () =>
+            FormDialogDetallesUbicacion.formDialogDetallesUbicacion(context),
+        icon: Icon(Icons.location_on, color: color, size: 24),
+      ),
+    );
+  }
+
+  Widget _lista() {
+    return FutureBuilder(
+      future: menuProvider.cargarData(),
+      //initialData: [],
+      builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
+        //print(snapshot.data);
+        return ListView(
+          children: _listaItems(snapshot.data, context),
+        );
+      },
+    );
+  }
+
+  List<Widget> _listaItems(List<dynamic>? data, BuildContext context) {
+    final List<Widget> opciones = [];
+    opciones.add(
+      Container(
+        constraints: const BoxConstraints.expand(height: 170),
+        child: Image(
+          image: Image.asset('assets/locomotora foto.jpg').image,
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+    data?.forEach((opt) {
+      final widgetTemp = ListTile(
+        title: Text(opt['texto']),
+        leading: getIcon(opt['icon']),
+        trailing: getIcon('arrow_right'),
+        onTap: () {
+          Navigator.pushNamed(context, opt['ruta']);
+        },
+      );
+
+      opciones
+        ..add(widgetTemp)
+        ..add(const Divider());
+    });
+
+    return opciones;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ResponsibleLayout(
+        ventanaMuyPequena: const VentanaMuyPequena(),
+        desktopBody: MapPage(),
+        mobileBody: MapPage(),
+        tabletBody: MapPage(),
       ),
     );
   }

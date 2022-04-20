@@ -38,6 +38,7 @@ dependencies:
   map: ^1.0.0
   auto_size_text: ^3.0.0
   flutter_native_splash: ^2.1.2+1
+  swipe_image_gallery: ^0.5.1
 
 flutter_native_splash:
   color: "#ffffff"
