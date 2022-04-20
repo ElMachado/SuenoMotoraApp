@@ -10,6 +10,7 @@ import 'package:suenomotora_app/common/responsive/vistaTamanoVentanaMuyPequeno.d
 
 import '../../../providers/menu_provider.dart';
 import '../../../utils/iconos_string_util.dart';
+import '../widgets/form_dialog_Detalles_ubicación.dart';
 import '../widgets/form_dialog_Registro_ubicación.dart';
 
 class InicioMapa extends StatefulWidget {
@@ -66,7 +67,11 @@ class _MyHomePageState extends State<InicioMapa> {
       top: pos.dy - 16,
       width: 24,
       height: 24,
-      child: Icon(Icons.location_on, color: color),
+      child: IconButton(
+        onPressed: () =>
+            FormDialogDetallesUbicacion.formDialogDetallesUbicacion(context),
+        icon: Icon(Icons.location_on, color: color, size: 24),
+      ),
     );
   }
 
