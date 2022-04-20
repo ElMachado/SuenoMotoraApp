@@ -37,6 +37,95 @@ class _MyHomePageState extends State<InicioMapa> {
   Offset? _dragStart;
   double _scaleStart = 1.0;
 
+  void _onScaleStart(ScaleStartDetails details) {
+    _dragStart = details.focalPoint;
+    _scaleStart = 1.0;
+  }
+
+  void _onScaleUpdate(ScaleUpdateDetails details) {
+    final scaleDiff = details.scale - _scaleStart;
+    _scaleStart = details.scale;
+
+    if (scaleDiff > 16) {
+      controller.zoom += 0.02;
+      setState(() {});
+    } else if (scaleDiff < 0) {
+      controller.zoom -= 0.02;
+      setState(() {});
+    } else {
+      final now = details.focalPoint;
+      final diff = now - _dragStart!;
+      _dragStart = now;
+      controller.drag(diff.dx, diff.dy);
+      setState(() {});
+    }
+  }
+
+  Widget _buildMarkerWidget(Offset pos, Color color) {
+    return Positioned(
+      left: pos.dx - 16,
+      top: pos.dy - 16,
+      width: 24,
+      height: 24,
+      child: Icon(Icons.location_on, color: color),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ResponsibleLayout(
+        ventanaMuyPequena: const VentanaMuyPequena(),
+        desktopBody: MapPage(),
+        mobileBody: MapPage(),
+        tabletBody: MapPage(),
+      ),
+    );
+  }
+
+  Widget _lista() {
+    return FutureBuilder(
+      future: menuProvider.cargarData(),
+      //initialData: [],
+      builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
+        //print(snapshot.data);
+        return ListView(
+          children: _listaItems(snapshot.data, context),
+        );
+      },
+    );
+  }
+
+  List<Widget> _listaItems(List<dynamic>? data, BuildContext context) {
+    final List<Widget> opciones = [];
+    opciones.add(
+      Container(
+        constraints: const BoxConstraints.expand(height: 170),
+        child: Image(
+          image: Image.asset('assets/locomotora foto.jpg').image,
+          fit: BoxFit.cover,
+          repeat: ImageRepeat.repeat,
+        ),
+      ),
+    );
+    data?.forEach((opt) {
+      final widgetTemp = ListTile(
+        title: Text(opt['texto']),
+        leading: getIcon(opt['icon']),
+        trailing: getIcon('arrow_right'),
+        onTap: () {
+          Navigator.pushNamed(context, opt['ruta']);
+        },
+      );
+
+      opciones
+        ..add(widgetTemp)
+        ..add(const Divider());
+    });
+
+    return opciones;
+  }
+
   Widget MapPage() {
     return Scaffold(
       appBar: AppBar(
