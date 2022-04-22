@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:suenomotora_app/Envios/model/Envio.dart';
 import 'package:suenomotora_app/Envios/ui/widgets/card_envio.dart';
 import 'package:suenomotora_app/Envios/ui/widgets/form_dialog_detalle_envios.dart';
+import 'package:suenomotora_app/Envios/ui/widgets/form_dialog_registro_envio.dart';
 
 import '../../../../common/widgets/floating_button.dart';
 
@@ -63,7 +64,8 @@ class EnviosMovil extends StatelessWidget {
             children: [buildListEnvios()],
           ),
         ),
-        floatingActionButton:
-            floButton.floatingButton(btnAction: () => print('Hola5')));
+        floatingActionButton: floButton.floatingButton(
+            btnAction: () =>
+                FormDialogRegistroEnvio.mostrarDialogRegistroEnvio(context)));
   }
 }

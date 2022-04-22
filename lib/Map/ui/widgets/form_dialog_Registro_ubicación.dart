@@ -16,14 +16,25 @@ class FormDialogRegistroUbicacion extends StatefulWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.all(10.0),
-                child:
-                    Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-                  formsElements.createInput('Nombre', 'nombre'),
-                  formsElements.createInput('Telefono', 'Telefono'),
-                  formsElements.createInput(
-                      'Correo electronico', 'Correo electronico'),
-                  formsElements.btnsAceptarCancelar(context),
-                ]),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text('Líder:', style: TextStyle(fontSize: 20)),
+                      formsElements.createInput(
+                          'Nombre del Líder', 'Nombre del Líder'),
+                      const Text('Donante:', style: TextStyle(fontSize: 20)),
+                      formsElements.createInput(
+                          'Nombre del Donante', 'Nombre del Donante'),
+                      const Text('Últimos envíos',
+                          style: TextStyle(fontSize: 20)),
+                      formsElements.boxImput(
+                          'Contenido de los envíos', 'Contenido de los envíos'),
+                      const Text('Agregar fotos ',
+                          style: TextStyle(fontSize: 20)),
+                      formsElements.btnAgregarFoto(),
+                      formsElements.btnsAceptarCancelar(context)
+                    ]),
               ),
             ]);
       },

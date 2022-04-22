@@ -22,7 +22,6 @@ class FormDialogDetalleEquipos extends StatefulWidget {
                   formsElements.createInput('RAM', 'RAM'),
                   formsElements.createInput('Disco Duro', 'Disco Duro'),
                   formsElements.boxImput('Observaciones', 'observaciones'),
-                  formsElements.btnAgregarFoto(),
                   formsElements.btnsformDetalles(context)
                 ]),
               ),

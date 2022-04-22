@@ -33,9 +33,8 @@ class FormDialogDetallesUbicacion extends StatefulWidget {
       useSafeArea: true,
       builder: (context) {
         return SizedBox(
-          width: 800,
+          width: 1000,
           child: SimpleDialog(
-              insetPadding: const EdgeInsets.all(111),
               title: const Text('Detalles de Ubicación',
                   textAlign: TextAlign.center),
               children: [
@@ -75,7 +74,7 @@ class FormDialogDetallesUbicacion extends StatefulWidget {
                             child: const Hero(
                               tag: 'imageId1',
                               child: Image(
-                                image: AssetImage('assets/locomotora foto.jpg'),
+                                image: AssetImage('assets/logosuenomotora.png'),
                               ),
                             ),
                           ),
