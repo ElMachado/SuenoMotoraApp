@@ -4,6 +4,15 @@ import 'package:suenomotora_app/common/widgets/forms_elements.dart';
 
 class FormDialogDetallesDonantes extends StatefulWidget {
   const FormDialogDetallesDonantes({Key? key}) : super(key: key);
+  static responsiveButtons(context) {
+    FormsElements formsElements = FormsElements();
+
+    if (MediaQuery.of(context).size.width <= 600) {
+      return formsElements.btnsDetallesMovil(context);
+    } else {
+      return formsElements.btnsDetallesDesktopTablet(context);
+    }
+  }
 
   static formDialogDetallesDonantes(BuildContext context) {
     FormsElements formsElements = FormsElements();
@@ -23,7 +32,7 @@ class FormDialogDetallesDonantes extends StatefulWidget {
                   formsElements.createInput('Telefono', 'Telefono'),
                   formsElements.createInput(
                       'Correo electronico', 'Correo electronico'),
-                  formsElements.btnsformDetalles(context)
+                  responsiveButtons(context)
                 ]),
               ),
             ]);

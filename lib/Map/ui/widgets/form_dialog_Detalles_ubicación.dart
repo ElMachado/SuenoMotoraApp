@@ -5,6 +5,15 @@ import 'package:swipe_image_gallery/swipe_image_gallery.dart';
 
 class FormDialogDetallesUbicacion extends StatefulWidget {
   const FormDialogDetallesUbicacion({Key? key}) : super(key: key);
+  static responsiveButtons(context) {
+    FormsElements formsElements = FormsElements();
+
+    if (MediaQuery.of(context).size.width <= 600) {
+      return formsElements.btnsDetallesMovil(context);
+    } else {
+      return formsElements.btnsDetallesDesktopTabletUbicacion(context);
+    }
+  }
 
   static formDialogDetallesUbicacion(BuildContext context) {
     FormsElements formsElements = FormsElements();
@@ -33,13 +42,13 @@ class FormDialogDetallesUbicacion extends StatefulWidget {
       useSafeArea: true,
       builder: (context) {
         return SizedBox(
-          width: 1000,
+          width: 600,
           child: SimpleDialog(
               title: const Text('Detalles de Ubicación',
                   textAlign: TextAlign.center),
               children: [
                 SizedBox(
-                  width: MediaQuery.of(context).size.width * 100,
+                  width: MediaQuery.of(context).size.width * 0.5,
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Column(
@@ -97,6 +106,7 @@ class FormDialogDetallesUbicacion extends StatefulWidget {
                         ),
                       ],
                     )),
+                responsiveButtons(context)
               ]),
         );
       },

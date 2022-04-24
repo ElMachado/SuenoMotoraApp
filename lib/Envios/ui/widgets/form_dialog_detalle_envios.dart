@@ -3,6 +3,15 @@ import 'package:suenomotora_app/common/widgets/forms_elements.dart';
 
 class FormDialogDetalleEnvio extends StatefulWidget {
   const FormDialogDetalleEnvio({Key? key}) : super(key: key);
+  static responsiveButtons(context) {
+    FormsElements formsElements = FormsElements();
+
+    if (MediaQuery.of(context).size.width <= 600) {
+      return formsElements.btnsDetallesMovil(context);
+    } else {
+      return formsElements.btnsDetallesDesktopTablet(context);
+    }
+  }
 
   Future formDialogDetalleEnvio(BuildContext context) {
     FormsElements formsElements = FormsElements();
@@ -32,7 +41,7 @@ class FormDialogDetalleEnvio extends StatefulWidget {
                     formsElements.createInput('Telefono', 'Telefono'),
                     formsElements.boxImput(
                         'Contenido de envio', 'Contenido de envio'),
-                    formsElements.btnsformDetalles(context)
+                    responsiveButtons(context)
                   ]),
             ),
           ),

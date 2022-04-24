@@ -103,33 +103,104 @@ class FormsElements extends StatelessWidget {
     );
   }
 
-  Widget btnsformDetalles(context) {
+  Widget btnsDetallesDesktopTablet(context) {
     return SizedBox(
       height: 100,
       width: 400,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         mainAxisSize: MainAxisSize.min,
         children: [
-          SizedBox(
-            width: 100,
-            child: ElevatedButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: const AutoSizeText('Actualizar')),
-          ),
-          SizedBox(
-              width: 100,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Expanded(
               child: ElevatedButton(
                   onPressed: () => Navigator.of(context).pop(),
-                  child: const AutoSizeText('Eliminar'))),
-          SizedBox(
-            width: 100,
-            child: ElevatedButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: const Text('Aceptar')),
+                  child: const AutoSizeText('Actualizar')),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Expanded(
+                child: ElevatedButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: const AutoSizeText('Eliminar'))),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Expanded(
+              child: ElevatedButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: const Text('Aceptar')),
+            ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget btnsDetallesDesktopTabletUbicacion(context) {
+    return SizedBox(
+      height: 100,
+      width: MediaQuery.of(context).size.width * 0.1,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Expanded(
+              child: ElevatedButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: const AutoSizeText('Actualizar')),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Expanded(
+                child: ElevatedButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: const AutoSizeText('Eliminar'))),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Expanded(
+              child: ElevatedButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: const Text('Aceptar')),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget btnsDetallesMovil(context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 15.0),
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width * 0.8,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            IconButton(
+              onPressed: () => Navigator.of(context).pop(),
+              icon: const Icon(Icons.edit, color: Colors.green),
+            ),
+            IconButton(
+              onPressed: () => Navigator.of(context).pop(),
+              icon: const Icon(Icons.delete, color: Colors.red),
+            ),
+            IconButton(
+              onPressed: () => Navigator.of(context).pop(),
+              icon: const Icon(Icons.cancel, color: Colors.grey),
+            ),
+          ],
+        ),
       ),
     );
   }

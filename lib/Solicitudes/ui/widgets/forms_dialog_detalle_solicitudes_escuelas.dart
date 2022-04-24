@@ -3,6 +3,15 @@ import 'package:suenomotora_app/common/widgets/forms_elements.dart';
 
 class FormDialogDetalleSolicitudEscuela extends StatefulWidget {
   const FormDialogDetalleSolicitudEscuela({Key? key}) : super(key: key);
+  static responsiveButtons(context) {
+    FormsElements formsElements = FormsElements();
+
+    if (MediaQuery.of(context).size.width <= 600) {
+      return formsElements.btnsDetallesMovil(context);
+    } else {
+      return formsElements.btnsDetallesDesktopTablet(context);
+    }
+  }
 
   static formDialogDetalleSolicitudEscuela(BuildContext context) {
     FormsElements formsElements = FormsElements();
@@ -25,33 +34,7 @@ class FormDialogDetalleSolicitudEscuela extends StatefulWidget {
                   formsElements.createInput(
                       'Correo electronico', 'Correo electronico'),
                   formsElements.boxImput('Solicitud', '¿Qué solicita?'),
-                  Padding(
-                    padding: const EdgeInsets.all(30.0),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: ElevatedButton(
-                              onPressed: () => Navigator.of(context).pop(),
-                              child: const Text('Actualizar')),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: ElevatedButton(
-                              onPressed: () => Navigator.of(context).pop(),
-                              child: const Text('Eliminar')),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: ElevatedButton(
-                              onPressed: () => Navigator.of(context).pop(),
-                              child: const Text('Cancelar')),
-                        ),
-                      ],
-                    ),
-                  ),
+                  responsiveButtons(context)
                 ]),
               ),
             ]);
