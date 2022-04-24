@@ -21,7 +21,7 @@ class FormDialogDetalleSolicitudEscuela extends StatefulWidget {
       barrierDismissible: true,
       builder: (context) {
         return SimpleDialog(
-            title: const Text('Registro de solicitudes de escuelas'),
+            title: const Text('Detalle de solicitud de escuela'),
             children: [
               Padding(
                 padding: const EdgeInsets.all(10.0),

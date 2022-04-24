@@ -20,21 +20,18 @@ class FormDialogDetalleEquipos extends StatefulWidget {
       context: context,
       barrierDismissible: true,
       builder: (context) {
-        return SimpleDialog(
-            title: const Text('Registro de colaboradores'),
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child:
-                    Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-                  formsElements.createInput('Procesador', 'Procesador'),
-                  formsElements.createInput('RAM', 'RAM'),
-                  formsElements.createInput('Disco Duro', 'Disco Duro'),
-                  formsElements.boxImput('Observaciones', 'observaciones'),
-                  responsiveButtons(context)
-                ]),
-              ),
-            ]);
+        return SimpleDialog(title: const Text('Detalle de Equipo'), children: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+              formsElements.createInput('Procesador', 'Procesador'),
+              formsElements.createInput('RAM', 'RAM'),
+              formsElements.createInput('Disco Duro', 'Disco Duro'),
+              formsElements.boxImput('Observaciones', 'observaciones'),
+              responsiveButtons(context)
+            ]),
+          ),
+        ]);
       },
     );
   }

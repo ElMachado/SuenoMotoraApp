@@ -22,7 +22,7 @@ class FormDialogDetallesDonantes extends StatefulWidget {
       barrierDismissible: true,
       builder: (context) {
         return SimpleDialog(
-            title: const Text('Detalles de colaborador'),
+            title: const Text('Detalles de Donante'),
             children: [
               Padding(
                 padding: const EdgeInsets.all(10.0),

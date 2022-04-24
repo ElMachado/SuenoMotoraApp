@@ -12,7 +12,7 @@ class FormDialogRegistroColaboradores extends StatefulWidget {
       barrierDismissible: true,
       builder: (context) {
         return SimpleDialog(
-            title: const Text('Registro de colaboradores'),
+            title: const Text('Registro de colaborador'),
             children: [
               Padding(
                 padding: const EdgeInsets.all(10.0),

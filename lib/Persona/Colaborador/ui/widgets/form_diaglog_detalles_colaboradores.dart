@@ -5,7 +5,7 @@ import 'package:suenomotora_app/common/widgets/forms_elements.dart';
 class FormDialogDetallesColaborador extends StatefulWidget {
   const FormDialogDetallesColaborador({Key? key}) : super(key: key);
 
-  static responsiveButtons(context) {
+  static _responsiveButtons(context) {
     FormsElements formsElements = FormsElements();
 
     if (MediaQuery.of(context).size.width <= 600) {
@@ -24,7 +24,7 @@ class FormDialogDetallesColaborador extends StatefulWidget {
       useSafeArea: true,
       builder: (context) {
         return SimpleDialog(
-          title: const Text('Registro de colaboradores'),
+          title: const Text('Detalles de colaborador'),
           children: [
             Padding(
               padding: const EdgeInsets.all(10.0),
@@ -34,9 +34,9 @@ class FormDialogDetallesColaborador extends StatefulWidget {
                 formsElements.createInput('Telefono', 'Telefono'),
                 formsElements.createInput(
                     'Correo electronico', 'Correo electronico'),
-                responsiveButtons(context)
               ]),
             ),
+            _responsiveButtons(context)
           ],
         );
       },
