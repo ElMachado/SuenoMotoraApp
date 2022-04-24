@@ -20,7 +20,7 @@ class FormDialogDetalleEnvio extends StatefulWidget {
       context: context,
       barrierDismissible: true,
       builder: (context) {
-        return SimpleDialog(title: const Text('Registro de Envios'), children: [
+        return SimpleDialog(title: const Text('Detalle de Envio'), children: [
           SizedBox(
             width: 400,
             child: Padding(

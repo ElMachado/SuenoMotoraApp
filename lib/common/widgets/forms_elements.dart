@@ -114,26 +114,21 @@ class FormsElements extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Expanded(
-              child: ElevatedButton(
-                  onPressed: () => Navigator.of(context).pop(),
-                  child: const AutoSizeText('Actualizar')),
-            ),
+            child: ElevatedButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: const AutoSizeText('Actualizar')),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Expanded(
-                child: ElevatedButton(
-                    onPressed: () => Navigator.of(context).pop(),
-                    child: const AutoSizeText('Eliminar'))),
+            child: ElevatedButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: const AutoSizeText('Eliminar')),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Expanded(
-              child: ElevatedButton(
-                  onPressed: () => Navigator.of(context).pop(),
-                  child: const Text('Aceptar')),
-            ),
+            child: ElevatedButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: const Text('Aceptar')),
           ),
         ],
       ),
@@ -151,26 +146,21 @@ class FormsElements extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Expanded(
-              child: ElevatedButton(
-                  onPressed: () => Navigator.of(context).pop(),
-                  child: const AutoSizeText('Actualizar')),
-            ),
+            child: ElevatedButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: const AutoSizeText('Actualizar')),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Expanded(
-                child: ElevatedButton(
-                    onPressed: () => Navigator.of(context).pop(),
-                    child: const AutoSizeText('Eliminar'))),
+            child: ElevatedButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: const AutoSizeText('Eliminar')),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Expanded(
-              child: ElevatedButton(
-                  onPressed: () => Navigator.of(context).pop(),
-                  child: const Text('Aceptar')),
-            ),
+            child: ElevatedButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: const Text('Aceptar')),
           ),
         ],
       ),

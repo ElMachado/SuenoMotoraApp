@@ -5,7 +5,7 @@ import 'package:swipe_image_gallery/swipe_image_gallery.dart';
 
 class FormDialogDetallesUbicacion extends StatefulWidget {
   const FormDialogDetallesUbicacion({Key? key}) : super(key: key);
-  static responsiveButtons(context) {
+  static _responsiveButtons(context) {
     FormsElements formsElements = FormsElements();
 
     if (MediaQuery.of(context).size.width <= 600) {
@@ -59,7 +59,7 @@ class FormDialogDetallesUbicacion extends StatefulWidget {
                           Text(' Fernando Andres Pineda'),
                           Text('Donante:', style: TextStyle(fontSize: 20)),
                           Text(' Alberto Martínez Álvarez'),
-                          Text('Ultimos envíos',
+                          Text('Últimos envíos',
                               style: TextStyle(fontSize: 20)),
                           Text('2 cajas de libros 1 computador'),
                           Text('Galería de fotos ',
@@ -73,40 +73,36 @@ class FormDialogDetallesUbicacion extends StatefulWidget {
                     child: ListView(
                       scrollDirection: Axis.horizontal,
                       children: [
-                        Expanded(
-                          child: InkWell(
-                            onTap: () => SwipeImageGallery(
-                              context: context,
-                              children: assets,
-                              heroProperties: heroProperties,
-                            ).show(),
-                            child: const Hero(
-                              tag: 'imageId1',
-                              child: Image(
-                                image: AssetImage('assets/logosuenomotora.png'),
-                              ),
+                        InkWell(
+                          onTap: () => SwipeImageGallery(
+                            context: context,
+                            children: assets,
+                            heroProperties: heroProperties,
+                          ).show(),
+                          child: const Hero(
+                            tag: 'imageId1',
+                            child: Image(
+                              image: AssetImage('assets/logosuenomotora.png'),
                             ),
                           ),
                         ),
-                        Expanded(
-                          child: InkWell(
-                            onTap: () => SwipeImageGallery(
-                              context: context,
-                              children: assets,
-                              initialIndex: 1,
-                              heroProperties: heroProperties,
-                            ).show(),
-                            child: const Hero(
-                              tag: 'imageId2',
-                              child: Image(
-                                image: AssetImage('assets/locomotora foto.jpg'),
-                              ),
+                        InkWell(
+                          onTap: () => SwipeImageGallery(
+                            context: context,
+                            children: assets,
+                            initialIndex: 1,
+                            heroProperties: heroProperties,
+                          ).show(),
+                          child: const Hero(
+                            tag: 'imageId2',
+                            child: Image(
+                              image: AssetImage('assets/locomotora foto.jpg'),
                             ),
                           ),
                         ),
                       ],
                     )),
-                responsiveButtons(context)
+                _responsiveButtons(context)
               ]),
         );
       },
