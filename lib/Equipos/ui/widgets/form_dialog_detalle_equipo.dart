@@ -3,6 +3,15 @@ import 'package:suenomotora_app/common/widgets/forms_elements.dart';
 
 class FormDialogDetalleEquipos extends StatefulWidget {
   const FormDialogDetalleEquipos({Key? key}) : super(key: key);
+  static responsiveButtons(context) {
+    FormsElements formsElements = FormsElements();
+
+    if (MediaQuery.of(context).size.width <= 600) {
+      return formsElements.btnsDetallesMovil(context);
+    } else {
+      return formsElements.btnsDetallesDesktopTablet(context);
+    }
+  }
 
   static formDialogDetalleEquipos(BuildContext context) {
     FormsElements formsElements = FormsElements();
@@ -22,7 +31,7 @@ class FormDialogDetalleEquipos extends StatefulWidget {
                   formsElements.createInput('RAM', 'RAM'),
                   formsElements.createInput('Disco Duro', 'Disco Duro'),
                   formsElements.boxImput('Observaciones', 'observaciones'),
-                  formsElements.btnsformDetalles(context)
+                  responsiveButtons(context)
                 ]),
               ),
             ]);
