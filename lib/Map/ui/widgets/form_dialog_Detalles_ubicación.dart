@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:suenomotora_app/Map/ui/widgets/gallery.dart';
 import 'package:suenomotora_app/common/widgets/forms_elements.dart';
+import 'package:suenomotora_app/common/widgets/gallery.dart';
 import 'package:swipe_image_gallery/swipe_image_gallery.dart';
 
 class FormDialogDetallesUbicacion extends StatefulWidget {
@@ -16,8 +16,8 @@ class FormDialogDetallesUbicacion extends StatefulWidget {
   }
 
   static formDialogDetallesUbicacion(BuildContext context) {
-    FormsElements formsElements = FormsElements();
-    final heroProperties = [
+    FormsElements _formsElements = FormsElements();
+    final List<ImageGalleryHeroProperties> heroProperties = [
       const ImageGalleryHeroProperties(tag: 'imageId1'),
       const ImageGalleryHeroProperties(tag: 'imageId2'),
       const ImageGalleryHeroProperties(tag: 'imageId2'),
@@ -27,15 +27,25 @@ class FormDialogDetallesUbicacion extends StatefulWidget {
       const ImageGalleryHeroProperties(tag: 'imageId2'),
     ];
 
-    const assets = [
-      Image(image: AssetImage('assets/librosplaceholder.gif')),
-      Image(image: AssetImage('assets/librosplaceholder.gif')),
-      Image(image: AssetImage('assets/logosuenomotora.png')),
-      Image(image: AssetImage('assets/locomotora foto.jpg')),
-      Image(image: AssetImage('assets/train place holder.gif')),
-      Image(image: AssetImage('assets/train place holder.gif')),
-      Image(image: AssetImage('assets/train2placeholder.gif')),
+    final List<AssetImage> _assets = [
+      const AssetImage('assets/logosuenomotora.png'),
+      const AssetImage('assets/librosplaceholder.gif'),
+      const AssetImage('assets/librosplaceholder.gif'),
+      const AssetImage('assets/locomotora foto.jpg'),
+      const AssetImage('assets/train place holder.gif'),
+      const AssetImage('assets/train place holder.gif'),
+      const AssetImage('assets/train2placeholder.gif')
     ];
+    final List<Image> images = [
+      const Image(image: AssetImage('assets/logosuenomotora.png')),
+      const Image(image: AssetImage('assets/librosplaceholder.gif')),
+      const Image(image: AssetImage('assets/librosplaceholder.gif')),
+      const Image(image: AssetImage('assets/locomotora foto.jpg')),
+      const Image(image: AssetImage('assets/train place holder.gif')),
+      const Image(image: AssetImage('assets/train place holder.gif')),
+      const Image(image: AssetImage('assets/train2placeholder.gif'))
+    ];
+
     return showDialog(
       context: context,
       barrierDismissible: true,
@@ -67,51 +77,12 @@ class FormDialogDetallesUbicacion extends StatefulWidget {
                         ]),
                   ),
                 ),
-                SizedBox(
-                    width: 290,
-                    height: 290,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: [
-                        InkWell(
-                          onTap: () => SwipeImageGallery(
-                            context: context,
-                            children: assets,
-                            heroProperties: heroProperties,
-                          ).show(),
-                          child: const Hero(
-                            tag: 'imageId1',
-                            child: Image(
-                              image: AssetImage('assets/logosuenomotora.png'),
-                            ),
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () => SwipeImageGallery(
-                            context: context,
-                            children: assets,
-                            initialIndex: 1,
-                            heroProperties: heroProperties,
-                          ).show(),
-                          child: const Hero(
-                            tag: 'imageId2',
-                            child: Image(
-                              image: AssetImage('assets/locomotora foto.jpg'),
-                            ),
-                          ),
-                        ),
-                      ],
-                    )),
+                Gallery(_assets, images, heroProperties).build(context),
                 _responsiveButtons(context)
               ]),
         );
       },
     );
-  }
-
-  MaterialPageRoute buildGalery(context) {
-    return MaterialPageRoute(
-        builder: (BuildContext context) => Galery().galery(context));
   }
 
   @override
