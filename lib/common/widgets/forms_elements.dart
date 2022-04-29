@@ -1,5 +1,5 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:suenomotora_app/common/widgets/alert_dialog_confirmar_Up_delete.dart';
 
 class FormsElements extends StatelessWidget {
   final String _nombre = 'Nombre de Usuario';
@@ -115,20 +115,36 @@ class FormsElements extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: const AutoSizeText('Actualizar')),
+                onPressed: () => {
+                      Navigator.of(context).pop(),
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialogConfirmarUpdateAndDelete(
+                                'actualizar', () => print('Actualizado'));
+                          }),
+                    },
+                child: const Text('Actualizar')),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+                onPressed: () => {
+                      Navigator.of(context).pop(),
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialogConfirmarUpdateAndDelete(
+                                'eliminar', () => print('Deleted'));
+                          })
+                    },
+                child: const Text('Eliminar')),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
                 onPressed: () => Navigator.of(context).pop(),
-                child: const AutoSizeText('Eliminar')),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: const Text('Aceptar')),
+                child: const Text('Cancelar')),
           ),
         ],
       ),
@@ -147,20 +163,36 @@ class FormsElements extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: const AutoSizeText('Actualizar')),
+                onPressed: () => {
+                      Navigator.of(context).pop(),
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialogConfirmarUpdateAndDelete(
+                                'actualizar', () => print('Actualizado'));
+                          }),
+                    },
+                child: const Text('Actualizar')),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+                onPressed: () => {
+                      Navigator.of(context).pop(),
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialogConfirmarUpdateAndDelete(
+                                'eliminar', () => print('Deleted'));
+                          })
+                    },
+                child: const Text('Eliminar')),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
                 onPressed: () => Navigator.of(context).pop(),
-                child: const AutoSizeText('Eliminar')),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: const Text('Aceptar')),
+                child: const Text('Cancelar')),
           ),
         ],
       ),
@@ -178,11 +210,27 @@ class FormsElements extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             IconButton(
-              onPressed: () => Navigator.of(context).pop(),
+              onPressed: () => {
+                Navigator.of(context).pop(),
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialogConfirmarUpdateAndDelete(
+                          'actualizar', () => print('Actualizado'));
+                    }),
+              },
               icon: const Icon(Icons.edit, color: Colors.green),
             ),
             IconButton(
-              onPressed: () => Navigator.of(context).pop(),
+              onPressed: () => {
+                Navigator.of(context).pop(),
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialogConfirmarUpdateAndDelete(
+                          'eliminar', () => print('Deleted'));
+                    })
+              },
               icon: const Icon(Icons.delete, color: Colors.red),
             ),
             IconButton(
