@@ -4,7 +4,7 @@ import 'package:suenomotora_app/Envios/ui/screens/responsive/envio_movile.dart';
 import 'package:suenomotora_app/Envios/ui/screens/responsive/envio_tablet.dart';
 import 'package:suenomotora_app/common/responsive/responsive.dart';
 
-import 'package:suenomotora_app/common/responsive/vistaTamanoVentanaMuyPequeno.dart';
+import 'package:suenomotora_app/common/responsive/vista_tamano_ventana_muy_pequeno.dart';
 
 class EnviosPage extends StatefulWidget {
   const EnviosPage({Key? key}) : super(key: key);

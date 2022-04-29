@@ -12,15 +12,9 @@ class SolicitudesEscuelasDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     CardSolicitudesEscuelas card = CardSolicitudesEscuelas();
     final _size = MediaQuery.of(context).size.width;
-    print(_size);
+    // print(_size);
 
     double _aspectRateo = 0.0;
-
-    // if (_size <= 1920 && 1407 < _size) {
-    //   _aspectRateo = (100 / 12);
-    // } else {
-    //   _aspectRateo = (100 / 12);
-    // }
 
     if (_size <= 1407) {
       _aspectRateo = (100 / 62);

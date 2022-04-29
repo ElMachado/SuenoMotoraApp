@@ -10,7 +10,7 @@ class VentanaMuyPequena extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Image.asset(
-          'assets/warnin.png',
+          'assets/warning.png',
           height: 200,
           width: 200,
         ),

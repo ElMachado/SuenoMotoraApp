@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:suenomotora_app/common/widgets/alert_dialog_confirmar_Up_delete.dart';
+import 'package:suenomotora_app/common/widgets/alert_dialog_confirmar_update_delete.dart';
+import 'package:suenomotora_app/common/widgets/snackbar_resultado_operacion_crud.dart';
 
 class FormsElements extends StatelessWidget {
   final String _nombre = 'Nombre de Usuario';
-  final String _email = 'Correo electronico';
-  final String _password = '***********';
-  final String _fecha = '00/00/0000';
   final String? _dropDownValue = 'volar';
   final List _poderes = ['volar', 'rayos x', 'super aliento', 'super fuerza'];
   final TextEditingController _inputFieldDateController =
@@ -35,20 +33,18 @@ class FormsElements extends StatelessWidget {
   }
 
   Widget boxImput(String hintText, String? labelText) {
-    return Container(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: TextField(
-          maxLength: 500,
-          maxLines: 8,
-          textCapitalization: TextCapitalization.sentences,
-          decoration: InputDecoration(
-              border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
-              icon: const Icon(Icons.account_circle),
-              hintText: hintText,
-              labelText: labelText),
-        ),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextField(
+        maxLength: 500,
+        maxLines: 8,
+        textCapitalization: TextCapitalization.sentences,
+        decoration: InputDecoration(
+            border:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
+            icon: const Icon(Icons.account_circle),
+            hintText: hintText,
+            labelText: labelText),
       ),
     );
   }
@@ -95,7 +91,19 @@ class FormsElements extends StatelessWidget {
           SizedBox(
             width: 90,
             child: ElevatedButton(
-                onPressed: () => Navigator.of(context).pop(),
+                onPressed: () => {
+                      Navigator.of(context).pop(),
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialogConfirmarUpdateAndDelete(
+                                'crear',
+                                () => ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBarRespuestaOperacionCRUD(
+                                            '¡Registro creado exitosamente!')
+                                        .build(context)));
+                          })
+                    },
                 child: const Text('Aceptar')),
           ),
         ],
@@ -121,8 +129,13 @@ class FormsElements extends StatelessWidget {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialogConfirmarUpdateAndDelete(
-                                'actualizar', () => print('Actualizado'));
-                          }),
+                                'actualizar',
+                                () => ScaffoldMessenger.of(context)
+                                    .showSnackBar(
+                                        const SnackBarRespuestaOperacionCRUD(
+                                                'Registro actualizado')
+                                            .build(context)));
+                          })
                     },
                 child: const Text('Actualizar')),
           ),
@@ -135,7 +148,12 @@ class FormsElements extends StatelessWidget {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialogConfirmarUpdateAndDelete(
-                                'eliminar', () => print('Deleted'));
+                                'eliminar',
+                                () => ScaffoldMessenger.of(context)
+                                    .showSnackBar(
+                                        const SnackBarRespuestaOperacionCRUD(
+                                                'Registro eliminado')
+                                            .build(context)));
                           })
                     },
                 child: const Text('Eliminar')),
@@ -169,8 +187,13 @@ class FormsElements extends StatelessWidget {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialogConfirmarUpdateAndDelete(
-                                'actualizar', () => print('Actualizado'));
-                          }),
+                                'actualizar',
+                                () => ScaffoldMessenger.of(context)
+                                    .showSnackBar(
+                                        const SnackBarRespuestaOperacionCRUD(
+                                                'Registro actualizado')
+                                            .build(context)));
+                          })
                     },
                 child: const Text('Actualizar')),
           ),
@@ -183,7 +206,12 @@ class FormsElements extends StatelessWidget {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialogConfirmarUpdateAndDelete(
-                                'eliminar', () => print('Deleted'));
+                                'eliminar',
+                                () => ScaffoldMessenger.of(context)
+                                    .showSnackBar(
+                                        const SnackBarRespuestaOperacionCRUD(
+                                                'Registro eliminado')
+                                            .build(context)));
                           })
                     },
                 child: const Text('Eliminar')),
@@ -216,8 +244,12 @@ class FormsElements extends StatelessWidget {
                     context: context,
                     builder: (BuildContext context) {
                       return AlertDialogConfirmarUpdateAndDelete(
-                          'actualizar', () => print('Actualizado'));
-                    }),
+                          'actualizar',
+                          () => ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBarRespuestaOperacionCRUD(
+                                      'Registro actualizado')
+                                  .build(context)));
+                    })
               },
               icon: const Icon(Icons.edit, color: Colors.green),
             ),
@@ -228,7 +260,11 @@ class FormsElements extends StatelessWidget {
                     context: context,
                     builder: (BuildContext context) {
                       return AlertDialogConfirmarUpdateAndDelete(
-                          'eliminar', () => print('Deleted'));
+                          'eliminar',
+                          () => ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBarRespuestaOperacionCRUD(
+                                      'Registro eliminado')
+                                  .build(context)));
                     })
               },
               icon: const Icon(Icons.delete, color: Colors.red),

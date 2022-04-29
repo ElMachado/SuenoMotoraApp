@@ -16,7 +16,6 @@ class FormDialogDetallesUbicacion extends StatefulWidget {
   }
 
   static formDialogDetallesUbicacion(BuildContext context) {
-    FormsElements _formsElements = FormsElements();
     final List<ImageGalleryHeroProperties> heroProperties = [
       const ImageGalleryHeroProperties(tag: 'imageId1'),
       const ImageGalleryHeroProperties(tag: 'imageId2'),

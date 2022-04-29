@@ -6,12 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:latlng/latlng.dart';
 import 'package:map/map.dart';
 import 'package:suenomotora_app/common/responsive/responsive.dart';
-import 'package:suenomotora_app/common/responsive/vistaTamanoVentanaMuyPequeno.dart';
+import 'package:suenomotora_app/common/responsive/vista_tamano_ventana_muy_pequeno.dart';
 
 import '../../../providers/menu_provider.dart';
 import '../../../utils/iconos_string_util.dart';
-import '../widgets/form_dialog_Detalles_ubicación.dart';
-import '../widgets/form_dialog_Registro_ubicación.dart';
+import '../widgets/form_dialog_detalles_ubicacion.dart';
+import '../widgets/form_dialog_registro_ubicacion.dart';
 
 class InicioMapa extends StatefulWidget {
   const InicioMapa({Key? key}) : super(key: key);
@@ -80,9 +80,9 @@ class _MyHomePageState extends State<InicioMapa> {
     return Scaffold(
       body: ResponsibleLayout(
         ventanaMuyPequena: const VentanaMuyPequena(),
-        desktopBody: MapPage(),
-        mobileBody: MapPage(),
-        tabletBody: MapPage(),
+        desktopBody: mapPage(),
+        mobileBody: mapPage(),
+        tabletBody: mapPage(),
       ),
     );
   }
@@ -130,7 +130,7 @@ class _MyHomePageState extends State<InicioMapa> {
     return opciones;
   }
 
-  Widget MapPage() {
+  Widget mapPage() {
     return Scaffold(
       appBar: AppBar(
         title: const Text('La Sueñomotora'),
@@ -251,11 +251,6 @@ class _MyHomePageState extends State<InicioMapa> {
   }
 
   void _onDoubleTap() {
-    controller.zoom += 0.5;
-    setState(() {});
-  }
-
-  void _onpinout(DragDownDetails details) {
     controller.zoom += 0.5;
     setState(() {});
   }

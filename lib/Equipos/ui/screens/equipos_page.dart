@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:suenomotora_app/Equipos/ui/screens/responsive/equiposTablet.dart';
+import 'package:suenomotora_app/Equipos/ui/screens/responsive/equipos_tablet.dart';
 import 'package:suenomotora_app/Equipos/ui/screens/responsive/equipos_desktop.dart';
 import 'package:suenomotora_app/Equipos/ui/screens/responsive/equipos_movile.dart';
 
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
 import 'package:suenomotora_app/common/responsive/responsive.dart';
-import 'package:suenomotora_app/common/responsive/vistaTamanoVentanaMuyPequeno.dart';
+import 'package:suenomotora_app/common/responsive/vista_tamano_ventana_muy_pequeno.dart';
 
 class EquiposPage extends StatefulWidget {
   const EquiposPage({Key? key}) : super(key: key);

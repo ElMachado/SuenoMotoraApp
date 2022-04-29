@@ -11,7 +11,7 @@ class SolicitudesEscuelasTablet extends StatelessWidget {
   Widget build(BuildContext context) {
     CardSolicitudesEscuelas card = CardSolicitudesEscuelas();
     final _size = MediaQuery.of(context).size.width;
-    print(_size);
+    // print(_size);
     double aspectRateo = 0.0;
     if (_size < 953) {
       aspectRateo = (100 / 40);

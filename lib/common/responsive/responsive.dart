@@ -6,6 +6,7 @@ class ResponsibleLayout extends StatelessWidget {
   final Widget tabletBody;
   final Widget desktopBody;
 
+  // ignore: use_key_in_widget_constructors
   const ResponsibleLayout(
       {required this.ventanaMuyPequena,
       required this.mobileBody,
@@ -16,7 +17,7 @@ class ResponsibleLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        print(constraints);
+        //        print(constraints);
         if (constraints.maxWidth < 320) {
           return ventanaMuyPequena;
         } else if (constraints.maxWidth >= 320 && constraints.maxWidth < 610) {
@@ -30,26 +31,3 @@ class ResponsibleLayout extends StatelessWidget {
     );
   }
 }
-
-// class Responsive {
-//   Widget responsiveCard(Size, Widget widgetCard) {
-//     return Container(
-//         // padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
-//         child: Size <= 600
-//             ? ListView.builder(
-//                 itemBuilder: (context, index) {
-//                   return Center(
-//                     child: widgetCard,
-//                   );
-//                 },
-//               )
-//             : GridView.count(
-//                 addAutomaticKeepAlives: true,
-//                 childAspectRatio: (500 / 550),
-//                 crossAxisCount: Size >= 600 && Size <= 1200 ? 2 : 4,
-//                 children: [
-//                   Expanded(child: widgetCard),
-//                 ],
-//               ));
-//   }
-// }

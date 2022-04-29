@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
 class AlertDialogConfirmarUpdateAndDelete extends StatelessWidget {
-  String operationType = 'sin operación';
-  // ignore: avoid_print
-  Function operation = () => print('sin operación.');
+  final String _operationType;
+  final Function _operation;
 
-  AlertDialogConfirmarUpdateAndDelete(this.operationType, this.operation,
+  const AlertDialogConfirmarUpdateAndDelete(
+      this._operationType, this._operation,
       {Key? key})
       : super(key: key);
 
-  static dynamic buildAlertDialog(context, operationType, operation) {
+  static dynamic buildAlertDialog(context, _operationType, _operation) {
     return AlertDialog(
-      content: Text('Esta seguro que desea $operationType este registro?'),
+      content: Text('¿Esta seguro que desea $_operationType este registro?'),
       actions: [
         ElevatedButton(
           child: const Text('Cancelar'),
@@ -22,7 +22,7 @@ class AlertDialogConfirmarUpdateAndDelete extends StatelessWidget {
         ElevatedButton(
           child: const Text('Aceptar'),
           onPressed: () {
-            operation();
+            _operation();
             Navigator.of(context).pop(true);
           },
         ),
@@ -36,8 +36,8 @@ class AlertDialogConfirmarUpdateAndDelete extends StatelessWidget {
   ) {
     return buildAlertDialog(
       context,
-      operationType,
-      operation,
+      _operationType,
+      _operation,
     );
   }
 }
