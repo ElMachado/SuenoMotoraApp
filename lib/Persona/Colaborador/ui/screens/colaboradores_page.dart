@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:suenomotora_app/Persona/Colaborador/ui/screens/Responsive/colaboradores_desktop.dart';
 import 'package:suenomotora_app/Persona/Colaborador/ui/screens/Responsive/colaboradores_movile.dart';
 import 'package:suenomotora_app/common/responsive/responsive.dart';
-import 'package:suenomotora_app/common/responsive/vistaTamanoVentanaMuyPequeno.dart';
+import 'package:suenomotora_app/common/responsive/vista_tamano_ventana_muy_pequeno.dart';
 
 import 'Responsive/colaboradores_tablet.dart';
 

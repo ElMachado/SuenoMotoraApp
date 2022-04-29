@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:suenomotora_app/Envios/model/Envio.dart';
+import 'package:suenomotora_app/Envios/model/envio.dart';
 import 'package:suenomotora_app/Envios/ui/widgets/card_envio.dart';
 import 'package:suenomotora_app/Envios/ui/widgets/form_dialog_detalle_envios.dart';
 import 'package:suenomotora_app/Envios/ui/widgets/form_dialog_registro_envio.dart';

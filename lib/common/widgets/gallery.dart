@@ -2,18 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:swipe_image_gallery/swipe_image_gallery.dart';
 
 class Gallery extends StatelessWidget {
-  List<AssetImage> _assets = [];
-  List<Image> _images = [];
-  List<ImageGalleryHeroProperties> _heroProperties = [];
+  final List<AssetImage> _assets;
+  final List<Image> _images;
+  final List<ImageGalleryHeroProperties> _heroProperties;
 
-  Gallery(List<AssetImage> asset, List<Image> images,
-      List<ImageGalleryHeroProperties> heroProperties,
-      {Key? key})
-      : super(key: key) {
-    _assets = asset;
-    _images = images;
-    _heroProperties = heroProperties;
-  }
+  const Gallery(this._assets, this._images, this._heroProperties, {Key? key})
+      : super(key: key);
 
   static List<Widget> buildInkWells(context, index, List<AssetImage> asset,
       List<Image> images, List<ImageGalleryHeroProperties> heroProperties) {

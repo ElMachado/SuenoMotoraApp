@@ -1,8 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:suenomotora_app/common/widgets/autoSizedText.dart';
+import 'package:suenomotora_app/common/widgets/auto_sized_text.dart';
 
-import '../../model/Envio.dart';
+import '../../model/envio.dart';
 
 Widget cardEnvios(Envio envios) {
   return LayoutBuilder(

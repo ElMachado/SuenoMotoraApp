@@ -22,21 +22,7 @@ class FormDialogRegistroColaboradores extends StatefulWidget {
                   formsElements.createInput('Telefono', 'Telefono'),
                   formsElements.createInput(
                       'Correo electronico', 'Correo electronico'),
-                  Padding(
-                    padding: const EdgeInsets.all(30.0),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        ElevatedButton(
-                            onPressed: () => Navigator.of(context).pop(),
-                            child: const Text('Cancelar')),
-                        ElevatedButton(
-                            onPressed: () => Navigator.of(context).pop(),
-                            child: const Text('Ok')),
-                      ],
-                    ),
-                  ),
+                  formsElements.btnsAceptarCancelar(context)
                 ]),
               ),
             ]);

@@ -1,11 +1,9 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:suenomotora_app/common/widgets/alert_dialog_confirmar_update_delete.dart';
+import 'package:suenomotora_app/common/widgets/snackbar_resultado_operacion_crud.dart';
 
 class FormsElements extends StatelessWidget {
   final String _nombre = 'Nombre de Usuario';
-  final String _email = 'Correo electronico';
-  final String _password = '***********';
-  final String _fecha = '00/00/0000';
   final String? _dropDownValue = 'volar';
   final List _poderes = ['volar', 'rayos x', 'super aliento', 'super fuerza'];
   final TextEditingController _inputFieldDateController =
@@ -35,20 +33,18 @@ class FormsElements extends StatelessWidget {
   }
 
   Widget boxImput(String hintText, String? labelText) {
-    return Container(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: TextField(
-          maxLength: 500,
-          maxLines: 8,
-          textCapitalization: TextCapitalization.sentences,
-          decoration: InputDecoration(
-              border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
-              icon: const Icon(Icons.account_circle),
-              hintText: hintText,
-              labelText: labelText),
-        ),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextField(
+        maxLength: 500,
+        maxLines: 8,
+        textCapitalization: TextCapitalization.sentences,
+        decoration: InputDecoration(
+            border:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
+            icon: const Icon(Icons.account_circle),
+            hintText: hintText,
+            labelText: labelText),
       ),
     );
   }
@@ -95,7 +91,19 @@ class FormsElements extends StatelessWidget {
           SizedBox(
             width: 90,
             child: ElevatedButton(
-                onPressed: () => Navigator.of(context).pop(),
+                onPressed: () => {
+                      Navigator.of(context).pop(),
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialogConfirmarUpdateAndDelete(
+                                'crear',
+                                () => ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBarRespuestaOperacionCRUD(
+                                            '¡Registro creado exitosamente!')
+                                        .build(context)));
+                          })
+                    },
                 child: const Text('Aceptar')),
           ),
         ],
@@ -115,20 +123,46 @@ class FormsElements extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: const AutoSizeText('Actualizar')),
+                onPressed: () => {
+                      Navigator.of(context).pop(),
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialogConfirmarUpdateAndDelete(
+                                'actualizar',
+                                () => ScaffoldMessenger.of(context)
+                                    .showSnackBar(
+                                        const SnackBarRespuestaOperacionCRUD(
+                                                'Registro actualizado')
+                                            .build(context)));
+                          })
+                    },
+                child: const Text('Actualizar')),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+                onPressed: () => {
+                      Navigator.of(context).pop(),
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialogConfirmarUpdateAndDelete(
+                                'eliminar',
+                                () => ScaffoldMessenger.of(context)
+                                    .showSnackBar(
+                                        const SnackBarRespuestaOperacionCRUD(
+                                                'Registro eliminado')
+                                            .build(context)));
+                          })
+                    },
+                child: const Text('Eliminar')),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
                 onPressed: () => Navigator.of(context).pop(),
-                child: const AutoSizeText('Eliminar')),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: const Text('Aceptar')),
+                child: const Text('Cancelar')),
           ),
         ],
       ),
@@ -147,20 +181,46 @@ class FormsElements extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: const AutoSizeText('Actualizar')),
+                onPressed: () => {
+                      Navigator.of(context).pop(),
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialogConfirmarUpdateAndDelete(
+                                'actualizar',
+                                () => ScaffoldMessenger.of(context)
+                                    .showSnackBar(
+                                        const SnackBarRespuestaOperacionCRUD(
+                                                'Registro actualizado')
+                                            .build(context)));
+                          })
+                    },
+                child: const Text('Actualizar')),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+                onPressed: () => {
+                      Navigator.of(context).pop(),
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialogConfirmarUpdateAndDelete(
+                                'eliminar',
+                                () => ScaffoldMessenger.of(context)
+                                    .showSnackBar(
+                                        const SnackBarRespuestaOperacionCRUD(
+                                                'Registro eliminado')
+                                            .build(context)));
+                          })
+                    },
+                child: const Text('Eliminar')),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
                 onPressed: () => Navigator.of(context).pop(),
-                child: const AutoSizeText('Eliminar')),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: const Text('Aceptar')),
+                child: const Text('Cancelar')),
           ),
         ],
       ),
@@ -178,11 +238,35 @@ class FormsElements extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             IconButton(
-              onPressed: () => Navigator.of(context).pop(),
+              onPressed: () => {
+                Navigator.of(context).pop(),
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialogConfirmarUpdateAndDelete(
+                          'actualizar',
+                          () => ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBarRespuestaOperacionCRUD(
+                                      'Registro actualizado')
+                                  .build(context)));
+                    })
+              },
               icon: const Icon(Icons.edit, color: Colors.green),
             ),
             IconButton(
-              onPressed: () => Navigator.of(context).pop(),
+              onPressed: () => {
+                Navigator.of(context).pop(),
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialogConfirmarUpdateAndDelete(
+                          'eliminar',
+                          () => ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBarRespuestaOperacionCRUD(
+                                      'Registro eliminado')
+                                  .build(context)));
+                    })
+              },
               icon: const Icon(Icons.delete, color: Colors.red),
             ),
             IconButton(

@@ -5,7 +5,7 @@ import 'package:suenomotora_app/Persona/Donante/ui/screens/Responsive/donantes_t
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
 import 'package:suenomotora_app/common/responsive/responsive.dart';
 
-import 'package:suenomotora_app/common/responsive/vistaTamanoVentanaMuyPequeno.dart';
+import 'package:suenomotora_app/common/responsive/vista_tamano_ventana_muy_pequeno.dart';
 
 class DonantesPage extends StatefulWidget {
   const DonantesPage({Key? key}) : super(key: key);

@@ -3,7 +3,7 @@ import 'package:suenomotora_app/Envios/ui/widgets/card_envio.dart';
 import 'package:suenomotora_app/Envios/ui/widgets/form_dialog_registro_envio.dart';
 import 'package:suenomotora_app/Envios/ui/widgets/form_dialog_detalle_envios.dart';
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
-import '../../../model/Envio.dart';
+import '../../../model/envio.dart';
 
 class EnviosTablet extends StatelessWidget {
   const EnviosTablet({Key? key}) : super(key: key);
@@ -48,12 +48,10 @@ class EnviosTablet extends StatelessWidget {
           () => const FormDialogDetalleEnvio().formDialogDetalleEnvio(context)),
     ];
     FloatingButton floButton = FloatingButton();
-    final _size = MediaQuery.of(context).size.width;
-    final double aspectRatio;
-    aspectRatio =
-        MediaQuery.of(context).size.width / MediaQuery.of(context).size.height;
-    print('aspect Ratio: $aspectRatio');
-    print('ancho: $_size');
+
+    ///final _size = MediaQuery.of(context).size.width;
+    //  print('aspect Ratio: $aspectRatio');
+    //print('ancho: $_size');
 
     return Scaffold(
       appBar: AppBar(
