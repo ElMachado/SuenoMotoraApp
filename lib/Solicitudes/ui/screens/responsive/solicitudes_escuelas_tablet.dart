@@ -12,16 +12,13 @@ class SolicitudesEscuelasTablet extends StatelessWidget {
     CardSolicitudesEscuelas card = CardSolicitudesEscuelas();
     final _size = MediaQuery.of(context).size.width;
     // print(_size);
-    double aspectRateo = 0.0;
-    if (_size < 953) {
-      aspectRateo = (100 / 40);
-    } else {
-      aspectRateo = (100 / 40);
-    }
-    if (_size < 736) {
-      aspectRateo = (100 / 70);
-    } else {
-      (aspectRateo = 100 / 58);
+    double _aspectRateo = _size / 650;
+    _buildFormDetalles(context) {
+      return showDialog(
+          context: context,
+          builder: (context) {
+            return const FormDialogDetalleSolicitudEscuela().build(context);
+          });
     }
 
     FloatingButton floButton = FloatingButton();
@@ -34,72 +31,32 @@ class SolicitudesEscuelasTablet extends StatelessWidget {
         child: GridView.count(
           addAutomaticKeepAlives: true,
           crossAxisCount: 2,
-          childAspectRatio: aspectRateo,
+          childAspectRatio: _aspectRateo,
           children: [
-            ConstrainedBox(
-              constraints: const BoxConstraints(
-                  maxHeight: 200, minHeight: 100, maxWidth: 100, minWidth: 100),
-              child: card.cardSolicitudesEscuelas(
-                  'Hola', 'contenido', 'contenido 2', 'contenido 3',
-                  btnAction: () => FormDialogDetalleSolicitudEscuela
-                      .formDialogDetalleSolicitudEscuela(context)),
-            ),
-            ConstrainedBox(
-              constraints: const BoxConstraints(
-                  maxHeight: 200, minHeight: 100, maxWidth: 100, minWidth: 100),
-              child: card.cardSolicitudesEscuelas(
-                  'Hola', 'contenido', 'contenido 2', 'contenido 3',
-                  btnAction: () => FormDialogDetalleSolicitudEscuela
-                      .formDialogDetalleSolicitudEscuela(context)),
-            ),
-            ConstrainedBox(
-              constraints: const BoxConstraints(
-                  maxHeight: 200, minHeight: 100, maxWidth: 100, minWidth: 100),
-              child: card.cardSolicitudesEscuelas(
-                  'Hola', 'contenido', 'contenido 2', 'contenido 3',
-                  btnAction: () => FormDialogDetalleSolicitudEscuela
-                      .formDialogDetalleSolicitudEscuela(context)),
-            ),
-            ConstrainedBox(
-              constraints: const BoxConstraints(
-                  maxHeight: 200, minHeight: 100, maxWidth: 100, minWidth: 100),
-              child: card.cardSolicitudesEscuelas(
-                  'Hola', 'contenido', 'contenido 2', 'contenido 3',
-                  btnAction: () => FormDialogDetalleSolicitudEscuela
-                      .formDialogDetalleSolicitudEscuela(context)),
-            ),
-            ConstrainedBox(
-              constraints: const BoxConstraints(
-                  maxHeight: 200, minHeight: 100, maxWidth: 100, minWidth: 100),
-              child: card.cardSolicitudesEscuelas(
-                  'Hola', 'contenido', 'contenido 2', 'contenido 3',
-                  btnAction: () => FormDialogDetalleSolicitudEscuela
-                      .formDialogDetalleSolicitudEscuela(context)),
-            ),
-            ConstrainedBox(
-              constraints: const BoxConstraints(
-                  maxHeight: 200, minHeight: 100, maxWidth: 100, minWidth: 100),
-              child: card.cardSolicitudesEscuelas(
-                  'Hola', 'contenido', 'contenido 2', 'contenido 3',
-                  btnAction: () => FormDialogDetalleSolicitudEscuela
-                      .formDialogDetalleSolicitudEscuela(context)),
-            ),
-            ConstrainedBox(
-              constraints: const BoxConstraints(
-                  maxHeight: 200, minHeight: 100, maxWidth: 100, minWidth: 100),
-              child: card.cardSolicitudesEscuelas(
-                  'Hola', 'contenido', 'contenido 2', 'contenido 3',
-                  btnAction: () => FormDialogDetalleSolicitudEscuela
-                      .formDialogDetalleSolicitudEscuela(context)),
-            ),
-            ConstrainedBox(
-              constraints: const BoxConstraints(
-                  maxHeight: 200, minHeight: 100, maxWidth: 100, minWidth: 100),
-              child: card.cardSolicitudesEscuelas(
-                  'Hola', 'contenido', 'contenido 2', 'contenido 3',
-                  btnAction: () => FormDialogDetalleSolicitudEscuela
-                      .formDialogDetalleSolicitudEscuela(context)),
-            ),
+            card.cardSolicitudesEscuelas(
+                'Hola', 'contenido', 'contenido 2', 'contenido 3',
+                btnAction: () => _buildFormDetalles(context)),
+            card.cardSolicitudesEscuelas(
+                'Hola', 'contenido', 'contenido 2', 'contenido 3',
+                btnAction: () => _buildFormDetalles(context)),
+            card.cardSolicitudesEscuelas(
+                'Hola', 'contenido', 'contenido 2', 'contenido 3',
+                btnAction: () => _buildFormDetalles(context)),
+            card.cardSolicitudesEscuelas(
+                'Hola', 'contenido', 'contenido 2', 'contenido 3',
+                btnAction: () => _buildFormDetalles(context)),
+            card.cardSolicitudesEscuelas(
+                'Hola', 'contenido', 'contenido 2', 'contenido 3',
+                btnAction: () => _buildFormDetalles(context)),
+            card.cardSolicitudesEscuelas(
+                'Hola', 'contenido', 'contenido 2', 'contenido 3',
+                btnAction: () => _buildFormDetalles(context)),
+            card.cardSolicitudesEscuelas(
+                'Hola', 'contenido', 'contenido 2', 'contenido 3',
+                btnAction: () => _buildFormDetalles(context)),
+            card.cardSolicitudesEscuelas(
+                'Hola', 'contenido', 'contenido 2', 'contenido 3',
+                btnAction: () => _buildFormDetalles(context)),
           ],
         ),
       ),

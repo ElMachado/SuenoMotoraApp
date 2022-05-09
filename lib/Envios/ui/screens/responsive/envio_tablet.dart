@@ -61,7 +61,7 @@ class EnviosTablet extends StatelessWidget {
         padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
         child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              childAspectRatio: 0.85, crossAxisCount: 2),
+              childAspectRatio: 0.75, crossAxisCount: 2),
           addAutomaticKeepAlives: true,
           addRepaintBoundaries: true,
           addSemanticIndexes: true,

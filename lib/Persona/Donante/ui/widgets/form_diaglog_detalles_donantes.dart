@@ -5,18 +5,14 @@ import 'package:suenomotora_app/common/widgets/forms_elements.dart';
 class FormDialogDetallesDonantes extends StatefulWidget {
   const FormDialogDetallesDonantes({Key? key}) : super(key: key);
   static responsiveButtons(context) {
-    FormsElements formsElements = FormsElements();
-
     if (MediaQuery.of(context).size.width <= 600) {
-      return formsElements.btnsDetallesMovil(context);
+      return FormsElements.btnsDetallesMovil(context);
     } else {
-      return formsElements.btnsDetallesDesktopTablet(context);
+      return FormsElements.btnsDetallesDesktopTablet(context);
     }
   }
 
   static formDialogDetallesDonantes(BuildContext context) {
-    FormsElements formsElements = FormsElements();
-
     return showDialog(
       context: context,
       barrierDismissible: true,
@@ -25,15 +21,21 @@ class FormDialogDetallesDonantes extends StatefulWidget {
             title: const Text('Detalles de Donante'),
             children: [
               Padding(
-                padding: const EdgeInsets.all(10.0),
-                child:
-                    Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-                  formsElements.createInput('Nombre', 'nombre'),
-                  formsElements.createInput('Telefono', 'Telefono'),
-                  formsElements.createInput(
-                      'Correo electronico', 'Correo electronico'),
-                  responsiveButtons(context)
-                ]),
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      FormsElements.createInput(
+                          'Nombre', 'nombre', 'person_outline'),
+                      FormsElements.createInput(
+                          'Telefono', 'Telefono', 'telefono'),
+                      FormsElements.createInput(
+                          'Correo electronico', 'Correo electronico', 'email'),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20.0),
+                        child: responsiveButtons(context),
+                      )
+                    ]),
               ),
             ]);
       },

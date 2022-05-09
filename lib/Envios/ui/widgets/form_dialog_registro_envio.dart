@@ -5,8 +5,6 @@ class FormDialogRegistroEnvio extends StatefulWidget {
   const FormDialogRegistroEnvio({Key? key}) : super(key: key);
 
   static mostrarDialogRegistroEnvio(BuildContext context) {
-    FormsElements formsElements = FormsElements();
-
     return showDialog(
       context: context,
       barrierDismissible: true,
@@ -21,18 +19,20 @@ class FormDialogRegistroEnvio extends StatefulWidget {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    formsElements.createInput(
-                        'Nombre de la escuela', 'Nombre de la escuela'),
-                    formsElements.createInput(
+                    FormsElements.createInput('Nombre de la escuela',
+                        'Nombre de la escuela', 'escuela'),
+                    FormsElements.createInput(
                       'Nombre responsable',
                       'nombre responsable',
+                      'person_outline',
                     ),
-                    formsElements.createInput(
-                        'direccion de envio', 'direccion de envio'),
-                    formsElements.createInput('Telefono', 'Telefono'),
-                    formsElements.boxImput(
-                        'Contenido de envio', 'Contenido de envio'),
-                    formsElements.btnsAceptarCancelar(context)
+                    FormsElements.createInput('direccion de envio',
+                        'direccion de envio', 'direccion'),
+                    FormsElements.createInput(
+                        'Telefono', 'Telefono', 'telefono'),
+                    FormsElements.boxImput('Contenido de envio',
+                        'Contenido de envio', 'contenido'),
+                    FormsElements.btnsAceptarCancelar(context)
                   ]),
             ),
           ),

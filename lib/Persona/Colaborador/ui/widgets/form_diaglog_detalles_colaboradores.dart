@@ -6,18 +6,14 @@ class FormDialogDetallesColaborador extends StatefulWidget {
   const FormDialogDetallesColaborador({Key? key}) : super(key: key);
 
   static _responsiveButtons(context) {
-    FormsElements formsElements = FormsElements();
-
     if (MediaQuery.of(context).size.width <= 600) {
-      return formsElements.btnsDetallesMovil(context);
+      return FormsElements.btnsDetallesMovil(context);
     } else {
-      return formsElements.btnsDetallesDesktopTablet(context);
+      return FormsElements.btnsDetallesDesktopTablet(context);
     }
   }
 
   static formDialogDetallesColaborador(BuildContext context) {
-    FormsElements formsElements = FormsElements();
-
     return showDialog(
       context: context,
       barrierDismissible: true,
@@ -27,16 +23,19 @@ class FormDialogDetallesColaborador extends StatefulWidget {
           title: const Text('Detalles de colaborador'),
           children: [
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(20.0),
               child:
                   Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-                formsElements.createInput('Nombre', 'nombre'),
-                formsElements.createInput('Telefono', 'Telefono'),
-                formsElements.createInput(
-                    'Correo electronico', 'Correo electronico'),
+                FormsElements.createInput('Nombre', 'nombre', 'person_outline'),
+                FormsElements.createInput('Telefono', 'Telefono', 'telefono'),
+                FormsElements.createInput(
+                    'Correo electronico', 'Correo electronico', 'email'),
+                Padding(
+                  padding: const EdgeInsets.only(top: 15.0),
+                  child: _responsiveButtons(context),
+                ),
               ]),
             ),
-            _responsiveButtons(context)
           ],
         );
       },

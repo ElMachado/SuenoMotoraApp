@@ -5,8 +5,6 @@ class FormDialogRegistroSolicitudEscuela extends StatefulWidget {
   const FormDialogRegistroSolicitudEscuela({Key? key}) : super(key: key);
 
   static formDialogRegistroSolicitudEscuela(BuildContext context) {
-    FormsElements formsElements = FormsElements();
-
     return showDialog(
       context: context,
       barrierDismissible: true,
@@ -18,14 +16,16 @@ class FormDialogRegistroSolicitudEscuela extends StatefulWidget {
                 padding: const EdgeInsets.all(10.0),
                 child:
                     Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-                  formsElements.createInput(
-                      'Nombre de Escuela', 'Nombre de Escuela'),
-                  formsElements.createInput('Nombre', 'Nombre del responsable'),
-                  formsElements.createInput('Telefono', 'Telefono'),
-                  formsElements.createInput(
-                      'Correo electrónico', 'Correo electrónico'),
-                  formsElements.boxImput('Solicitud', '¿Qué solicita?'),
-                  formsElements.btnsAceptarCancelar(context),
+                  FormsElements.createInput(
+                      'Nombre de Escuela', 'Nombre de Escuela', 'escuela'),
+                  FormsElements.createInput(
+                      'Nombre', 'Nombre del responsable', 'person_outline'),
+                  FormsElements.createInput('Telefono', 'Telefono', 'telefono'),
+                  FormsElements.createInput(
+                      'Correo electrónico', 'Correo electrónico', 'email'),
+                  FormsElements.boxImput(
+                      'Solicitud', '¿Qué solicita?', 'solicitud'),
+                  FormsElements.btnsAceptarCancelar(context),
                 ]),
               ),
             ]);

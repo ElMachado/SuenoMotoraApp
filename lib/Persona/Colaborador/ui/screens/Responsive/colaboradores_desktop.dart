@@ -11,116 +11,31 @@ class ColaboradoresDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     CardColaborador card = const CardColaborador();
     FloatingButton floButton = FloatingButton();
+    final _width = MediaQuery.of(context).size.width;
+    final _height = MediaQuery.of(context).size.height;
+    print(_width);
+    int _crossAxisCount = 3;
 
     return Scaffold(
         appBar: AppBar(
           title: const Text('Colaboradores'),
         ),
         body: Container(
-          padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
-          child: GridView.count(
-            addAutomaticKeepAlives: true,
-            crossAxisCount: 4,
-            childAspectRatio: 99 / 42,
-            children: [
-              card.cardColaborador('Hola', 'contenido',
-                  btnAction: () => FormDialogDetallesColaborador
-                      .formDialogDetallesColaborador(context)),
-              ConstrainedBox(
-                constraints: const BoxConstraints(
-                    maxHeight: 200,
-                    minHeight: 100,
-                    maxWidth: 100,
-                    minWidth: 100),
-                child: card.cardColaborador('Hola', 'contenido',
-                    btnAction: () => FormDialogDetallesColaborador
-                        .formDialogDetallesColaborador(context)),
-              ),
-              ConstrainedBox(
-                constraints: const BoxConstraints(
-                    maxHeight: 200,
-                    minHeight: 100,
-                    maxWidth: 100,
-                    minWidth: 100),
-                child: card.cardColaborador('Hola', 'contenido',
-                    btnAction: () => FormDialogDetallesColaborador
-                        .formDialogDetallesColaborador(context)),
-              ),
-              ConstrainedBox(
-                constraints: const BoxConstraints(
-                    maxHeight: 200,
-                    minHeight: 100,
-                    maxWidth: 100,
-                    minWidth: 100),
-                child: card.cardColaborador('Hola', 'contenido',
-                    btnAction: () => FormDialogDetallesColaborador
-                        .formDialogDetallesColaborador(context)),
-              ),
-              ConstrainedBox(
-                constraints: const BoxConstraints(
-                    maxHeight: 200,
-                    minHeight: 100,
-                    maxWidth: 100,
-                    minWidth: 100),
-                child: card.cardColaborador('Hola', 'contenido',
-                    btnAction: () => FormDialogDetallesColaborador
-                        .formDialogDetallesColaborador(context)),
-              ),
-              ConstrainedBox(
-                constraints: const BoxConstraints(
-                    maxHeight: 200,
-                    minHeight: 100,
-                    maxWidth: 100,
-                    minWidth: 100),
-                child: card.cardColaborador('Hola', 'contenido',
-                    btnAction: () => FormDialogDetallesColaborador
-                        .formDialogDetallesColaborador(context)),
-              ),
-              ConstrainedBox(
-                constraints: const BoxConstraints(
-                    maxHeight: 200,
-                    minHeight: 100,
-                    maxWidth: 100,
-                    minWidth: 100),
-                child: card.cardColaborador('Hola', 'contenido',
-                    btnAction: () => FormDialogDetallesColaborador
-                        .formDialogDetallesColaborador(context)),
-              ),
-              ConstrainedBox(
-                constraints: const BoxConstraints(
-                    maxHeight: 200,
-                    minHeight: 100,
-                    maxWidth: 100,
-                    minWidth: 100),
-                child: card.cardColaborador('Hola', 'contenido',
-                    btnAction: () => FormDialogDetallesColaborador
-                        .formDialogDetallesColaborador(context)),
-              ),
-              ConstrainedBox(
-                constraints: const BoxConstraints(
-                    maxHeight: 200,
-                    minHeight: 100,
-                    maxWidth: 100,
-                    minWidth: 100),
-                child: card.cardColaborador('Hola', 'contenido',
-                    btnAction: () => FormDialogDetallesColaborador
-                        .formDialogDetallesColaborador(context)),
-              ),
-              ConstrainedBox(
-                constraints: const BoxConstraints(
-                    maxHeight: 200,
-                    minHeight: 100,
-                    maxWidth: 100,
-                    minWidth: 100),
-                child: card.cardColaborador('Hola', 'contenido',
-                    btnAction: () => FormDialogDetallesColaborador
-                        .formDialogDetallesColaborador(context)),
-              )
-            ],
-          ),
-        ),
+            padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
+            child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: _crossAxisCount,
+                    mainAxisSpacing: 8,
+                    crossAxisSpacing: 8,
+                    childAspectRatio: 2.5),
+                itemBuilder: (context, index) {
+                  return card.cardColaborador('Hola', 'contenido',
+                      btnAction: () => FormDialogDetallesColaborador
+                          .formDialogDetallesColaborador(context));
+                })),
         floatingActionButton: floButton.floatingButton(
             btnAction: () =>
-                FormDialogRegistroColaboradores.formDialogRegistroColaboradores(context)));
+                FormDialogRegistroColaboradores.formDialogRegistroColaboradores(
+                    context)));
   }
 }

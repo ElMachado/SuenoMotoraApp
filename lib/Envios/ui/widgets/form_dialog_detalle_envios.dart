@@ -4,18 +4,14 @@ import 'package:suenomotora_app/common/widgets/forms_elements.dart';
 class FormDialogDetalleEnvio extends StatefulWidget {
   const FormDialogDetalleEnvio({Key? key}) : super(key: key);
   static responsiveButtons(context) {
-    FormsElements formsElements = FormsElements();
-
     if (MediaQuery.of(context).size.width <= 600) {
-      return formsElements.btnsDetallesMovil(context);
+      return FormsElements.btnsDetallesMovil(context);
     } else {
-      return formsElements.btnsDetallesDesktopTablet(context);
+      return FormsElements.btnsDetallesDesktopTablet(context);
     }
   }
 
   Future formDialogDetalleEnvio(BuildContext context) {
-    FormsElements formsElements = FormsElements();
-
     return showDialog(
       context: context,
       barrierDismissible: true,
@@ -30,17 +26,19 @@ class FormDialogDetalleEnvio extends StatefulWidget {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    formsElements.createInput(
-                        'Nombre de la escuela', 'Nombre de la escuela'),
-                    formsElements.createInput(
+                    FormsElements.createInput('Nombre de la escuela',
+                        'Nombre de la escuela', 'escuela'),
+                    FormsElements.createInput(
                       'Nombre responsable',
                       'nombre responsable',
+                      'person_outline',
                     ),
-                    formsElements.createInput(
-                        'direccion de envio', 'direccion de envio'),
-                    formsElements.createInput('Telefono', 'Telefono'),
-                    formsElements.boxImput(
-                        'Contenido de envio', 'Contenido de envio'),
+                    FormsElements.createInput('direccion de envio',
+                        'direccion de envio', 'direccion'),
+                    FormsElements.createInput(
+                        'Telefono', 'Telefono', 'telefono'),
+                    FormsElements.boxImput('Contenido de envio',
+                        'Contenido de envio', 'contenido'),
                     responsiveButtons(context)
                   ]),
             ),

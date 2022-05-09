@@ -18,13 +18,16 @@ class ColaboradoresMovil extends StatelessWidget {
         ),
         body: Container(
           padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
-          child: ListView(
-            children: [
-              card.cardColaborador(
+          child: ListView.builder(
+            physics: const BouncingScrollPhysics(),
+            itemCount: 10,
+            semanticChildCount: 10,
+            itemBuilder: (context, index) {
+              return card.cardColaborador(
                   'Jesús Arroyo', 'ing de sistemas- tel 3105124359',
                   btnAction: () => FormDialogDetallesColaborador
-                      .formDialogDetallesColaborador(context)),
-            ],
+                      .formDialogDetallesColaborador(context));
+            },
           ),
         ),
         floatingActionButton: floButton.floatingButton(

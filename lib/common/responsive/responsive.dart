@@ -22,7 +22,7 @@ class ResponsibleLayout extends StatelessWidget {
           return ventanaMuyPequena;
         } else if (constraints.maxWidth >= 320 && constraints.maxWidth < 610) {
           return mobileBody;
-        } else if (constraints.maxWidth > 600 && constraints.maxWidth < 1200) {
+        } else if (constraints.maxWidth > 600 && constraints.maxWidth < 1024) {
           return tabletBody;
         } else {
           return desktopBody;

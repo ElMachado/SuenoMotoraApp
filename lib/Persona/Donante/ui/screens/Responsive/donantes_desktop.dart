@@ -18,122 +18,18 @@ class DonatesDesktop extends StatelessWidget {
         ),
         body: Container(
           padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
-          child: GridView.count(
-            addAutomaticKeepAlives: true,
-            crossAxisCount: 4,
-            childAspectRatio: 99 / 42,
-            children: [
-              ConstrainedBox(
-                constraints: const BoxConstraints(
-                    maxHeight: 200,
-                    minHeight: 100,
-                    maxWidth: 100,
-                    minWidth: 100),
-                child: card.cardDonante('Hola', 'contenido',
-                    btnAction: () =>
-                        FormDialogDetallesDonantes.formDialogDetallesDonantes(
-                            context)),
-              ),
-              ConstrainedBox(
-                constraints: const BoxConstraints(
-                    maxHeight: 200,
-                    minHeight: 100,
-                    maxWidth: 100,
-                    minWidth: 100),
-                child: card.cardDonante('Hola', 'contenido',
-                    btnAction: () =>
-                        FormDialogDetallesDonantes.formDialogDetallesDonantes(
-                            context)),
-              ),
-              ConstrainedBox(
-                constraints: const BoxConstraints(
-                    maxHeight: 200,
-                    minHeight: 100,
-                    maxWidth: 100,
-                    minWidth: 100),
-                child: card.cardDonante('Hola', 'contenido',
-                    btnAction: () =>
-                        FormDialogDetallesDonantes.formDialogDetallesDonantes(
-                            context)),
-              ),
-              ConstrainedBox(
-                constraints: const BoxConstraints(
-                    maxHeight: 200,
-                    minHeight: 100,
-                    maxWidth: 100,
-                    minWidth: 100),
-                child: card.cardDonante('Hola', 'contenido',
-                    btnAction: () =>
-                        FormDialogDetallesDonantes.formDialogDetallesDonantes(
-                            context)),
-              ),
-              ConstrainedBox(
-                constraints: const BoxConstraints(
-                    maxHeight: 200,
-                    minHeight: 100,
-                    maxWidth: 100,
-                    minWidth: 100),
-                child: card.cardDonante('Hola', 'contenido',
-                    btnAction: () =>
-                        FormDialogDetallesDonantes.formDialogDetallesDonantes(
-                            context)),
-              ),
-              ConstrainedBox(
-                constraints: const BoxConstraints(
-                    maxHeight: 200,
-                    minHeight: 100,
-                    maxWidth: 100,
-                    minWidth: 100),
-                child: card.cardDonante('Hola', 'contenido',
-                    btnAction: () =>
-                        FormDialogDetallesDonantes.formDialogDetallesDonantes(
-                            context)),
-              ),
-              ConstrainedBox(
-                constraints: const BoxConstraints(
-                    maxHeight: 200,
-                    minHeight: 100,
-                    maxWidth: 100,
-                    minWidth: 100),
-                child: card.cardDonante('Hola', 'contenido',
-                    btnAction: () =>
-                        FormDialogDetallesDonantes.formDialogDetallesDonantes(
-                            context)),
-              ),
-              ConstrainedBox(
-                constraints: const BoxConstraints(
-                    maxHeight: 200,
-                    minHeight: 100,
-                    maxWidth: 100,
-                    minWidth: 100),
-                child: card.cardDonante('Hola', 'contenido',
-                    btnAction: () =>
-                        FormDialogDetallesDonantes.formDialogDetallesDonantes(
-                            context)),
-              ),
-              ConstrainedBox(
-                constraints: const BoxConstraints(
-                    maxHeight: 200,
-                    minHeight: 100,
-                    maxWidth: 100,
-                    minWidth: 100),
-                child: card.cardDonante('Hola', 'contenido',
-                    btnAction: () =>
-                        FormDialogDetallesDonantes.formDialogDetallesDonantes(
-                            context)),
-              ),
-              ConstrainedBox(
-                constraints: const BoxConstraints(
-                    maxHeight: 200,
-                    minHeight: 100,
-                    maxWidth: 100,
-                    minWidth: 100),
-                child: card.cardDonante('Hola', 'contenido',
-                    btnAction: () =>
-                        FormDialogDetallesDonantes.formDialogDetallesDonantes(
-                            context)),
-              )
-            ],
+          child: GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                mainAxisSpacing: 8,
+                crossAxisSpacing: 8,
+                childAspectRatio: 2.5),
+            itemBuilder: (context, index) {
+              return card.cardDonante('Hola', 'contenido',
+                  btnAction: () =>
+                      FormDialogDetallesDonantes.formDialogDetallesDonantes(
+                          context));
+            },
           ),
         ),
         floatingActionButton: floButton.floatingButton(

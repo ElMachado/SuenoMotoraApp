@@ -5,8 +5,6 @@ class FormDialogRegistroColaborador extends StatefulWidget {
   const FormDialogRegistroColaborador({Key? key}) : super(key: key);
 
   static formDialogRegistroColaborador(BuildContext context) {
-    FormsElements formsElements = FormsElements();
-
     return showDialog(
       context: context,
       barrierDismissible: true,
@@ -19,11 +17,16 @@ class FormDialogRegistroColaborador extends StatefulWidget {
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      formsElements.createInput('Nombre', 'nombre'),
-                      formsElements.createInput('Telefono', 'Telefono'),
-                      formsElements.createInput(
-                          'Correo electronico', 'Correo electronico'),
-                      formsElements.btnsAceptarCancelar(context),
+                      FormsElements.createInput(
+                          'Nombre', 'nombre', 'person_outline'),
+                      FormsElements.createInput(
+                          'Telefono', 'Telefono', 'telefono'),
+                      FormsElements.createInput(
+                          'Correo electronico', 'Correo electronico', 'email'),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 8.0),
+                        child: FormsElements.btnsAceptarCancelar(context),
+                      ),
                     ]),
               ),
             ]);

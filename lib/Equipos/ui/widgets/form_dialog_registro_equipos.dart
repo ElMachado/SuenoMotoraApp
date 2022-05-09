@@ -5,8 +5,6 @@ class FormDialogRegistroEquipos extends StatefulWidget {
   const FormDialogRegistroEquipos({Key? key}) : super(key: key);
 
   static formDialogRegistroEquipos(BuildContext context) {
-    FormsElements formsElements = FormsElements();
-
     return showDialog(
       context: context,
       barrierDismissible: true,
@@ -18,12 +16,15 @@ class FormDialogRegistroEquipos extends StatefulWidget {
               width: 400,
               child:
                   Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-                formsElements.createInput('Procesador', 'Procesador'),
-                formsElements.createInput('RAM', 'RAM'),
-                formsElements.createInput('Disco Duro', 'Disco Duro'),
-                formsElements.boxImput('Observaciones', 'observaciones'),
-                formsElements.btnAgregarFoto(),
-                formsElements.btnsAceptarCancelar(context)
+                FormsElements.createInput(
+                    'Procesador', 'Procesador', 'processor'),
+                FormsElements.createInput('RAM', 'RAM', 'memory'),
+                FormsElements.createInput(
+                    'Disco Duro', 'Disco Duro', 'storage'),
+                FormsElements.boxImput(
+                    'Observaciones', 'observaciones', 'observaciones'),
+                FormsElements.btnAgregarFoto(),
+                FormsElements.btnsAceptarCancelar(context)
               ]),
             ),
           ),

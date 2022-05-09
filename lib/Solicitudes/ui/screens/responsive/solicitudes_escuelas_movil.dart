@@ -10,6 +10,13 @@ class SolicitudesEscuelasMovil extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     CardSolicitudesEscuelas card = CardSolicitudesEscuelas();
+    _buildFormDetalles(context) {
+      return showDialog(
+          context: context,
+          builder: (context) {
+            return const FormDialogDetalleSolicitudEscuela().build(context);
+          });
+    }
 
     FloatingButton floButton = FloatingButton();
     return Scaffold(
@@ -22,8 +29,7 @@ class SolicitudesEscuelasMovil extends StatelessWidget {
           children: [
             card.cardSolicitudesEscuelas('Jesús Arroyo',
                 'ing de sistemas- tel 3105124359', 'texto 3', 'texto 4',
-                btnAction: () => FormDialogDetalleSolicitudEscuela
-                    .formDialogDetalleSolicitudEscuela(context)),
+                btnAction: () => _buildFormDetalles(context)),
           ],
         ),
       ),

@@ -61,6 +61,17 @@ class _MyHomePageState extends State<InicioMapa> {
     }
   }
 
+  _buildFormDetallesUbicacion(context) {
+    FormDialogDetallesUbicacion formDialogDetallesUbicacion =
+        const FormDialogDetallesUbicacion();
+    formDialogDetallesUbicacion.build(context);
+    showDialog(
+        context: context,
+        builder: (context) {
+          return formDialogDetallesUbicacion.build(context);
+        });
+  }
+
   Widget _buildMarkerWidget(Offset pos, Color color) {
     return Positioned(
       left: pos.dx - 16,
@@ -68,8 +79,7 @@ class _MyHomePageState extends State<InicioMapa> {
       width: 24,
       height: 24,
       child: IconButton(
-        onPressed: () =>
-            FormDialogDetallesUbicacion.formDialogDetallesUbicacion(context),
+        onPressed: () => _buildFormDetallesUbicacion(context),
         icon: Icon(Icons.location_on, color: color, size: 24),
       ),
     );

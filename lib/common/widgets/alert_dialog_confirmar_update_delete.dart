@@ -13,18 +13,35 @@ class AlertDialogConfirmarUpdateAndDelete extends StatelessWidget {
     return AlertDialog(
       content: Text('¿Esta seguro que desea $_operationType este registro?'),
       actions: [
-        ElevatedButton(
-          child: const Text('Cancelar'),
-          onPressed: () {
-            Navigator.of(context).pop(false);
-          },
+        SizedBox(
+          width: 90,
+          child: OutlinedButton(
+            style: OutlinedButton.styleFrom(
+              primary: Colors.green,
+              side: const BorderSide(
+                  color: Colors.green, style: BorderStyle.solid, width: 1.5),
+              padding: const EdgeInsets.all(0),
+            ),
+            child: const Text('Cancelar'),
+            onPressed: () {
+              Navigator.of(context).pop(false);
+            },
+          ),
         ),
-        ElevatedButton(
-          child: const Text('Aceptar'),
-          onPressed: () {
-            _operation();
-            Navigator.of(context).pop(true);
-          },
+        SizedBox(
+          width: 90,
+          child: ElevatedButton(
+            child: const Text('Aceptar'),
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(
+                Colors.green,
+              ),
+            ),
+            onPressed: () {
+              _operation();
+              Navigator.of(context).pop(true);
+            },
+          ),
         ),
       ],
     );
