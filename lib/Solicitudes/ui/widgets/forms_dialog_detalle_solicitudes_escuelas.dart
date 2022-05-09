@@ -4,42 +4,33 @@ import 'package:suenomotora_app/common/widgets/forms_elements.dart';
 class FormDialogDetalleSolicitudEscuela extends StatefulWidget {
   const FormDialogDetalleSolicitudEscuela({Key? key}) : super(key: key);
   static responsiveButtons(context) {
-    FormsElements formsElements = FormsElements();
-
     if (MediaQuery.of(context).size.width <= 600) {
-      return formsElements.btnsDetallesMovil(context);
+      return FormsElements.btnsDetallesMovil(context);
     } else {
-      return formsElements.btnsDetallesDesktopTablet(context);
+      return FormsElements.btnsDetallesDesktopTablet(context);
     }
   }
 
-  static formDialogDetalleSolicitudEscuela(BuildContext context) {
-    FormsElements formsElements = FormsElements();
-
-    return showDialog(
-      context: context,
-      barrierDismissible: true,
-      builder: (context) {
-        return SimpleDialog(
-            title: const Text('Detalle de solicitud de escuela'),
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child:
-                    Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-                  formsElements.createInput(
-                      'Nombre de Escuela', 'Nombre de Escuela'),
-                  formsElements.createInput('Nombre', 'Nombre del responsable'),
-                  formsElements.createInput('Telefono', 'Telefono'),
-                  formsElements.createInput(
-                      'Correo electronico', 'Correo electronico'),
-                  formsElements.boxImput('Solicitud', '¿Qué solicita?'),
-                  responsiveButtons(context)
-                ]),
-              ),
-            ]);
-      },
-    );
+  Widget build(BuildContext context) {
+    return SimpleDialog(
+        title: const Text('Detalle de solicitud de escuela'),
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+              FormsElements.createInput(
+                  'Nombre de Escuela', 'Nombre de Escuela', 'escuela'),
+              FormsElements.createInput(
+                  'Nombre', 'Nombre del responsable', 'person_outline'),
+              FormsElements.createInput('Telefono', 'Telefono', 'telefono'),
+              FormsElements.createInput(
+                  'Correo electrónico', 'Correo electrónico', 'email'),
+              FormsElements.boxImput(
+                  'Solicitud', '¿Qué solicita?', 'solicitud'),
+              responsiveButtons(context)
+            ]),
+          ),
+        ]);
   }
 
   @override

@@ -4,36 +4,11 @@ import 'package:suenomotora_app/common/widgets/forms_elements.dart';
 class FormDialogDetalleEquipos extends StatefulWidget {
   const FormDialogDetalleEquipos({Key? key}) : super(key: key);
   static responsiveButtons(context) {
-    FormsElements formsElements = FormsElements();
-
     if (MediaQuery.of(context).size.width <= 600) {
-      return formsElements.btnsDetallesMovil(context);
+      return FormsElements.btnsDetallesMovil(context);
     } else {
-      return formsElements.btnsDetallesDesktopTablet(context);
+      return FormsElements.btnsDetallesDesktopTablet(context);
     }
-  }
-
-  static formDialogDetalleEquipos(BuildContext context) {
-    FormsElements formsElements = FormsElements();
-
-    return showDialog(
-      context: context,
-      barrierDismissible: true,
-      builder: (context) {
-        return SimpleDialog(title: const Text('Detalle de Equipo'), children: [
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-              formsElements.createInput('Procesador', 'Procesador'),
-              formsElements.createInput('RAM', 'RAM'),
-              formsElements.createInput('Disco Duro', 'Disco Duro'),
-              formsElements.boxImput('Observaciones', 'observaciones'),
-              responsiveButtons(context)
-            ]),
-          ),
-        ]);
-      },
-    );
   }
 
   @override
@@ -42,5 +17,22 @@ class FormDialogDetalleEquipos extends StatefulWidget {
     // ignore: todo
     // TODO: implement createState
     throw UnimplementedError();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SimpleDialog(title: const Text('Detalle de Equipo'), children: [
+      Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+          FormsElements.createInput('Procesador', 'Procesador', 'processor'),
+          FormsElements.createInput('RAM', 'RAM', 'memory'),
+          FormsElements.createInput('Disco Duro', 'Disco Duro', 'storage'),
+          FormsElements.boxImput(
+              'Observaciones', 'observaciones', 'observaciones'),
+          responsiveButtons(context)
+        ]),
+      ),
+    ]);
   }
 }

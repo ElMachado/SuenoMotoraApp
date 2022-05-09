@@ -5,15 +5,15 @@ class CardColaborador extends StatelessWidget {
 
   Widget cardColaborador(String titulo, String contenido,
       {required Function btnAction}) {
-    return LayoutBuilder(
-      builder: (context, constraints) => Card(
-        elevation: 10.0,
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            ListTile(
+    return Card(
+      elevation: 10.0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: <Widget>[
+          Container(
+            alignment: Alignment.center,
+            child: ListTile(
               leading: const Icon(
                 Icons.photo_album,
                 color: Colors.green,
@@ -21,22 +21,22 @@ class CardColaborador extends StatelessWidget {
               title: Text(titulo, style: const TextStyle(fontSize: 20.0)),
               subtitle: Text(contenido, style: const TextStyle(fontSize: 20.0)),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                SizedBox(
-                  width: 120,
-                  height: 50,
-                  child: TextButton(
-                      onPressed: () {
-                        btnAction();
-                      },
-                      child: const Text('Detalles')),
-                ),
-              ],
-            ),
-          ],
-        ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(
+                width: 120,
+                height: 50,
+                child: TextButton(
+                    onPressed: () {
+                      btnAction();
+                    },
+                    child: const Text('Detalles')),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

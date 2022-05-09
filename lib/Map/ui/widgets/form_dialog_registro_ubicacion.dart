@@ -5,8 +5,6 @@ class FormDialogRegistroUbicacion extends StatefulWidget {
   const FormDialogRegistroUbicacion({Key? key}) : super(key: key);
 
   static formDialogRegistroUbicacion(BuildContext context) {
-    FormsElements formsElements = FormsElements();
-
     return showDialog(
       context: context,
       barrierDismissible: true,
@@ -21,19 +19,19 @@ class FormDialogRegistroUbicacion extends StatefulWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text('Líder:', style: TextStyle(fontSize: 20)),
-                      formsElements.createInput(
+                      FormsElements.createInput(
                           'Nombre del Líder', 'Nombre del Líder'),
                       const Text('Donante:', style: TextStyle(fontSize: 20)),
-                      formsElements.createInput(
+                      FormsElements.createInput(
                           'Nombre del Donante', 'Nombre del Donante'),
                       const Text('Últimos envíos',
                           style: TextStyle(fontSize: 20)),
-                      formsElements.boxImput(
+                      FormsElements.boxImput(
                           'Contenido de los envíos', 'Contenido de los envíos'),
                       const Text('Agregar fotos ',
                           style: TextStyle(fontSize: 20)),
-                      formsElements.btnAgregarFoto(),
-                      formsElements.btnsAceptarCancelar(context)
+                      FormsElements.btnAgregarFoto(),
+                      FormsElements.btnsAceptarCancelar(context)
                     ]),
               ),
             ]);

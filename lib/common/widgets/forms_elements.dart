@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:suenomotora_app/common/widgets/alert_dialog_confirmar_update_delete.dart';
 import 'package:suenomotora_app/common/widgets/snackbar_resultado_operacion_crud.dart';
 
+import '../../utils/iconos_string_util.dart';
+
 class FormsElements extends StatelessWidget {
   final String _nombre = 'Nombre de Usuario';
   final String? _dropDownValue = 'volar';
@@ -10,14 +12,9 @@ class FormsElements extends StatelessWidget {
       TextEditingController();
 
   FormsElements({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [createInput('', ''), crearPassword()],
-    );
-  }
 
-  Widget createInput(String hintText, String? labelText) {
+  static Widget createInput(String hintText, String? labelText,
+      [String icon = '']) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextField(
@@ -25,14 +22,15 @@ class FormsElements extends StatelessWidget {
         decoration: InputDecoration(
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
-            icon: const Icon(Icons.account_circle),
-            hintText: hintText,
+            icon: getIcon(icon),
+            //hintText: hintText,
             labelText: labelText),
       ),
     );
   }
 
-  Widget boxImput(String hintText, String? labelText) {
+  static Widget boxImput(String hintText, String? labelText,
+      [String icon = '']) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextField(
@@ -42,14 +40,14 @@ class FormsElements extends StatelessWidget {
         decoration: InputDecoration(
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
-            icon: const Icon(Icons.account_circle),
+            icon: getIcon(icon),
             hintText: hintText,
             labelText: labelText),
       ),
     );
   }
 
-  Widget btnAgregarFoto() {
+  static Widget btnAgregarFoto() {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
@@ -73,24 +71,39 @@ class FormsElements extends StatelessWidget {
     );
   }
 
-  Widget btnsAceptarCancelar(context) {
-    return SizedBox(
-      height: 50,
-      width: 300,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SizedBox(
+  static Widget btnsAceptarCancelar(context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 20.0, right: 20),
+          child: SizedBox(
             width: 90,
-            child: ElevatedButton(
+            child: OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                  primary: Colors.green,
+                  side: const BorderSide(
+                      color: Colors.green,
+                      style: BorderStyle.solid,
+                      width: 1.5),
+                  padding: const EdgeInsets.all(0),
+                ),
                 onPressed: () => Navigator.of(context).pop(),
-                child: const Text('Cancelar')),
+                child: const Text('Cancelar',
+                    style: TextStyle(color: Colors.green))),
           ),
-          SizedBox(
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 20.0),
+          child: SizedBox(
             width: 90,
             child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(
+                    Colors.green,
+                  ),
+                ),
                 onPressed: () => {
                       Navigator.of(context).pop(),
                       showDialog(
@@ -104,130 +117,93 @@ class FormsElements extends StatelessWidget {
                                         .build(context)));
                           })
                     },
-                child: const Text('Aceptar')),
+                child: const Text(
+                  'Aceptar',
+                  style: TextStyle(color: Colors.white),
+                )),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
-  Widget btnsDetallesDesktopTablet(context) {
-    return SizedBox(
-      height: 100,
-      width: 400,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton(
-                onPressed: () => {
-                      Navigator.of(context).pop(),
-                      showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return AlertDialogConfirmarUpdateAndDelete(
-                                'actualizar',
-                                () => ScaffoldMessenger.of(context)
-                                    .showSnackBar(
-                                        const SnackBarRespuestaOperacionCRUD(
-                                                'Registro actualizado')
-                                            .build(context)));
-                          })
-                    },
-                child: const Text('Actualizar')),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton(
-                onPressed: () => {
-                      Navigator.of(context).pop(),
-                      showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return AlertDialogConfirmarUpdateAndDelete(
-                                'eliminar',
-                                () => ScaffoldMessenger.of(context)
-                                    .showSnackBar(
-                                        const SnackBarRespuestaOperacionCRUD(
-                                                'Registro eliminado')
-                                            .build(context)));
-                          })
-                    },
-                child: const Text('Eliminar')),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: const Text('Cancelar')),
-          ),
-        ],
-      ),
+  static Widget btnsDetallesDesktopTablet(context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        Flexible(
+          flex: 2,
+          child: ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                  Colors.green,
+                ),
+              ),
+              onPressed: () => {
+                    Navigator.of(context).pop(),
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialogConfirmarUpdateAndDelete(
+                              'actualizar',
+                              () => ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBarRespuestaOperacionCRUD(
+                                          'Registro actualizado')
+                                      .build(context)));
+                        })
+                  },
+              child: const Text('Actualizar')),
+        ),
+        Flexible(
+          flex: 2,
+          child: ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                  Colors.red,
+                ),
+              ),
+              onPressed: () => {
+                    Navigator.of(context).pop(),
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialogConfirmarUpdateAndDelete(
+                              'eliminar',
+                              () => ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBarRespuestaOperacionCRUD(
+                                          'Registro eliminado')
+                                      .build(context)));
+                        })
+                  },
+              child: const Text('Eliminar')),
+        ),
+        Flexible(
+          flex: 2,
+          child: OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                primary: Colors.green,
+                side: const BorderSide(
+                    color: Colors.green, style: BorderStyle.solid, width: 1.5),
+              ),
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text('Cancelar')),
+        ),
+      ],
     );
   }
 
-  Widget btnsDetallesDesktopTabletUbicacion(context) {
-    return SizedBox(
-      height: 100,
-      width: MediaQuery.of(context).size.width * 0.1,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        mainAxisAlignment: MainAxisAlignment.end,
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton(
-                onPressed: () => {
-                      Navigator.of(context).pop(),
-                      showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return AlertDialogConfirmarUpdateAndDelete(
-                                'actualizar',
-                                () => ScaffoldMessenger.of(context)
-                                    .showSnackBar(
-                                        const SnackBarRespuestaOperacionCRUD(
-                                                'Registro actualizado')
-                                            .build(context)));
-                          })
-                    },
-                child: const Text('Actualizar')),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton(
-                onPressed: () => {
-                      Navigator.of(context).pop(),
-                      showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return AlertDialogConfirmarUpdateAndDelete(
-                                'eliminar',
-                                () => ScaffoldMessenger.of(context)
-                                    .showSnackBar(
-                                        const SnackBarRespuestaOperacionCRUD(
-                                                'Registro eliminado')
-                                            .build(context)));
-                          })
-                    },
-                child: const Text('Eliminar')),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: const Text('Cancelar')),
-          ),
-        ],
-      ),
+  static Widget btnsDetallesDesktopTabletUbicacion(context) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 20.0, bottom: 5.0),
+      child: ElevatedButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: const Text('cerrar')),
     );
   }
 
-  Widget btnsDetallesMovil(context) {
+  static Widget btnsDetallesMovil(context) {
     return Padding(
       padding: const EdgeInsets.only(top: 15.0),
       child: SizedBox(
@@ -279,7 +255,7 @@ class FormsElements extends StatelessWidget {
     );
   }
 
-  Widget crearEmail() {
+  static Widget crearEmail() {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextField(
@@ -378,5 +354,10 @@ class FormsElements extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    throw UnimplementedError();
   }
 }
