@@ -1,5 +1,10 @@
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/common/widgets/forms_elements.dart';
+
+import '../../../common/widgets/image_getter.dart';
 
 class FormDialogDetalleEquipos extends StatefulWidget {
   const FormDialogDetalleEquipos({Key? key}) : super(key: key);
@@ -30,6 +35,11 @@ class FormDialogDetalleEquipos extends StatefulWidget {
           FormsElements.createInput('Disco Duro', 'Disco Duro', 'storage'),
           FormsElements.boxImput(
               'Observaciones', 'observaciones', 'observaciones'),
+          (kIsWeb || Platform.isLinux || Platform.isMacOS || Platform.isWindows)
+              ? Container()
+              : const ImageGetter(
+                  buttonText: 'Actualizar foto',
+                ),
           responsiveButtons(context)
         ]),
       ),

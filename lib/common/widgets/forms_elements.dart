@@ -47,7 +47,7 @@ class FormsElements extends StatelessWidget {
     );
   }
 
-  static Widget btnAgregarFoto() {
+  static Widget btnAgregarFoto(context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(

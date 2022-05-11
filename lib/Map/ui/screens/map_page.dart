@@ -116,7 +116,7 @@ class _MyHomePageState extends State<InicioMapa> {
       Container(
         constraints: const BoxConstraints.expand(height: 170),
         child: Image(
-          image: Image.asset('assets/locomotora foto.jpg').image,
+          image: Image.asset('assets/locomotorafoto.jpg').image,
           fit: BoxFit.cover,
           repeat: ImageRepeat.repeat,
         ),
