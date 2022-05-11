@@ -61,6 +61,7 @@ class EnviosMovil extends StatelessWidget {
         body: Container(
           padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
           child: ListView(
+            physics: const BouncingScrollPhysics(),
             children: [buildListEnvios()],
           ),
         ),

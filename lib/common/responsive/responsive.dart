@@ -18,6 +18,7 @@ class ResponsibleLayout extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         //        print(constraints);
+        //        print(constraints);
         if (constraints.maxWidth < 320) {
           return ventanaMuyPequena;
         } else if (constraints.maxWidth >= 320 && constraints.maxWidth < 610) {

@@ -1,5 +1,9 @@
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/common/widgets/forms_elements.dart';
+import 'package:suenomotora_app/common/widgets/image_getter.dart';
 
 class FormDialogRegistroEquipos extends StatefulWidget {
   const FormDialogRegistroEquipos({Key? key}) : super(key: key);
@@ -13,19 +17,28 @@ class FormDialogRegistroEquipos extends StatefulWidget {
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: SizedBox(
-              width: 400,
-              child:
-                  Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-                FormsElements.createInput(
-                    'Procesador', 'Procesador', 'processor'),
-                FormsElements.createInput('RAM', 'RAM', 'memory'),
-                FormsElements.createInput(
-                    'Disco Duro', 'Disco Duro', 'storage'),
-                FormsElements.boxImput(
-                    'Observaciones', 'observaciones', 'observaciones'),
-                FormsElements.btnAgregarFoto(),
-                FormsElements.btnsAceptarCancelar(context)
-              ]),
+              width: MediaQuery.of(context).size.width * 0.3,
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    FormsElements.createInput(
+                        'Procesador', 'Procesador', 'processor'),
+                    FormsElements.createInput('RAM', 'RAM', 'memory'),
+                    FormsElements.createInput(
+                        'Disco Duro', 'Disco Duro', 'storage'),
+                    FormsElements.boxImput(
+                        'Observaciones', 'observaciones', 'observaciones'),
+                    (kIsWeb ||
+                            Platform.isLinux ||
+                            Platform.isMacOS ||
+                            Platform.isWindows)
+                        ? Container()
+                        : const ImageGetter(
+                            buttonText: 'Agregar una foto',
+                          ),
+                    FormsElements.btnsAceptarCancelar(context)
+                  ]),
             ),
           ),
         ]);
