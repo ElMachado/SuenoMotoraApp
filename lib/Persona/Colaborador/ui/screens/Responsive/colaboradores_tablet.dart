@@ -10,7 +10,6 @@ class ColaboradoresTablet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CardColaborador card = const CardColaborador();
     FloatingButton floButton = FloatingButton();
 
     return Scaffold(
@@ -30,8 +29,11 @@ class ColaboradoresTablet extends StatelessWidget {
                     minHeight: 100,
                     maxWidth: 100,
                     minWidth: 100),
-                child: card.cardColaborador('Hola', 'contenido',
-                    btnAction: () => FormDialogDetallesColaborador
+                child: CardColaborador(
+                    'Jesús ',
+                    'Arroyo',
+                    'ing de sistemas- tel 3105124359',
+                    () => FormDialogDetallesColaborador
                         .formDialogDetallesColaborador(context)),
               ),
               ConstrainedBox(
@@ -40,10 +42,13 @@ class ColaboradoresTablet extends StatelessWidget {
                     minHeight: 100,
                     maxWidth: 100,
                     minWidth: 100),
-                child: card.cardColaborador('Hola', 'contenido',
-                    btnAction: () => FormDialogDetallesColaborador
+                child: CardColaborador(
+                    'Jesús ',
+                    'Arroyo',
+                    'ing de sistemas- tel 3105124359',
+                    () => FormDialogDetallesColaborador
                         .formDialogDetallesColaborador(context)),
-              )
+              ),
             ],
           ),
         ),

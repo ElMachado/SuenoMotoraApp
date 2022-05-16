@@ -10,7 +10,6 @@ class ColaboradoresMovil extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CardColaborador card = const CardColaborador();
     FloatingButton floButton = FloatingButton();
     return Scaffold(
         appBar: AppBar(
@@ -23,9 +22,11 @@ class ColaboradoresMovil extends StatelessWidget {
             itemCount: 10,
             semanticChildCount: 10,
             itemBuilder: (context, index) {
-              return card.cardColaborador(
-                  'Jesús Arroyo', 'ing de sistemas- tel 3105124359',
-                  btnAction: () => FormDialogDetallesColaborador
+              return CardColaborador(
+                  'Jesús ',
+                  'Arroyo',
+                  'ing de sistemas- tel 3105124359',
+                  () => FormDialogDetallesColaborador
                       .formDialogDetallesColaborador(context));
             },
           ),
