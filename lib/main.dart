@@ -1,8 +1,14 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/Map/ui/screens/map_page.dart';
+import 'package:suenomotora_app/firebase_options.dart';
 import 'package:suenomotora_app/routes/routes.dart';
 
-void main() => runApp(const SuenoMotoraApp());
+Future<void> main() async {
+  runApp(const SuenoMotoraApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.web);
+}
 
 class SuenoMotoraApp extends StatelessWidget {
   const SuenoMotoraApp({Key? key}) : super(key: key);

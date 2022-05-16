@@ -40,6 +40,8 @@ dependencies:
   flutter_native_splash: ^2.1.2+1
   swipe_image_gallery: ^0.5.1
   image_picker: ^0.8.5
+  firebase_core: ^1.17.0
+  cloud_firestore: ^3.1.15
 
 flutter_native_splash:
   color: "#ffffff"

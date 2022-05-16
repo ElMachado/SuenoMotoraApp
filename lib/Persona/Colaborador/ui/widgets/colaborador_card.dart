@@ -1,27 +1,53 @@
 import 'package:flutter/material.dart';
 
 class CardColaborador extends StatelessWidget {
-  const CardColaborador({Key? key}) : super(key: key);
+  final String _nombre;
+  final String _apellido;
+  final String _telefono;
+  final Function _btnAction;
 
-  Widget cardColaborador(String titulo, String contenido,
-      {required Function btnAction}) {
+  const CardColaborador(
+    this._nombre,
+    this._apellido,
+    this._telefono,
+    this._btnAction,
+  );
+
+  @override
+  Widget build(BuildContext context) {
     return Card(
       elevation: 10.0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
-          Container(
-            alignment: Alignment.center,
-            child: ListTile(
-              leading: const Icon(
-                Icons.photo_album,
-                color: Colors.green,
-              ),
-              title: Text(titulo, style: const TextStyle(fontSize: 20.0)),
-              subtitle: Text(contenido, style: const TextStyle(fontSize: 20.0)),
-            ),
-          ),
+          SizedBox(
+              width: MediaQuery.of(context).size.width * 0.8,
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Text(
+                      _nombre,
+                      style: const TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      _apellido,
+                      style: const TextStyle(fontSize: 20.0),
+                    ),
+                    Text(
+                      _telefono,
+                      style: const TextStyle(fontSize: 20.0),
+                    ),
+                  ],
+                ),
+              )),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -30,7 +56,7 @@ class CardColaborador extends StatelessWidget {
                 height: 50,
                 child: TextButton(
                     onPressed: () {
-                      btnAction();
+                      _btnAction();
                     },
                     child: const Text('Detalles')),
               ),
@@ -39,12 +65,5 @@ class CardColaborador extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // ignore: todo
-    // TODO: implement build
-    throw UnimplementedError();
   }
 }

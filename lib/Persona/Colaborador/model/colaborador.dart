@@ -1,23 +1,25 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Colaborador {
-  int idColaborador;
   String nombre;
   String apellido;
-  String correo;
   String telefono;
-  String direccion;
   Colaborador(
-    this.idColaborador,
     this.nombre,
     this.apellido,
-    this.correo,
     this.telefono,
-    this.direccion,
   ) {
-    idColaborador = idColaborador;
     nombre = nombre;
     apellido = apellido;
-    correo = correo;
     telefono = telefono;
-    direccion = direccion;
+  }
+
+  factory Colaborador.fromDocumentSnapshot(
+      {required DocumentSnapshot<Map<String, dynamic>> doc}) {
+    return Colaborador(
+      doc.data()!['nombre'],
+      doc.data()!['apellido'],
+      doc.data()!['telefono'],
+    );
   }
 }
