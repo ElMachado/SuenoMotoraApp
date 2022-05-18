@@ -16,15 +16,6 @@ class Donante implements AbstractObject {
     telefono = telefono;
   }
 
-  factory Donante.fromDocumentSnapshot(
-      {required DocumentSnapshot<Map<String, dynamic>> doc}) {
-    return Donante(
-      doc.data()!['nombre'],
-      doc.data()!['apellido'],
-      doc.data()!['telefono'],
-    );
-  }
-
   @override
   fromDocumentSnapshot({required DocumentSnapshot<Map<String, dynamic>> doc}) {
     return Donante(

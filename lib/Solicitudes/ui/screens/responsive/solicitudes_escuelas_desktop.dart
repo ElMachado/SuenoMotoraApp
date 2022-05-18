@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:suenomotora_app/Solicitudes/model/solicitud_escuela.dart';
 import 'package:suenomotora_app/Solicitudes/ui/widgets/form_dialog_registro_solicitudes_escuelas.dart';
 import 'package:suenomotora_app/Solicitudes/ui/widgets/forms_dialog_detalle_solicitudes_escuelas.dart';
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
 
+import '../../../../common/repository/get_data.dart';
 import '../../widgets/card_solicitudes_escuelas.dart';
 
 class SolicitudesEscuelasDesktop extends StatelessWidget {
@@ -10,9 +12,8 @@ class SolicitudesEscuelasDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CardSolicitudesEscuelas card = CardSolicitudesEscuelas();
     final _size = MediaQuery.of(context).size.width;
-    double _aspectRateo = _size / 1300;
+
     _buildFormDetalles(context) {
       return showDialog(
           context: context,
@@ -22,43 +23,47 @@ class SolicitudesEscuelasDesktop extends StatelessWidget {
     }
 
     FloatingButton floButton = FloatingButton();
+    GetData donanteStream = GetData();
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Solicitudes de Escuelas'),
       ),
-      body: Container(
-        padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
-        child: GridView.count(
-          addAutomaticKeepAlives: true,
-          crossAxisCount: 4,
-          childAspectRatio: _aspectRateo,
-          children: [
-            card.cardSolicitudesEscuelas(
-                'Hola', 'contenido', 'contenido 2', 'contenido 3',
-                btnAction: () => _buildFormDetalles(context)),
-            card.cardSolicitudesEscuelas(
-                'Hola', 'contenido', 'contenido 2', 'contenido 3',
-                btnAction: () => _buildFormDetalles(context)),
-            card.cardSolicitudesEscuelas(
-                'Hola', 'contenido', 'contenido 2', 'contenido 3',
-                btnAction: () => _buildFormDetalles(context)),
-            card.cardSolicitudesEscuelas(
-                'Hola', 'contenido', 'contenido 2', 'contenido 3',
-                btnAction: () => _buildFormDetalles(context)),
-            card.cardSolicitudesEscuelas(
-                'Hola', 'contenido', 'contenido 2', 'contenido 3',
-                btnAction: () => _buildFormDetalles(context)),
-            card.cardSolicitudesEscuelas(
-                'Hola', 'contenido', 'contenido 2', 'contenido 3',
-                btnAction: () => _buildFormDetalles(context)),
-            card.cardSolicitudesEscuelas(
-                'Hola', 'contenido', 'contenido 2', 'contenido 3',
-                btnAction: () => _buildFormDetalles(context)),
-            card.cardSolicitudesEscuelas(
-                'Hola', 'contenido', 'contenido 2', 'contenido 3',
-                btnAction: () => _buildFormDetalles(context)),
-          ],
-        ),
+      body: StreamBuilder<List<SolicitudEscuelas>>(
+        stream: donanteStream.solicitudEscuelasStream(),
+        builder: (context, AsyncSnapshot<List<SolicitudEscuelas>> snapshot) {
+          if (snapshot.hasError) {
+            return Text('Error 1: ${snapshot.error}');
+          }
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasData) {
+            return GridView.builder(
+                itemCount: snapshot.data!.toList().length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 4,
+                    mainAxisSpacing: 1,
+                    crossAxisSpacing: 1,
+                    childAspectRatio: 1007 * 2.8 / 1920),
+                itemBuilder: (context, index) {
+                  SolicitudEscuelas currentSolicitud = snapshot.data![index];
+                  return FittedBox(
+                    fit: BoxFit.fill,
+                    child: CardSolicitudesEscuelas(
+                      currentSolicitud.nombreEscuela,
+                      currentSolicitud.nombreResponsable,
+                      currentSolicitud.telefonoResponsable,
+                      currentSolicitud.direccionEscuela,
+                      currentSolicitud.queSolicita,
+                    ),
+                  );
+                });
+          } else {
+            return const Center(
+              child: Text('2 Un error a ocurrido'),
+            );
+          }
+        },
       ),
       floatingActionButton: floButton.floatingButton(
           btnAction: () => FormDialogRegistroSolicitudEscuela
