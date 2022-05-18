@@ -31,14 +31,14 @@ class ColaboradoresDesktop extends StatelessWidget {
       }
     }
 
-    GetData colaboradorStream = GetData();
+    GetData stream = GetData();
 
     return Scaffold(
         appBar: AppBar(
           title: const Text('Colaboradores'),
         ),
         body: StreamBuilder<List<Colaborador>>(
-          stream: colaboradorStream.colaboradorStream(),
+          stream: stream.colaboradorStream(),
           builder: (BuildContext context,
               AsyncSnapshot<List<Colaborador>> snapshot) {
             if (snapshot.hasError) {

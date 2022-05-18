@@ -31,7 +31,7 @@ class FormDialogRegistroUbicacion extends StatefulWidget {
                       const Text('Agregar fotos ',
                           style: TextStyle(fontSize: 20)),
                       FormsElements.btnAgregarFoto(context),
-                      FormsElements.btnsAceptarCancelar(context)
+                      FormsElements.btnsGuardarCancelar(context)
                     ]),
               ),
             ]);

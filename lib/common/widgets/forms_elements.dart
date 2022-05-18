@@ -71,7 +71,7 @@ class FormsElements extends StatelessWidget {
     );
   }
 
-  static Widget btnsAceptarCancelar(context) {
+  static Widget btnsGuardarCancelar(context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       mainAxisSize: MainAxisSize.max,
@@ -118,7 +118,7 @@ class FormsElements extends StatelessWidget {
                           })
                     },
                 child: const Text(
-                  'Aceptar',
+                  'Guardar',
                   style: TextStyle(color: Colors.white),
                 )),
           ),

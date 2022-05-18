@@ -1,26 +1,34 @@
-import 'dart:ui';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:suenomotora_app/common/repository/abstrac_object.dart';
 
-class Equipos {
-  int idEquipo;
-  String nombreEquipo;
+class Equipos implements AbstractObject {
   String procesador;
   String memoriaRAM;
   String discoDuro;
-  Image imagen;
+  String observaciones;
+  String foto;
 
   Equipos(
-    this.idEquipo,
-    this.nombreEquipo,
     this.procesador,
     this.memoriaRAM,
     this.discoDuro,
-    this.imagen,
+    this.observaciones,
+    this.foto,
   ) {
-    idEquipo = idEquipo;
-    nombreEquipo = nombreEquipo;
     procesador = procesador;
     memoriaRAM = memoriaRAM;
     discoDuro = discoDuro;
-    imagen = imagen;
+    foto = foto;
+  }
+
+  @override
+  fromDocumentSnapshot({required DocumentSnapshot<Map<String, dynamic>> doc}) {
+    return Equipos(
+      doc.data()!['procesador'],
+      doc.data()!['memoria'],
+      doc.data()!['disco_duro'],
+      doc.data()!['observaciones'],
+      doc.data()!['foto'],
+    );
   }
 }
