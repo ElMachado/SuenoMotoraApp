@@ -33,9 +33,10 @@ class CardColaborador extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.only(right: 40.0, left: 20),
                   child: SizedBox(
-                      width: 80,
-                      height: 80,
-                      child: Image(image: AssetImage('assets/avatar.png'))),
+                    width: 80,
+                    height: 80,
+                    child: Image(image: AssetImage('assets/avatar.png')),
+                  ),
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
