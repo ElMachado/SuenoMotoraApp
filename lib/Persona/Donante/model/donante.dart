@@ -1,23 +1,36 @@
-class Doante {
-  int idColaborador;
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:suenomotora_app/common/repository/abstrac_object.dart';
+
+class Donante implements AbstractObject {
   String nombre;
   String apellido;
-  String correo;
   String telefono;
-  String direccion;
-  Doante(
-    this.idColaborador,
+
+  Donante(
     this.nombre,
     this.apellido,
-    this.correo,
     this.telefono,
-    this.direccion,
   ) {
-    idColaborador = idColaborador;
     nombre = nombre;
     apellido = apellido;
-    correo = correo;
     telefono = telefono;
-    direccion = direccion;
+  }
+
+  factory Donante.fromDocumentSnapshot(
+      {required DocumentSnapshot<Map<String, dynamic>> doc}) {
+    return Donante(
+      doc.data()!['nombre'],
+      doc.data()!['apellido'],
+      doc.data()!['telefono'],
+    );
+  }
+
+  @override
+  fromDocumentSnapshot({required DocumentSnapshot<Map<String, dynamic>> doc}) {
+    return Donante(
+      doc.data()!['nombre'],
+      doc.data()!['apellido'],
+      doc.data()!['telefono'],
+    );
   }
 }
