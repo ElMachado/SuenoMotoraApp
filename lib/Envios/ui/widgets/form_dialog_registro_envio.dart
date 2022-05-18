@@ -32,7 +32,7 @@ class FormDialogRegistroEnvio extends StatefulWidget {
                         'Telefono', 'Telefono', 'telefono'),
                     FormsElements.boxImput('Contenido de envio',
                         'Contenido de envio', 'contenido'),
-                    FormsElements.btnsAceptarCancelar(context)
+                    FormsElements.btnsGuardarCancelar(context)
                   ]),
             ),
           ),

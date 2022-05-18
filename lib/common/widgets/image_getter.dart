@@ -11,6 +11,10 @@ class ImageGetter extends StatefulWidget {
     required this.buttonText,
   }) : super(key: key);
 
+  static getPath(imagen) {
+    return imagen;
+  }
+
   @override
   State<ImageGetter> createState() => _ImageGetterState();
 }

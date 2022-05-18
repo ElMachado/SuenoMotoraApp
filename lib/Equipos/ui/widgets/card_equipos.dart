@@ -3,9 +3,19 @@ import 'package:flutter/material.dart';
 import 'form_dialog_detalle_equipo.dart';
 
 class CardEquipos extends StatelessWidget {
-  const CardEquipos({
-    Key? key,
-  }) : super(key: key);
+  final String _procesador;
+  final String _memoria;
+  final String _disco;
+  final String _observaciones;
+  final String _image;
+
+  const CardEquipos(
+    this._procesador,
+    this._memoria,
+    this._disco,
+    this._observaciones,
+    this._image,
+  );
 
   _buildFormDetalles(context) {
     return showDialog(
@@ -19,97 +29,114 @@ class CardEquipos extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: Card(
-        clipBehavior: Clip.antiAlias,
-        borderOnForeground: true,
-        color: Colors.white,
-        elevation: 5.0,
-        semanticContainer: true,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            const FadeInImage(
-              placeholder: AssetImage('assets/train2placeholder.gif'),
-              placeholderFit: BoxFit.cover,
-              image: NetworkImage(
-                  'https://tiendatecnologicadecolombia.com/wp-content/uploads/2021/02/computador-janus-celeron-dual-core-4gb-1tb-21-1.jpg'),
-              fadeInDuration: Duration(milliseconds: 200),
-              //height: 150.0,
-              fit: BoxFit.cover,
-            ),
-            Container(
+    return Card(
+      elevation: 5.0,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          FadeInImage(
+              placeholder: const AssetImage('assets/train2placeholder.gif'),
+              placeholderFit: BoxFit.fill,
+              image: NetworkImage(_image),
+              fit: BoxFit.fill,
+              width: 500,
+              height: 500.0),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Container(
               padding: const EdgeInsets.only(left: 10, right: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: const [
-                  Text(
-                    'Computador ID: ',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green,
+              child: FittedBox(
+                fit: BoxFit.fill,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Text('Procesador:',
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.green,
+                        )),
+                    Text(_procesador,
+                        style: const TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        )),
+                    const Text('Ram: ',
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.green,
+                        )),
+                    Text(_memoria,
+                        textAlign: TextAlign.start,
+                        style: const TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        )),
+                    const Text('Disco duro:',
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.green,
+                        )),
+                    Text(_disco,
+                        textAlign: TextAlign.start,
+                        style: const TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        )),
+                    const Text('Observaciones:',
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.green,
+                        )),
+                    SizedBox(
+                      width: 600,
+                      child: Text(_observaciones,
+                          textAlign: TextAlign.start,
+                          maxLines: 10,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            overflow: TextOverflow.ellipsis,
+                          )),
                     ),
-                    textAlign: TextAlign.start,
-                  ),
-                  Text(
-                    '001',
-                    textAlign: TextAlign.start,
-                  ),
-                  Text(
-                    'Ram: ',
-                    textAlign: TextAlign.start,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green,
-                    ),
-                  ),
-                  Text('4GB', textAlign: TextAlign.start),
-                  Text(
-                    'Disco duro:',
-                    textAlign: TextAlign.start,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green,
-                    ),
-                  ),
-                  Text(' 1TB 5600rpm', textAlign: TextAlign.start),
-                  Text(
-                    'Procesador:',
-                    textAlign: TextAlign.start,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green,
-                    ),
-                  ),
-                  Text('Intel Core Duo 1.8 GHZ 65mb de cache 1, 3 chaneles')
-                ],
+                  ],
+                ),
               ),
             ),
-            Row(
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Expanded(
-                  child: SizedBox(
-                    width: 110,
-                    height: 40,
-                    child: TextButton(
-                        onPressed: () {
-                          _buildFormDetalles(context);
-                        },
-                        child: const Text('Detalles',
-                            style: TextStyle(
-                              fontSize: 20,
-                            ))),
-                  ),
+                Center(
+                  child: TextButton(
+                      onPressed: () {
+                        _buildFormDetalles(context);
+                      },
+                      child: const Text('Detalles',
+                          style: TextStyle(
+                            fontSize: 20,
+                          ))),
                 ),
               ],
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       ),
     );
   }

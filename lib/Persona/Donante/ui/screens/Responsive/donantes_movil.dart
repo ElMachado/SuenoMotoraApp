@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/Persona/Donante/model/donante.dart';
 import 'package:suenomotora_app/Persona/Donante/ui/widgets/donante_card.dart';
