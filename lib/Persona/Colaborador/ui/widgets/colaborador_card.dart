@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class CardColaborador extends StatelessWidget {
@@ -20,14 +21,14 @@ class CardColaborador extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
       child: Column(
         mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           SizedBox(
               child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Padding(
                   padding: EdgeInsets.only(right: 40.0, left: 20),
@@ -39,22 +40,39 @@ class CardColaborador extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  mainAxisSize: MainAxisSize.max,
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(
-                      _nombre,
-                      style: const TextStyle(
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: AutoSizeText(
+                        _nombre,
+                        overflow: TextOverflow.ellipsis,
+                        minFontSize: 19,
+                        style: const TextStyle(),
+                        presetFontSizes: const [15, 19, 20, 25],
                       ),
                     ),
-                    Text(
-                      _apellido,
-                      style: const TextStyle(fontSize: 20.0),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: AutoSizeText(
+                        _apellido,
+                        overflow: TextOverflow.ellipsis,
+                        minFontSize: 19,
+                        presetFontSizes: const [15, 19, 20, 25],
+                        style: const TextStyle(),
+                      ),
                     ),
-                    Text(
-                      _telefono,
-                      style: const TextStyle(fontSize: 20.0),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: AutoSizeText(
+                        _telefono,
+                        minFontSize: 19,
+                        presetFontSizes: const [15, 19, 20, 25],
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -63,6 +81,8 @@ class CardColaborador extends StatelessWidget {
           )),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               SizedBox(
                 width: 120,

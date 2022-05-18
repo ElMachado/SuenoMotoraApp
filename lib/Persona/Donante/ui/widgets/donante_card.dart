@@ -26,7 +26,7 @@ class CardDonante extends StatelessWidget {
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
         child: Column(
           mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             SizedBox(
