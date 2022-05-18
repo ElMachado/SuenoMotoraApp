@@ -2,11 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/Persona/Colaborador/model/colaborador.dart';
 import 'package:suenomotora_app/Persona/Colaborador/ui/widgets/colaborador_card.dart';
-import 'package:suenomotora_app/Persona/Colaborador/ui/widgets/form_dialog_registro_colaboradores.dart';
 import 'package:suenomotora_app/common/repository/get_data.dart';
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
 
 import '../../widgets/form_diaglog_detalles_colaboradores.dart';
+import '../../widgets/form_dialog_registro_colaboradores.dart';
 
 class ColaboradoresDesktop extends StatelessWidget {
   const ColaboradoresDesktop({Key? key}) : super(key: key);
@@ -74,8 +74,11 @@ class ColaboradoresDesktop extends StatelessWidget {
           },
         ),
         floatingActionButton: floButton.floatingButton(btnAction: () {
-          FormDialogRegistroColaboradores.formDialogRegistroColaboradores(
-              context);
+          showDialog(
+              context: context,
+              builder: (context) {
+                return const FormDialogRegistroColaboradores();
+              });
         }));
   }
 }

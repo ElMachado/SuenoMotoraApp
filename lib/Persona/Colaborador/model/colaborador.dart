@@ -24,4 +24,13 @@ class Colaborador implements AbstractObject {
       doc.data()!['telefono'],
     );
   }
+
+  @override
+  Map<String, dynamic> toMap() {
+    return {
+      "nombre": nombre,
+      "apellido": apellido,
+      "telefono": telefono,
+    };
+  }
 }

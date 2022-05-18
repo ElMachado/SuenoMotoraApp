@@ -25,7 +25,8 @@ class FormDialogRegistroColaborador extends StatefulWidget {
                           'Correo electronico', 'Correo electronico', 'email'),
                       Padding(
                         padding: const EdgeInsets.only(right: 8.0),
-                        child: FormsElements.btnsGuardarCancelar(context),
+                        child:
+                            FormsElements.btnsGuardarCancelar(context, () {}),
                       ),
                     ]),
               ),

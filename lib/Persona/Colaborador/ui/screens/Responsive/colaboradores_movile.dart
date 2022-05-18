@@ -60,8 +60,6 @@ class ColaboradoresMovil extends StatelessWidget {
               }
             }),
         floatingActionButton: floButton.floatingButton(
-            btnAction: () =>
-                FormDialogRegistroColaboradores.formDialogRegistroColaboradores(
-                    context)));
+            btnAction: () => const FormDialogRegistroColaboradores()));
   }
 }

@@ -32,4 +32,15 @@ class SolicitudEscuelas implements AbstractObject {
       doc.data()!['que_solicita'],
     );
   }
+
+  @override
+  Map<String, dynamic> toMap() {
+    return {
+      "nombre_escuela": nombreEscuela,
+      "nombre_responsable": nombreResponsable,
+      "telefono_responsable": telefonoResponsable,
+      "direccion_escuela": direccionEscuela,
+      "que_solicita": queSolicita,
+    };
+  }
 }

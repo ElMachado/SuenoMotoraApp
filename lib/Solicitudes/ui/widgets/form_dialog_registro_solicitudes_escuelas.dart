@@ -25,7 +25,7 @@ class FormDialogRegistroSolicitudEscuela extends StatefulWidget {
                       'Correo electrónico', 'Correo electrónico', 'email'),
                   FormsElements.boxImput(
                       'Solicitud', '¿Qué solicita?', 'solicitud'),
-                  FormsElements.btnsGuardarCancelar(context),
+                  FormsElements.btnsGuardarCancelar(context, () {}),
                 ]),
               ),
             ]);

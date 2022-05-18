@@ -22,6 +22,8 @@ class ColaboradoresTablet extends StatelessWidget {
     print(_height);
 
     FloatingButton floButton = FloatingButton();
+    FormDialogRegistroColaboradores formDialogRegistroColaboradores =
+        const FormDialogRegistroColaboradores();
     var colaboradorStream = GetData();
 
     return Scaffold(
@@ -69,8 +71,6 @@ class ColaboradoresTablet extends StatelessWidget {
           },
         ),
         floatingActionButton: floButton.floatingButton(
-            btnAction: () =>
-                FormDialogRegistroColaboradores.formDialogRegistroColaboradores(
-                    context)));
+            btnAction: () => formDialogRegistroColaboradores));
   }
 }
