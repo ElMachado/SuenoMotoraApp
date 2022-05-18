@@ -18,12 +18,12 @@ class _DonantesPage extends State<DonantesPage> {
   FloatingButton floButton = FloatingButton();
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: ResponsibleLayout(
-          ventanaMuyPequena: VentanaMuyPequena(),
+          ventanaMuyPequena: const VentanaMuyPequena(),
           mobileBody: DonatesMovil(),
-          tabletBody: DonantesTablet(),
-          desktopBody: DonatesDesktop()),
+          tabletBody: const DonantesTablet(),
+          desktopBody: const DonatesDesktop()),
     );
   }
 }

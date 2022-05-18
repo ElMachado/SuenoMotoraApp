@@ -1,6 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:suenomotora_app/Persona/Donante/model/donante.dart';
 import 'package:suenomotora_app/Persona/Donante/ui/widgets/donante_card.dart';
 import 'package:suenomotora_app/Persona/Donante/ui/widgets/form_diaglog_detalles_donantes.dart';
+import 'package:suenomotora_app/common/repository/get_data.dart';
 import 'package:suenomotora_app/common/widgets/floating_button.dart';
 
 import '../../widgets/form_dialog_registro_donante.dart';
@@ -10,31 +13,68 @@ class DonatesDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CardDonante card = const CardDonante();
+    final _db = FirebaseFirestore.instance;
     FloatingButton floButton = FloatingButton();
+    final _width = MediaQuery.of(context).size.width;
+    final _height = MediaQuery.of(context).size.height;
+    print(_width);
+    print(_height);
+    int _crossAxisCount = 0;
+
+    if (_width > 1624) {
+      _crossAxisCount = 4;
+    } else {
+      if (_width < 1215) {
+        _crossAxisCount = 2;
+      } else {
+        _crossAxisCount = 3;
+      }
+    }
+
+    GetData donanteStream = GetData();
+
     return Scaffold(
         appBar: AppBar(
           title: const Text('Donantes'),
         ),
-        body: Container(
-          padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
-          child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-                mainAxisSpacing: 8,
-                crossAxisSpacing: 8,
-                childAspectRatio: 2.5),
-            itemBuilder: (context, index) {
-              return card.cardDonante('Hola', 'contenido',
-                  btnAction: () =>
-                      FormDialogDetallesDonantes.formDialogDetallesDonantes(
-                          context));
-            },
-          ),
+        body: StreamBuilder<List<Donante>>(
+          stream: donanteStream.donanteStream(),
+          builder: (context, AsyncSnapshot<List<Donante>> snapshot) {
+            if (snapshot.hasError) {
+              return Text('Error 1: ${snapshot.error}');
+            }
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasData) {
+              return GridView.builder(
+                  itemCount: snapshot.data!.toList().length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: _crossAxisCount,
+                      mainAxisSpacing: 1,
+                      crossAxisSpacing: 1,
+                      childAspectRatio: 1007 * 2.8 / 1920),
+                  itemBuilder: (context, index) {
+                    Donante currentDonante = snapshot.data![index];
+                    return FittedBox(
+                      fit: BoxFit.fill,
+                      child: CardDonante(
+                          currentDonante.nombre,
+                          currentDonante.apellido,
+                          currentDonante.telefono,
+                          '/profiles/profile2.png',
+                          () => FormDialogDetallesDonantes
+                              .formDialogDetallesDonantes(context)),
+                    );
+                  });
+            } else {
+              return const Center(
+                child: Text('2 Un error a ocurrido'),
+              );
+            }
+          },
         ),
-        floatingActionButton: floButton.floatingButton(
-            btnAction: () =>
-                FormDialogRegistroColaborador.formDialogRegistroColaborador(
-                    context)));
+        floatingActionButton: floButton.floatingButton(btnAction: () {
+          FormDialogRegistroColaborador.formDialogRegistroColaborador(context);
+        }));
   }
 }

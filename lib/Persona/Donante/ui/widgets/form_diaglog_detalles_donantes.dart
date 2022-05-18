@@ -49,4 +49,6 @@ class FormDialogDetallesDonantes extends StatefulWidget {
     // TODO: implement createState
     throw UnimplementedError();
   }
+
+  static formDialogDetallesColaborador(BuildContext context) {}
 }

@@ -7,7 +7,7 @@ import 'package:suenomotora_app/routes/routes.dart';
 Future<void> main() async {
   runApp(const SuenoMotoraApp());
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.web);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 }
 
 class SuenoMotoraApp extends StatelessWidget {
