@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:suenomotora_app/Persona/Donante/model/donante.dart';
 import 'package:suenomotora_app/Solicitudes/model/solicitud_escuela.dart';
 
+import '../../Envios/model/envio.dart';
 import '../../Equipos/model/equipos.dart';
 import '../../Persona/Colaborador/model/colaborador.dart';
 
@@ -18,6 +19,7 @@ class GetData {
     '',
     '',
   );
+  final Envio _envio = Envio('', '', '', '', '');
 
   Stream<List<Colaborador>> colaboradorStream() {
     try {
@@ -76,6 +78,20 @@ class GetData {
               .add(_solicitudEscuela.fromDocumentSnapshot(doc: doc));
         }
         return colaboradoresFromFirestore;
+      });
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Stream<List<Envio>> enviosStream() {
+    try {
+      return _db.collection("Envios").snapshots().map((envios) {
+        final List<Envio> enviosFromFirestore = <Envio>[];
+        for (final DocumentSnapshot<Map<String, dynamic>> doc in envios.docs) {
+          enviosFromFirestore.add(_envio.fromDocumentSnapshot(doc: doc));
+        }
+        return enviosFromFirestore;
       });
     } catch (e) {
       rethrow;

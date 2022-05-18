@@ -56,12 +56,15 @@ class ColaboradoresDesktop extends StatelessWidget {
                       childAspectRatio: 1007 * 2.8 / 1920),
                   itemBuilder: (context, index) {
                     Colaborador currentColaborador = snapshot.data![index];
-                    return CardColaborador(
-                        currentColaborador.nombre,
-                        currentColaborador.apellido,
-                        currentColaborador.telefono,
-                        () => FormDialogDetallesColaborador
-                            .formDialogDetallesColaborador(context));
+                    return FittedBox(
+                      fit: BoxFit.fill,
+                      child: CardColaborador(
+                          currentColaborador.nombre,
+                          currentColaborador.apellido,
+                          currentColaborador.telefono,
+                          () => FormDialogDetallesColaborador
+                              .formDialogDetallesColaborador(context)),
+                    );
                   });
             } else {
               return const Center(

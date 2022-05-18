@@ -1,10 +1,12 @@
-class Envio {
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:suenomotora_app/common/repository/abstrac_object.dart';
+
+class Envio implements AbstractObject {
   String nombreEscuela;
   String responsable;
   String direccionEnvio;
   String numeroTelefono;
   String contenidoEnvio;
-  Function btnAction;
 
   Envio(
     this.nombreEscuela,
@@ -12,13 +14,22 @@ class Envio {
     this.direccionEnvio,
     this.numeroTelefono,
     this.contenidoEnvio,
-    this.btnAction,
   ) {
     nombreEscuela = nombreEscuela;
     responsable = responsable;
     direccionEnvio = direccionEnvio;
     numeroTelefono = numeroTelefono;
     contenidoEnvio = contenidoEnvio;
-    btnAction = btnAction;
+  }
+
+  @override
+  fromDocumentSnapshot({required DocumentSnapshot<Map<String, dynamic>> doc}) {
+    return Envio(
+      doc.data()!['nombreEscuela'],
+      doc.data()!['responsable'],
+      doc.data()!['direccionEnvio'],
+      doc.data()!['numeroTelefono'],
+      doc.data()!['contenidoEnvio'],
+    );
   }
 }
