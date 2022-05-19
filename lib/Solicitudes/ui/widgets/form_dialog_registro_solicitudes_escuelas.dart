@@ -40,9 +40,9 @@ class _FormDialogRegistroSolicitudEscuela
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8.0)),
-                      icon: getIcon('person_outline'),
+                      icon: getIcon('escuela'),
                       //hintText: hintText,
-                      labelText: 'Nombre'),
+                      labelText: 'Nombre de la escuela'),
                   onChanged: (value) {
                     setState(() {
                       nombreEscuelaController.text;
@@ -62,7 +62,7 @@ class _FormDialogRegistroSolicitudEscuela
                           borderRadius: BorderRadius.circular(8.0)),
                       icon: getIcon('person_outline'),
                       //hintText: hintText,
-                      labelText: 'Apellido'),
+                      labelText: 'Nombre responsable'),
                   onChanged: (value) {
                     setState(() {
                       responsableController.text;
@@ -120,9 +120,9 @@ class _FormDialogRegistroSolicitudEscuela
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8.0)),
-                      icon: getIcon('telefono'),
+                      icon: getIcon('observaciones'),
                       //hintText: hintText,
-                      labelText: 'Telefono'),
+                      labelText: 'solicitud'),
                   onChanged: (value) {
                     setState(() {
                       solicitudController.text;
