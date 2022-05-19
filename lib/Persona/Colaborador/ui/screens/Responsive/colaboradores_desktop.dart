@@ -79,6 +79,8 @@ class ColaboradoresDesktop extends StatelessWidget {
               builder: (context) {
                 return const FormDialogRegistroColaboradores();
               });
-        }));
+        })
+        
+        );
   }
 }
