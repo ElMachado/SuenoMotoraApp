@@ -13,28 +13,19 @@ class FormDialogDetallesUbicacion extends StatefulWidget {
       const ImageGalleryHeroProperties(tag: 'imageId2'),
       const ImageGalleryHeroProperties(tag: 'imageId2'),
       const ImageGalleryHeroProperties(tag: 'imageId2'),
-      const ImageGalleryHeroProperties(tag: 'imageId2'),
-      const ImageGalleryHeroProperties(tag: 'imageId2'),
-      const ImageGalleryHeroProperties(tag: 'imageId2'),
     ];
 
     final List<AssetImage> _assets = [
-      const AssetImage('assets/logosuenomotora.png'),
-      const AssetImage('assets/librosplaceholder.gif'),
-      const AssetImage('assets/librosplaceholder.gif'),
-      const AssetImage('assets/locomotora foto.jpg'),
-      const AssetImage('assets/train place holder.gif'),
-      const AssetImage('assets/train place holder.gif'),
-      const AssetImage('assets/train2placeholder.gif')
+      const AssetImage('assets/1.jpg'),
+      const AssetImage('assets/2.jpg'),
+      const AssetImage('assets/3.jpg'),
+      const AssetImage('assets/4.jpg'),
     ];
     final List<Image> images = [
-      const Image(image: AssetImage('assets/logosuenomotora.png')),
-      const Image(image: AssetImage('assets/librosplaceholder.gif')),
-      const Image(image: AssetImage('assets/librosplaceholder.gif')),
-      const Image(image: AssetImage('assets/locomotora foto.jpg')),
-      const Image(image: AssetImage('assets/train place holder.gif')),
-      const Image(image: AssetImage('assets/train place holder.gif')),
-      const Image(image: AssetImage('assets/train2placeholder.gif'))
+      const Image(image: AssetImage('assets/1.jpg')),
+      const Image(image: AssetImage('assets/2.jpg')),
+      const Image(image: AssetImage('assets/3.jpg')),
+      const Image(image: AssetImage('assets/4.jpg')),
     ];
 
     return SimpleDialog(

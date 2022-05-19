@@ -69,8 +69,7 @@ class SolicitudesEscuelasTablet extends StatelessWidget {
         },
       ),
       floatingActionButton: floButton.floatingButton(
-          btnAction: () => FormDialogRegistroSolicitudEscuela
-              .formDialogRegistroSolicitudEscuela(context)),
+          btnAction: () => const FormDialogRegistroSolicitudEscuela()),
     );
   }
 }

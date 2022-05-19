@@ -37,7 +37,7 @@ class FormDialogRegistroEquipos extends StatefulWidget {
                         : const ImageGetter(
                             buttonText: 'Agregar una foto',
                           ),
-                    FormsElements.btnsGuardarCancelar(context)
+                    FormsElements.btnsGuardarCancelar(context, () {}),
                   ]),
             ),
           ),

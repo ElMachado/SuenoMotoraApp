@@ -32,4 +32,15 @@ class Envio implements AbstractObject {
       doc.data()!['contenidoEnvio'],
     );
   }
+
+  @override
+  Map<String, dynamic> toMap() {
+    return {
+      "nombreEscuela": nombreEscuela,
+      "responsable": responsable,
+      "direccionEnvio": direccionEnvio,
+      "numeroTelefono": numeroTelefono,
+      "contenidoEnvio": contenidoEnvio,
+    };
+  }
 }

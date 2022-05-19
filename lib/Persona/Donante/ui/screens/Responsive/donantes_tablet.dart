@@ -60,10 +60,13 @@ class DonantesTablet extends StatelessWidget {
           }
         },
       ),
-      floatingActionButton: floButton.floatingButton(
-          btnAction: () =>
-              FormDialogRegistroColaborador.formDialogRegistroColaborador(
-                  context)),
+      floatingActionButton: floButton.floatingButton(btnAction: () {
+        showDialog(
+            context: context,
+            builder: (context) {
+              return const FormDialogRegistroDonantes();
+            });
+      }),
     );
   }
 }

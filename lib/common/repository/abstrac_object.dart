@@ -21,4 +21,5 @@ abstract class AbstractObject {
   }
 
   fromDocumentSnapshot({required DocumentSnapshot<Map<String, dynamic>> doc});
+  Map<String, dynamic> toMap();
 }

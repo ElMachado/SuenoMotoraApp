@@ -74,7 +74,15 @@ class DonatesDesktop extends StatelessWidget {
           },
         ),
         floatingActionButton: floButton.floatingButton(btnAction: () {
-          FormDialogRegistroColaborador.formDialogRegistroColaborador(context);
-        }));
+          showDialog(
+              context: context,
+              builder: (context) {
+                return const FormDialogRegistroDonantes();
+              });
+        }
+        
+        )
+        
+        );
   }
 }

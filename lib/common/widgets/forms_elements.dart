@@ -1,8 +1,59 @@
 import 'package:flutter/material.dart';
+
 import 'package:suenomotora_app/common/widgets/alert_dialog_confirmar_update_delete.dart';
 import 'package:suenomotora_app/common/widgets/snackbar_resultado_operacion_crud.dart';
 
 import '../../utils/iconos_string_util.dart';
+
+class InputText extends StatefulWidget {
+  final String label;
+  final String hint;
+  final String icon;
+  final myController = TextEditingController();
+
+  InputText({
+    Key? key,
+    required this.label,
+    required this.hint,
+    required this.icon,
+  }) : super(key: key);
+
+  @override
+  State<InputText> createState() => _InputTextState();
+}
+
+class _InputTextState extends State<InputText> {
+  get myController => widget.myController;
+  @override
+  void dispose() {
+    // Limpia el controlador cuando el Widget se descarte
+    myController.dispose();
+    myController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextFormField(
+        validator: (value) => value!.isEmpty ? ' Descripción requerida' : '',
+        textCapitalization: TextCapitalization.sentences,
+        decoration: InputDecoration(
+            border:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
+            icon: getIcon(widget.icon),
+            //hintText: hintText,
+            labelText: widget.label),
+        onChanged: (value) {
+          setState(() {
+            myController.text;
+          });
+        },
+      ),
+    );
+  }
+}
 
 class FormsElements extends StatelessWidget {
   final String _nombre = 'Nombre de Usuario';
@@ -17,7 +68,7 @@ class FormsElements extends StatelessWidget {
       [String icon = '']) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: TextField(
+      child: TextFormField(
         textCapitalization: TextCapitalization.sentences,
         decoration: InputDecoration(
             border:
@@ -71,7 +122,7 @@ class FormsElements extends StatelessWidget {
     );
   }
 
-  static Widget btnsGuardarCancelar(context) {
+  static Widget btnsGuardarCancelar(context, onPresedGuardar) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       mainAxisSize: MainAxisSize.max,
@@ -110,11 +161,9 @@ class FormsElements extends StatelessWidget {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialogConfirmarUpdateAndDelete(
-                                'crear',
-                                () => ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBarRespuestaOperacionCRUD(
-                                            '¡Registro creado exitosamente!')
-                                        .build(context)));
+                              'crear',
+                              onPresedGuardar,
+                            );
                           })
                     },
                 child: const Text(

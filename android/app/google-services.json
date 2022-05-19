@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:922736238776:android:9dcee2a251085c577b544d",
         "android_client_info": {
-          "package_name": "com.example.suenomotora_app"
+          "package_name": "com.elmachado.suenomotora_app"
         }
       },
       "oauth_client": [
@@ -35,7 +35,7 @@
               "client_id": "922736238776-bn76rsruc4h8f5thfo91slfp397n55i5.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.suenomotoraApp"
+                "bundle_id": "com.elmachado.suenomotoraApp"
               }
             }
           ]

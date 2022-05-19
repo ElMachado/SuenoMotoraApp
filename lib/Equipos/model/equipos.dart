@@ -31,4 +31,15 @@ class Equipos implements AbstractObject {
       doc.data()!['foto'],
     );
   }
+
+  @override
+  Map<String, dynamic> toMap() {
+    return {
+      "procesador": procesador,
+      "memoria": memoriaRAM,
+      "disco_duro": discoDuro,
+      "observaciones": observaciones,
+      "foto": foto,
+    };
+  }
 }

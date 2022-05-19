@@ -1,4 +1,4 @@
-package com.example.suenomotora_app
+package com.elmachado.suenomotora_app
 
 import io.flutter.embedding.android.FlutterActivity
 
