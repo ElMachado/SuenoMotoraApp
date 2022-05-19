@@ -148,6 +148,6 @@ class _FormDialogRegistroSolicitudEscuela
         direccionController.text,
         solicitudController.text);
 
-    FirebaseFirestore.instance.collection("donantes").add(donante.toMap());
+    FirebaseFirestore.instance.collection("Solicitudes").add(donante.toMap());
   }
 }
