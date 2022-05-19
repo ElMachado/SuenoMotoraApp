@@ -4,31 +4,34 @@ on:
   push:
     branches:
       - main
-      
+  pull_request:
+
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    
+  deploy:
+    runs-on: ubuntu-20.04
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-      
-    - name: Setup Flutter
-      uses: subosito/flutter-action@v1
-      with:
-        channel: 'beta'
-        
-    - name: Enable Flutter web 
-      run: flutter config --enable-web
-      
-    - name: Install dependencies
-      run: flutter packages get
-      
-    - name: Build web
-      run: flutter build web
-      
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.token }}
-        publish_dir: ./build/web
+      - uses: actions/checkout@v3
+
+      - name: Setup Flutter
+        run: |
+          git clone https://github.com/flutter/flutter.git --depth 1 -b beta _flutter
+          echo "${GITHUB_WORKSPACE}/_flutter/bin" >> ${GITHUB_PATH}
+
+      - name: Install
+        run: |
+          flutter config --enable-web
+          flutter pub get
+
+      - name: Build
+        run: flutter build web
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/web
