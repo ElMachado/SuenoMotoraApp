@@ -26,47 +26,51 @@ class SolicitudesEscuelasDesktop extends StatelessWidget {
     GetData donanteStream = GetData();
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Solicitudes de Escuelas'),
-      ),
-      body: StreamBuilder<List<SolicitudEscuelas>>(
-        stream: donanteStream.solicitudEscuelasStream(),
-        builder: (context, AsyncSnapshot<List<SolicitudEscuelas>> snapshot) {
-          if (snapshot.hasError) {
-            return Text('Error 1: ${snapshot.error}');
-          }
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasData) {
-            return GridView.builder(
-                itemCount: snapshot.data!.toList().length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 4,
-                    mainAxisSpacing: 1,
-                    crossAxisSpacing: 1,
-                    childAspectRatio: 1007 * 2.8 / 1920),
-                itemBuilder: (context, index) {
-                  SolicitudEscuelas currentSolicitud = snapshot.data![index];
-                  return FittedBox(
-                    fit: BoxFit.fill,
-                    child: CardSolicitudesEscuelas(
-                      currentSolicitud.nombreEscuela,
-                      currentSolicitud.nombreResponsable,
-                      currentSolicitud.telefonoResponsable,
-                      currentSolicitud.direccionEscuela,
-                      currentSolicitud.queSolicita,
-                    ),
-                  );
-                });
-          } else {
-            return const Center(
-              child: Text('2 Un error a ocurrido'),
-            );
-          }
-        },
-      ),
-      floatingActionButton: floButton.floatingButton(
-          btnAction: () => const FormDialogRegistroSolicitudEscuela()),
-    );
+        appBar: AppBar(
+          title: const Text('Solicitudes de Escuelas'),
+        ),
+        body: StreamBuilder<List<SolicitudEscuelas>>(
+          stream: donanteStream.solicitudEscuelasStream(),
+          builder: (context, AsyncSnapshot<List<SolicitudEscuelas>> snapshot) {
+            if (snapshot.hasError) {
+              return Text('Error 1: ${snapshot.error}');
+            }
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasData) {
+              return GridView.builder(
+                  itemCount: snapshot.data!.toList().length,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 4,
+                      mainAxisSpacing: 1,
+                      crossAxisSpacing: 1,
+                      childAspectRatio: 1007 * 2.8 / 1920),
+                  itemBuilder: (context, index) {
+                    SolicitudEscuelas currentSolicitud = snapshot.data![index];
+                    return FittedBox(
+                      fit: BoxFit.fill,
+                      child: CardSolicitudesEscuelas(
+                        currentSolicitud.nombreEscuela,
+                        currentSolicitud.nombreResponsable,
+                        currentSolicitud.telefonoResponsable,
+                        currentSolicitud.direccionEscuela,
+                        currentSolicitud.queSolicita,
+                      ),
+                    );
+                  });
+            } else {
+              return const Center(
+                child: Text('2 Un error a ocurrido'),
+              );
+            }
+          },
+        ),
+        floatingActionButton: floButton.floatingButton(btnAction: () {
+          showDialog(
+              context: context,
+              builder: (context) {
+                return const FormDialogRegistroSolicitudEscuela();
+              });
+        }));
   }
 }

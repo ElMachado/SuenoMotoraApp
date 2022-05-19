@@ -1,51 +1,151 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:suenomotora_app/Envios/model/envio.dart';
 import 'package:suenomotora_app/common/widgets/forms_elements.dart';
+
+import '../../../../utils/iconos_string_util.dart';
 
 class FormDialogRegistroEnvio extends StatefulWidget {
   const FormDialogRegistroEnvio({Key? key}) : super(key: key);
 
-  static mostrarDialogRegistroEnvio(BuildContext context) {
-    return showDialog(
-      context: context,
-      barrierDismissible: true,
-      builder: (context) {
-        return SimpleDialog(title: const Text('Registro de Envio'), children: [
-          SizedBox(
-            width: 400,
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    FormsElements.createInput('Nombre de la escuela',
-                        'Nombre de la escuela', 'escuela'),
-                    FormsElements.createInput(
-                      'Nombre responsable',
-                      'nombre responsable',
-                      'person_outline',
-                    ),
-                    FormsElements.createInput('direccion de envio',
-                        'direccion de envio', 'direccion'),
-                    FormsElements.createInput(
-                        'Telefono', 'Telefono', 'telefono'),
-                    FormsElements.boxImput('Contenido de envio',
-                        'Contenido de envio', 'contenido'),
-                    FormsElements.btnsGuardarCancelar(context, () {})
-                  ]),
-            ),
-          ),
-        ]);
-      },
-    );
-  }
+  @override
+  State<FormDialogRegistroEnvio> createState() => _FormDialogRegistroEnvio();
+}
+
+class _FormDialogRegistroEnvio extends State<FormDialogRegistroEnvio> {
+  final nombreEscuelaController = TextEditingController();
+  final responsableController = TextEditingController();
+  final telefonoController = TextEditingController();
+  final direccionController = TextEditingController();
+  final solicitudController = TextEditingController();
 
   @override
-  // ignore: no_logic_in_create_state
-  State<StatefulWidget> createState() {
-    // ignore: todo
-    // TODO: implement createState
-    throw UnimplementedError();
+  Widget build(BuildContext context) {
+    return SimpleDialog(
+        title: const Text('Registro de Solicitud de escuelas'),
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  controller: nombreEscuelaController,
+                  validator: (value) =>
+                      value!.isEmpty ? ' Descripción requerida' : '',
+                  textCapitalization: TextCapitalization.sentences,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0)),
+                      icon: getIcon('escuela'),
+                      //hintText: hintText,
+                      labelText: 'Nombre de la escuela'),
+                  onChanged: (value) {
+                    setState(() {
+                      nombreEscuelaController.text;
+                    });
+                  },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  controller: responsableController,
+                  validator: (value) =>
+                      value!.isEmpty ? ' Descripción requerida' : '',
+                  textCapitalization: TextCapitalization.sentences,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0)),
+                      icon: getIcon('person_outline'),
+                      //hintText: hintText,
+                      labelText: 'Nombre responsable'),
+                  onChanged: (value) {
+                    setState(() {
+                      responsableController.text;
+                    });
+                  },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  controller: telefonoController,
+                  validator: (value) =>
+                      value!.isEmpty ? ' Descripción requerida' : '',
+                  textCapitalization: TextCapitalization.sentences,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0)),
+                      icon: getIcon('direccion'),
+                      //hintText: hintText,
+                      labelText: 'Direccion'),
+                  onChanged: (value) {
+                    setState(() {
+                      telefonoController.text;
+                    });
+                  },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  controller: direccionController,
+                  validator: (value) =>
+                      value!.isEmpty ? ' Descripción requerida' : '',
+                  textCapitalization: TextCapitalization.sentences,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0)),
+                      icon: getIcon('telefono'),
+                      //hintText: hintText,
+                      labelText: 'Telefono'),
+                  onChanged: (value) {
+                    setState(() {
+                      direccionController.text;
+                    });
+                  },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  controller: solicitudController,
+                  validator: (value) =>
+                      value!.isEmpty ? ' Descripción requerida' : '',
+                  textCapitalization: TextCapitalization.sentences,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0)),
+                      icon: getIcon('observaciones'),
+                      //hintText: hintText,
+                      labelText: 'contenido de envio'),
+                  onChanged: (value) {
+                    setState(() {
+                      solicitudController.text;
+                    });
+                  },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child:
+                    FormsElements.btnsGuardarCancelar(context, onPresedGuardar),
+              ),
+            ]),
+          ),
+        ]);
+  }
+
+  onPresedGuardar() {
+    Envio donante = Envio(
+        nombreEscuelaController.text,
+        responsableController.text,
+        telefonoController.text,
+        direccionController.text,
+        solicitudController.text);
+
+    FirebaseFirestore.instance.collection("Envios").add(donante.toMap());
   }
 }
