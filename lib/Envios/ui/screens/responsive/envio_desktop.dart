@@ -52,9 +52,12 @@ class EnviosDesktop extends StatelessWidget {
             }
           },
         ),
-        floatingActionButton: floButton.floatingButton(
-          btnAction: () =>
-              FormDialogRegistroEnvio.mostrarDialogRegistroEnvio(context),
-        ));
+        floatingActionButton: floButton.floatingButton(btnAction: () {
+          showDialog(
+              context: context,
+              builder: (context) {
+                return const FormDialogRegistroEnvio();
+              });
+        }));
   }
 }

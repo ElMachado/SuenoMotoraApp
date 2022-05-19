@@ -18,45 +18,49 @@ class EnviosTablet extends StatelessWidget {
     //print('ancho: $_size');
     GetData envioStream = GetData();
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Envios'),
-      ),
-      body: StreamBuilder<List<Envio>>(
-        stream: envioStream.enviosStream(),
-        builder: (context, AsyncSnapshot<List<Envio>> snapshot) {
-          if (snapshot.hasError) {
-            return Text('Error 1: ${snapshot.error}');
-          }
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasData) {
-            return Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: GridView.builder(
-                  itemCount: snapshot.data!.toList().length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 1,
-                      crossAxisSpacing: 1,
-                      childAspectRatio: 1007 * 2.8 / 1920),
-                  itemBuilder: (context, index) {
-                    Envio currentSolicitud = snapshot.data![index];
-                    return FittedBox(
-                      fit: BoxFit.fill,
-                      child: CardEnvios(envio: currentSolicitud),
-                    );
-                  }),
-            );
-          } else {
-            return const Center(
-              child: Text('2 Un error a ocurrido'),
-            );
-          }
-        },
-      ),
-      floatingActionButton: floButton.floatingButton(
-          btnAction: () =>
-              FormDialogRegistroEnvio.mostrarDialogRegistroEnvio(context)),
-    );
+        appBar: AppBar(
+          title: const Text('Envios'),
+        ),
+        body: StreamBuilder<List<Envio>>(
+          stream: envioStream.enviosStream(),
+          builder: (context, AsyncSnapshot<List<Envio>> snapshot) {
+            if (snapshot.hasError) {
+              return Text('Error 1: ${snapshot.error}');
+            }
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasData) {
+              return Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: GridView.builder(
+                    itemCount: snapshot.data!.toList().length,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            mainAxisSpacing: 1,
+                            crossAxisSpacing: 1,
+                            childAspectRatio: 1007 * 2.8 / 1920),
+                    itemBuilder: (context, index) {
+                      Envio currentSolicitud = snapshot.data![index];
+                      return FittedBox(
+                        fit: BoxFit.fill,
+                        child: CardEnvios(envio: currentSolicitud),
+                      );
+                    }),
+              );
+            } else {
+              return const Center(
+                child: Text('2 Un error a ocurrido'),
+              );
+            }
+          },
+        ),
+        floatingActionButton: floButton.floatingButton(btnAction: () {
+          showDialog(
+              context: context,
+              builder: (context) {
+                return const FormDialogRegistroEnvio();
+              });
+        }));
   }
 }
