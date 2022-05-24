@@ -28,7 +28,7 @@ class EquiposDesktop extends StatelessWidget {
       body: Container(
         padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
         child: StreamBuilder<List<Equipos>>(
-          stream: stream.EquipoStream(),
+          stream: stream.equipoStream(),
           builder:
               (BuildContext context, AsyncSnapshot<List<Equipos>> snapshot) {
             if (snapshot.hasError) {

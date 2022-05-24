@@ -23,7 +23,7 @@ class EquiposMovile extends StatelessWidget {
         title: const Text('Equipos'),
       ),
       body: StreamBuilder<List<Equipos>>(
-          stream: stream.EquipoStream(),
+          stream: stream.equipoStream(),
           builder:
               (BuildContext context, AsyncSnapshot<List<Equipos>> snapshot) {
             if (snapshot.hasError) {

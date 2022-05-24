@@ -53,7 +53,7 @@ class GetData {
     }
   }
 
-  Stream<List<Equipos>> EquipoStream() {
+  Stream<List<Equipos>> equipoStream() {
     try {
       return _db.collection("Equipos").snapshots().map((equipos) {
         final List<Equipos> colaboradoresFromFirestore = <Equipos>[];
