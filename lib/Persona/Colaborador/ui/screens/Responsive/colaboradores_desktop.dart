@@ -53,17 +53,20 @@ class ColaboradoresDesktop extends StatelessWidget {
                       crossAxisCount: _crossAxisCount,
                       mainAxisSpacing: 8,
                       crossAxisSpacing: 8,
-                      childAspectRatio: 1007 * 2.8 / 1920),
+                      childAspectRatio: 1007 * 3.5 / 1920),
                   itemBuilder: (context, index) {
                     Colaborador currentColaborador = snapshot.data![index];
                     return FittedBox(
                       fit: BoxFit.fill,
-                      child: CardColaborador(
-                          currentColaborador.nombre,
-                          currentColaborador.apellido,
-                          currentColaborador.telefono,
-                          () => FormDialogDetallesColaborador
-                              .formDialogDetallesColaborador(context)),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 10.0, right: 10),
+                        child: CardColaborador(
+                            currentColaborador.nombre,
+                            currentColaborador.apellido,
+                            currentColaborador.telefono,
+                            () => FormDialogDetallesColaborador
+                                .formDialogDetallesColaborador(context)),
+                      ),
                     );
                   });
             } else {
@@ -79,8 +82,6 @@ class ColaboradoresDesktop extends StatelessWidget {
               builder: (context) {
                 return const FormDialogRegistroColaboradores();
               });
-        })
-        
-        );
+        }));
   }
 }
