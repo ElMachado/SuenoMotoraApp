@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/Envios/ui/widgets/card_envio.dart';
 
@@ -13,9 +14,11 @@ class EnviosDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     FloatingButton floButton = FloatingButton();
 
-    // final _size = MediaQuery.of(context).size.width;
+    final _size = MediaQuery.of(context).size.width;
     // double aspectRatio = 10.0;
-    // print(_size);
+    if (kDebugMode) {
+      print(_size);
+    }
     // print(aspectRatio);
     GetData donanteStream = GetData();
 
@@ -34,8 +37,8 @@ class EnviosDesktop extends StatelessWidget {
             } else if (snapshot.hasData) {
               return GridView.builder(
                   itemCount: snapshot.data!.toList().length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4,
+                  gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: (_size == 2) ? 2:3,
                       mainAxisSpacing: 1,
                       crossAxisSpacing: 1,
                       childAspectRatio: 1007 * 2.8 / 1920),
@@ -43,7 +46,10 @@ class EnviosDesktop extends StatelessWidget {
                     Envio currentSolicitud = snapshot.data![index];
                     return FittedBox(
                         fit: BoxFit.fill,
-                        child: CardEnvios(envio: currentSolicitud));
+                        child: Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: CardEnvios(envio: currentSolicitud),
+                        ));
                   });
             } else {
               return const Center(

@@ -15,7 +15,6 @@ class EquiposDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     FloatingButton floButton = FloatingButton();
     final _width = MediaQuery.of(context).size.width;
-    final _height = MediaQuery.of(context).size.height;
     print(_width);
     int crossAxisCount = 4;
 
@@ -52,12 +51,15 @@ class EquiposDesktop extends StatelessWidget {
                     Equipos currentColaborador = snapshot.data![index];
                     return FittedBox(
                       fit: BoxFit.fill,
-                      child: CardEquipos(
-                          currentColaborador.procesador,
-                          currentColaborador.memoriaRAM,
-                          currentColaborador.discoDuro,
-                          currentColaborador.observaciones,
-                          currentColaborador.foto),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: CardEquipos(
+                            currentColaborador.procesador,
+                            currentColaborador.memoriaRAM,
+                            currentColaborador.discoDuro,
+                            currentColaborador.observaciones,
+                            currentColaborador.foto),
+                      ),
                     );
                   });
             } else {

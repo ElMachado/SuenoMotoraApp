@@ -17,7 +17,7 @@ class FormDialogRegistroEquipos extends StatefulWidget {
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.3,
+              width: MediaQuery.of(context).size.width * 0.2,
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.center,
