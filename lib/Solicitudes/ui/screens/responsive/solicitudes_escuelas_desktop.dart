@@ -49,12 +49,15 @@ class SolicitudesEscuelasDesktop extends StatelessWidget {
                     SolicitudEscuelas currentSolicitud = snapshot.data![index];
                     return FittedBox(
                       fit: BoxFit.fill,
-                      child: CardSolicitudesEscuelas(
-                        currentSolicitud.nombreEscuela,
-                        currentSolicitud.nombreResponsable,
-                        currentSolicitud.telefonoResponsable,
-                        currentSolicitud.direccionEscuela,
-                        currentSolicitud.queSolicita,
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: CardSolicitudesEscuelas(
+                          currentSolicitud.nombreEscuela,
+                          currentSolicitud.nombreResponsable,
+                          currentSolicitud.telefonoResponsable,
+                          currentSolicitud.direccionEscuela,
+                          currentSolicitud.queSolicita,
+                        ),
                       ),
                     );
                   });
