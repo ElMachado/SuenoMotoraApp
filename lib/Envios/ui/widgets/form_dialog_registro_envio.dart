@@ -108,19 +108,26 @@ class _FormDialogRegistroEnvio extends State<FormDialogRegistroEnvio> {
                   },
                 ),
               ),
-              Padding(
+         Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   controller: solicitudController,
                   validator: (value) =>
                       value!.isEmpty ? ' Descripción requerida' : '',
                   textCapitalization: TextCapitalization.sentences,
+                  minLines: 8,
+                  maxLines: 8,
+                  smartDashesType: SmartDashesType.enabled,
                   decoration: InputDecoration(
+                      constraints: const BoxConstraints(
+                        maxHeight: 500,
+                        maxWidth: 400,
+                      ),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8.0)),
                       icon: getIcon('observaciones'),
                       //hintText: hintText,
-                      labelText: 'contenido de envio'),
+                      labelText: 'Contenido del envio'),
                   onChanged: (value) {
                     setState(() {
                       solicitudController.text;
