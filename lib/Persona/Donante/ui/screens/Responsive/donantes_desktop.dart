@@ -49,21 +49,22 @@ class DonatesDesktop extends StatelessWidget {
               return GridView.builder(
                   itemCount: snapshot.data!.toList().length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: _crossAxisCount,
-                      mainAxisSpacing: 1,
-                      crossAxisSpacing: 1,
-                      childAspectRatio: 1007 * 2.8 / 1920),
+                      childAspectRatio: 1007 * 3.5 / 1920,
+                      crossAxisCount: _crossAxisCount),
                   itemBuilder: (context, index) {
                     Donante currentDonante = snapshot.data![index];
                     return FittedBox(
                       fit: BoxFit.fill,
-                      child: CardDonante(
-                          currentDonante.nombre,
-                          currentDonante.apellido,
-                          currentDonante.telefono,
-                          '/profiles/profile2.png',
-                          () => FormDialogDetallesDonantes
-                              .formDialogDetallesDonantes(context)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: CardDonante(
+                            currentDonante.nombre,
+                            currentDonante.apellido,
+                            currentDonante.telefono,
+                            '/profiles/profile2.png',
+                            () => FormDialogDetallesDonantes
+                                .formDialogDetallesDonantes(context)),
+                      ),
                     );
                   });
             } else {
@@ -79,10 +80,6 @@ class DonatesDesktop extends StatelessWidget {
               builder: (context) {
                 return const FormDialogRegistroDonantes();
               });
-        }
-        
-        )
-        
-        );
+        }));
   }
 }

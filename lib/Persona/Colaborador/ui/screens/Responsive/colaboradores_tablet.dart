@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/Persona/Colaborador/model/colaborador.dart';
 import 'package:suenomotora_app/Persona/Colaborador/ui/widgets/colaborador_card.dart';
@@ -13,13 +13,12 @@ class ColaboradoresTablet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _db = FirebaseFirestore.instance;
     final _width = MediaQuery.of(context).size.width;
     final _height = MediaQuery.of(context).size.height;
-    Colaborador colaborador = Colaborador('', '', '');
 
-    print(_width);
-    print(_height);
+    if (kDebugMode) {
+      print(_width);
+    }
 
     FloatingButton floButton = FloatingButton();
     FormDialogRegistroColaboradores formDialogRegistroColaboradores =
@@ -42,26 +41,33 @@ class ColaboradoresTablet extends StatelessWidget {
             } else if (snapshot.hasData) {
               int _crossAxisCount = 0;
 
-              if (_width < 800) {
+              if (_width > 800) {
                 _crossAxisCount = 1;
               } else {
                 _crossAxisCount = 2;
               }
               return GridView.builder(
                   itemCount: snapshot.data!.toList().length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: _crossAxisCount,
-                      mainAxisSpacing: 8,
-                      crossAxisSpacing: 8,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 1,
+                      crossAxisSpacing: 1,
                       childAspectRatio: 1007 * 3.0 / 1920),
                   itemBuilder: (context, index) {
                     Colaborador currentColaborador = snapshot.data![index];
-                    return CardColaborador(
-                        currentColaborador.nombre,
-                        currentColaborador.apellido,
-                        currentColaborador.telefono,
-                        () => FormDialogDetallesColaborador
-                            .formDialogDetallesColaborador(context));
+                    return Padding(
+                      padding:
+                          const EdgeInsets.only(left: 10.0, right: 10, top: 10),
+                      child: FittedBox(
+                        fit: BoxFit.contain,
+                        child: CardColaborador(
+                            currentColaborador.nombre,
+                            currentColaborador.apellido,
+                            currentColaborador.telefono,
+                            () => FormDialogDetallesColaborador
+                                .formDialogDetallesColaborador(context)),
+                      ),
+                    );
                   });
             } else {
               return const Center(

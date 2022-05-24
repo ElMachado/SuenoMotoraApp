@@ -17,9 +17,13 @@ class EquiposDesktop extends StatelessWidget {
     final _width = MediaQuery.of(context).size.width;
     final _height = MediaQuery.of(context).size.height;
     print(_width);
-    int crossAxisCount = 3;
+    int crossAxisCount = 4;
 
-    (_width > 1323) ? crossAxisCount = 4 : crossAxisCount = 3;
+    if (_width > 1323) {
+      crossAxisCount = 4;
+    } else {
+      crossAxisCount = 3;
+    }
     GetData stream = GetData();
     return Scaffold(
       appBar: AppBar(
@@ -39,11 +43,11 @@ class EquiposDesktop extends StatelessWidget {
             } else if (snapshot.hasData) {
               return GridView.builder(
                   itemCount: snapshot.data!.toList().length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4,
-                      mainAxisSpacing: 8,
-                      crossAxisSpacing: 8,
-                      childAspectRatio: 1007 * 1.4 / 1920),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: crossAxisCount,
+                      mainAxisSpacing: 1,
+                      crossAxisSpacing: 1,
+                      childAspectRatio: 1007 * 0.9 / 1920),
                   itemBuilder: (context, index) {
                     Equipos currentColaborador = snapshot.data![index];
                     return FittedBox(

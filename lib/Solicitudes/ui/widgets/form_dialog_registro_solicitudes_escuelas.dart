@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:suenomotora_app/common/widgets/forms_elements.dart';
-
 import '../../../../utils/iconos_string_util.dart';
 import '../../model/solicitud_escuela.dart';
 
@@ -15,11 +14,22 @@ class FormDialogRegistroSolicitudEscuela extends StatefulWidget {
 
 class _FormDialogRegistroSolicitudEscuela
     extends State<FormDialogRegistroSolicitudEscuela> {
+  final direccionController = TextEditingController();
   final nombreEscuelaController = TextEditingController();
   final responsableController = TextEditingController();
-  final telefonoController = TextEditingController();
-  final direccionController = TextEditingController();
   final solicitudController = TextEditingController();
+  final telefonoController = TextEditingController();
+
+  onPresedGuardar() {
+    SolicitudEscuelas donante = SolicitudEscuelas(
+        nombreEscuelaController.text,
+        responsableController.text,
+        telefonoController.text,
+        direccionController.text,
+        solicitudController.text);
+
+    FirebaseFirestore.instance.collection("Solicitudes").add(donante.toMap());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -117,7 +127,14 @@ class _FormDialogRegistroSolicitudEscuela
                   validator: (value) =>
                       value!.isEmpty ? ' Descripción requerida' : '',
                   textCapitalization: TextCapitalization.sentences,
+                  minLines: 8,
+                  maxLines: 8,
+                  smartDashesType: SmartDashesType.enabled,
                   decoration: InputDecoration(
+                      constraints: const BoxConstraints(
+                        maxHeight: 500,
+                        maxWidth: 400,
+                      ),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8.0)),
                       icon: getIcon('observaciones'),
@@ -138,16 +155,5 @@ class _FormDialogRegistroSolicitudEscuela
             ]),
           ),
         ]);
-  }
-
-  onPresedGuardar() {
-    SolicitudEscuelas donante = SolicitudEscuelas(
-        nombreEscuelaController.text,
-        responsableController.text,
-        telefonoController.text,
-        direccionController.text,
-        solicitudController.text);
-
-    FirebaseFirestore.instance.collection("Solicitudes").add(donante.toMap());
   }
 }
