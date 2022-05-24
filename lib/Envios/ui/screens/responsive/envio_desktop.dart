@@ -37,17 +37,19 @@ class EnviosDesktop extends StatelessWidget {
             } else if (snapshot.hasData) {
               return GridView.builder(
                   itemCount: snapshot.data!.toList().length,
-                  gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: (_size == 2) ? 2:3,
-                      mainAxisSpacing: 1,
-                      crossAxisSpacing: 1,
-                      childAspectRatio: 1007 * 2.8 / 1920),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: (_size == 2) ? 2 : 3,
+                      childAspectRatio: 1007 * 2.5 / 1920),
                   itemBuilder: (context, index) {
                     Envio currentSolicitud = snapshot.data![index];
                     return FittedBox(
                         fit: BoxFit.fill,
                         child: Padding(
-                          padding: const EdgeInsets.all(20.0),
+                          padding: const EdgeInsets.only(
+                            right: 20.0,
+                            left: 20,
+                            top: 10,
+                          ),
                           child: CardEnvios(envio: currentSolicitud),
                         ));
                   });
