@@ -1,13 +1,27 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:suenomotora_app/Map/ui/screens/map_page.dart';
 import 'package:suenomotora_app/firebase_options.dart';
+import 'package:suenomotora_app/providers/envios_provider.dart';
 import 'package:suenomotora_app/routes/routes.dart';
 
 Future<void> main() async {
-  runApp(const SuenoMotoraApp());
+  // Correct initialization order
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  runApp(
+    // Setting up providers for state management
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => EnviosProvider()),
+      ],
+      child: const SuenoMotoraApp(),
+    ),
+  );
 }
 
 class SuenoMotoraApp extends StatelessWidget {
@@ -17,22 +31,28 @@ class SuenoMotoraApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      // Modernized theme with Material 3
       theme: ThemeData(
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-          colorScheme: ColorScheme.fromSwatch(
-            primarySwatch: Colors.green,
-            cardColor: Colors.amber,
-            accentColor: const Color.fromARGB(255, 0, 54, 3),
-            errorColor: Colors.red,
-            brightness: Brightness.light,
-            primaryColorDark: const Color.fromARGB(255, 5, 51, 7),
-          ).copyWith(secondary: Colors.yellowAccent)),
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.green,
+          brightness: Brightness.light,
+        ),
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
       title: 'Sueñomotora App',
       initialRoute: '/',
       routes: getApplicationsRoutes(),
+      // Robust error handling for unknown routes
       onGenerateRoute: (RouteSettings settings) {
         return MaterialPageRoute(
-            builder: (BuildContext context) => const InicioMapa());
+          builder: (BuildContext context) => Scaffold(
+            appBar: AppBar(title: const Text('Error')),
+            body: Center(
+              child: Text('La ruta ${settings.name} no fue encontrada.'),
+            ),
+          ),
+        );
       },
     );
   }

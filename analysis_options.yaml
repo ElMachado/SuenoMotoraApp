@@ -22,8 +22,19 @@ linter:
   # `// ignore_for_file: name_of_lint` syntax on the line or in the file
   # producing the lint.
   rules:
-    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+    # --- Error Prevention ---
+    - missing_required_param
+    - missing_return
 
+    # --- Style & Readability ---
+    - prefer_single_quotes
+    - prefer_final_locals
+    - avoid_empty_else
+    - use_cascade_in_finally
+    - curly_braces_in_flow_control_structures
+
+    # --- Flutter Specific ---
+    - no_transparent_colors
+    - use_sized_box_for_whitespace
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
